@@ -1,0 +1,240 @@
+\hypertarget{simulador_8h}{}\section{src/simulador.h File Reference}
+\label{simulador_8h}\index{src/simulador.\+h@{src/simulador.\+h}}
+
+
+Libreria que contiene todas las constantes, tipos de datos y estructuras manejadas por la aplicacion.  
+
+
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+Include dependency graph for simulador.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=163pt]{simulador_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulador_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structMensaje}{Mensaje}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena los campos necesarios para gestionar los mensajes entre naves y simulador, enviados a traves de cola de mensajes desde las naves. En el mensaje se almacenan la accion a realizar por la nave y sus coordenadas de origen y destino en caso de movimiento, o las coordenadas del atacante y el objetivo en caso de ataque. \end{DoxyCompactList}\item 
+struct \hyperlink{structOrden}{Orden}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena los campos necesarios para gestionar los mensajes entre el simulador y los jefes, que incluye la orden que realizara el jefe y la nave destinataria en caso de que sea D\+E\+S\+T\+R\+U\+IR. \end{DoxyCompactList}\item 
+struct \hyperlink{structtipo__nave}{tipo\+\_\+nave}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena la informacion sobre una nave. \end{DoxyCompactList}\item 
+struct \hyperlink{structtipo__casilla}{tipo\+\_\+casilla}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena la informacion sobre una casilla del mapa. \end{DoxyCompactList}\item 
+struct \hyperlink{structtipo__mapa}{tipo\+\_\+mapa}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena la informacion sobre el mapa. La estructura original proporcionada ha sido modificada para incluir un contador de los mensajes leidos y enviados por la cola de mensajes, y de los equipos que se vayan quedando sin naves. Esto facilita la reutilizacion de la zona de memoria compartida para el mapa, que permite utilizar estos nuevos campos sin necesidad de crear mas memoria compartida. \end{DoxyCompactList}\item 
+struct \hyperlink{structTuberia}{Tuberia}
+\begin{DoxyCompactList}\small\item\em Estructura que almacena tantos descriptores de ficheros como naves y jefes haya en la aplicacion. Se utilizara para inicializar las tuberias. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}~3
+\item 
+\#define \hyperlink{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}{N\+\_\+\+N\+A\+V\+ES}~3
+\item 
+\#define \hyperlink{simulador_8h_ab55303c06ac5e3f77559983df0288e73}{M\+A\+P\+A\+\_\+\+M\+A\+XX}~10
+\item 
+\#define \hyperlink{simulador_8h_a5ae04aabcd69e10042a64a5dcf9a959d}{M\+A\+P\+A\+\_\+\+M\+A\+XY}~10
+\item 
+\#define \hyperlink{simulador_8h_ae58c99716cdc7367c33370378abc028e}{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH}~10000
+\item 
+\#define \hyperlink{simulador_8h_adb88bdcd56a92b317684f760ff8e45ea}{S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO}~\textquotesingle{}.\textquotesingle{}
+\item 
+\#define \hyperlink{simulador_8h_acbaa4801c729e0d091227d4f64a51c9c}{S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO}~\textquotesingle{}\%\textquotesingle{}
+\item 
+\#define \hyperlink{simulador_8h_a9b71befc279d8c06f47141227e7e6da9}{S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO}~\textquotesingle{}X\textquotesingle{}
+\item 
+\#define \hyperlink{simulador_8h_a8335c476ccea82eea1ba65a7f64afe6b}{S\+Y\+M\+B\+\_\+\+A\+G\+UA}~\textquotesingle{}w\textquotesingle{}
+\item 
+\#define \hyperlink{simulador_8h_ade0a06566eb0ebcdbbd6cad6e1bd4f2b}{V\+I\+D\+A\+\_\+\+M\+AX}~5
+\item 
+\#define \hyperlink{simulador_8h_ade0024218fd0d3e02f81dfbbb85a3441}{A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE}~8
+\item 
+\#define \hyperlink{simulador_8h_a07b6ef9952b43fc051ae7ec4ed494fd3}{A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO}~10
+\item 
+\#define \hyperlink{simulador_8h_af4b46b99642c235999d1137de80c70eb}{M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE}~1
+\item 
+\#define \hyperlink{simulador_8h_a4f57e1217f555fee4251f319799b9bff}{T\+U\+R\+N\+O\+\_\+\+S\+E\+CS}~5
+\item 
+\#define \hyperlink{simulador_8h_a9b156bcbd78f59181b3fe0de819d6a0c}{S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME}~\char`\"{}/shm\+\_\+naves\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315}{Accion} \{ \newline
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315adde90091ab8f3559e4c7c923fde07693}{T\+U\+R\+NO}, 
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315ab8b0bab740a6d326700455bb8ab25523}{A\+T\+A\+C\+AR}, 
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315aea3c073df31939c172972ef6ccbc988b}{F\+IN}, 
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315abbd73f1677fcff45aadef7ad7d1c6b80}{M\+O\+V\+ER}, 
+\newline
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315a363e0d9905ed7c2e02c2f65430aee3c9}{D\+E\+S\+T\+R\+U\+IR}
+ \}\begin{DoxyCompactList}\small\item\em enumarado con las posibles acciones que se enviaran a los jefes, a las naves y al simulador. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{simulador_8h_a8aa1e6a79521de10e22a0a7574f2c8a5}{symbol\+\_\+equipos} \mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Libreria que contiene todas las constantes, tipos de datos y estructuras manejadas por la aplicacion. 
+
+\begin{DoxyAuthor}{Author}
+Alba Ramos\+: \href{mailto:alba.ramosp@estudiante.uam.es}{\tt alba.\+ramosp@estudiante.\+uam.\+es}; Grupo 2213 
+
+Andrea Salcedo\+: \href{mailto:andrea.salcedo@estudiante.uam.es}{\tt andrea.\+salcedo@estudiante.\+uam.\+es}; Grupo 2213 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/04-\/2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{simulador_8h_ade0024218fd0d3e02f81dfbbb85a3441}\label{simulador_8h_ade0024218fd0d3e02f81dfbbb85a3441}} 
+\index{simulador.\+h@{simulador.\+h}!A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE@{A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE}}
+\index{A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE@{A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE}{ATAQUE\_ALCANCE}}
+{\footnotesize\ttfamily \#define A\+T\+A\+Q\+U\+E\+\_\+\+A\+L\+C\+A\+N\+CE~8}
+
+Distancia máxima de un ataque \mbox{\Hypertarget{simulador_8h_a07b6ef9952b43fc051ae7ec4ed494fd3}\label{simulador_8h_a07b6ef9952b43fc051ae7ec4ed494fd3}} 
+\index{simulador.\+h@{simulador.\+h}!A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO@{A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO}}
+\index{A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO@{A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO}{ATAQUE\_DANO}}
+{\footnotesize\ttfamily \#define A\+T\+A\+Q\+U\+E\+\_\+\+D\+A\+NO~10}
+
+Daño de un ataque \mbox{\Hypertarget{simulador_8h_ab55303c06ac5e3f77559983df0288e73}\label{simulador_8h_ab55303c06ac5e3f77559983df0288e73}} 
+\index{simulador.\+h@{simulador.\+h}!M\+A\+P\+A\+\_\+\+M\+A\+XX@{M\+A\+P\+A\+\_\+\+M\+A\+XX}}
+\index{M\+A\+P\+A\+\_\+\+M\+A\+XX@{M\+A\+P\+A\+\_\+\+M\+A\+XX}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+A\+\_\+\+M\+A\+XX}{MAPA\_MAXX}}
+{\footnotesize\ttfamily \#define M\+A\+P\+A\+\_\+\+M\+A\+XX~10}
+
+Número de columnas del mapa \mbox{\Hypertarget{simulador_8h_a5ae04aabcd69e10042a64a5dcf9a959d}\label{simulador_8h_a5ae04aabcd69e10042a64a5dcf9a959d}} 
+\index{simulador.\+h@{simulador.\+h}!M\+A\+P\+A\+\_\+\+M\+A\+XY@{M\+A\+P\+A\+\_\+\+M\+A\+XY}}
+\index{M\+A\+P\+A\+\_\+\+M\+A\+XY@{M\+A\+P\+A\+\_\+\+M\+A\+XY}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{M\+A\+P\+A\+\_\+\+M\+A\+XY}{MAPA\_MAXY}}
+{\footnotesize\ttfamily \#define M\+A\+P\+A\+\_\+\+M\+A\+XY~10}
+
+Número de filas del mapa \mbox{\Hypertarget{simulador_8h_af4b46b99642c235999d1137de80c70eb}\label{simulador_8h_af4b46b99642c235999d1137de80c70eb}} 
+\index{simulador.\+h@{simulador.\+h}!M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE@{M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE}}
+\index{M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE@{M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE}{MOVER\_ALCANCE}}
+{\footnotesize\ttfamily \#define M\+O\+V\+E\+R\+\_\+\+A\+L\+C\+A\+N\+CE~1}
+
+Máximo de casillas a mover \mbox{\Hypertarget{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}\label{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}} 
+\index{simulador.\+h@{simulador.\+h}!N\+\_\+\+E\+Q\+U\+I\+P\+OS@{N\+\_\+\+E\+Q\+U\+I\+P\+OS}}
+\index{N\+\_\+\+E\+Q\+U\+I\+P\+OS@{N\+\_\+\+E\+Q\+U\+I\+P\+OS}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{N\+\_\+\+E\+Q\+U\+I\+P\+OS}{N\_EQUIPOS}}
+{\footnotesize\ttfamily \#define N\+\_\+\+E\+Q\+U\+I\+P\+OS~3}
+
+Número de equipos \mbox{\Hypertarget{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}\label{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}} 
+\index{simulador.\+h@{simulador.\+h}!N\+\_\+\+N\+A\+V\+ES@{N\+\_\+\+N\+A\+V\+ES}}
+\index{N\+\_\+\+N\+A\+V\+ES@{N\+\_\+\+N\+A\+V\+ES}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{N\+\_\+\+N\+A\+V\+ES}{N\_NAVES}}
+{\footnotesize\ttfamily \#define N\+\_\+\+N\+A\+V\+ES~3}
+
+Número de naves por equipo \mbox{\Hypertarget{simulador_8h_ae58c99716cdc7367c33370378abc028e}\label{simulador_8h_ae58c99716cdc7367c33370378abc028e}} 
+\index{simulador.\+h@{simulador.\+h}!S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH}}
+\index{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH@{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH}{SCREEN\_REFRESH}}
+{\footnotesize\ttfamily \#define S\+C\+R\+E\+E\+N\+\_\+\+R\+E\+F\+R\+E\+SH~10000}
+
+Frequencia de refresco del mapa en el monitor \mbox{\Hypertarget{simulador_8h_a9b156bcbd78f59181b3fe0de819d6a0c}\label{simulador_8h_a9b156bcbd78f59181b3fe0de819d6a0c}} 
+\index{simulador.\+h@{simulador.\+h}!S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME@{S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME}}
+\index{S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME@{S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME}{SHM\_MAP\_NAME}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+M\+A\+P\+\_\+\+N\+A\+ME~\char`\"{}/shm\+\_\+naves\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8h_a8335c476ccea82eea1ba65a7f64afe6b}\label{simulador_8h_a8335c476ccea82eea1ba65a7f64afe6b}} 
+\index{simulador.\+h@{simulador.\+h}!S\+Y\+M\+B\+\_\+\+A\+G\+UA@{S\+Y\+M\+B\+\_\+\+A\+G\+UA}}
+\index{S\+Y\+M\+B\+\_\+\+A\+G\+UA@{S\+Y\+M\+B\+\_\+\+A\+G\+UA}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+Y\+M\+B\+\_\+\+A\+G\+UA}{SYMB\_AGUA}}
+{\footnotesize\ttfamily \#define S\+Y\+M\+B\+\_\+\+A\+G\+UA~\textquotesingle{}w\textquotesingle{}}
+
+Símbolo para agua \mbox{\Hypertarget{simulador_8h_a9b71befc279d8c06f47141227e7e6da9}\label{simulador_8h_a9b71befc279d8c06f47141227e7e6da9}} 
+\index{simulador.\+h@{simulador.\+h}!S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO@{S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO}}
+\index{S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO@{S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO}{SYMB\_DESTRUIDO}}
+{\footnotesize\ttfamily \#define S\+Y\+M\+B\+\_\+\+D\+E\+S\+T\+R\+U\+I\+DO~\textquotesingle{}X\textquotesingle{}}
+
+Símbolo para destruido \mbox{\Hypertarget{simulador_8h_acbaa4801c729e0d091227d4f64a51c9c}\label{simulador_8h_acbaa4801c729e0d091227d4f64a51c9c}} 
+\index{simulador.\+h@{simulador.\+h}!S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO@{S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO}}
+\index{S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO@{S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO}{SYMB\_TOCADO}}
+{\footnotesize\ttfamily \#define S\+Y\+M\+B\+\_\+\+T\+O\+C\+A\+DO~\textquotesingle{}\%\textquotesingle{}}
+
+Símbolo para tocado \mbox{\Hypertarget{simulador_8h_adb88bdcd56a92b317684f760ff8e45ea}\label{simulador_8h_adb88bdcd56a92b317684f760ff8e45ea}} 
+\index{simulador.\+h@{simulador.\+h}!S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO@{S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO}}
+\index{S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO@{S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO}{SYMB\_VACIO}}
+{\footnotesize\ttfamily \#define S\+Y\+M\+B\+\_\+\+V\+A\+C\+IO~\textquotesingle{}.\textquotesingle{}}
+
+Símbolo para casilla vacia \mbox{\Hypertarget{simulador_8h_a4f57e1217f555fee4251f319799b9bff}\label{simulador_8h_a4f57e1217f555fee4251f319799b9bff}} 
+\index{simulador.\+h@{simulador.\+h}!T\+U\+R\+N\+O\+\_\+\+S\+E\+CS@{T\+U\+R\+N\+O\+\_\+\+S\+E\+CS}}
+\index{T\+U\+R\+N\+O\+\_\+\+S\+E\+CS@{T\+U\+R\+N\+O\+\_\+\+S\+E\+CS}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{T\+U\+R\+N\+O\+\_\+\+S\+E\+CS}{TURNO\_SECS}}
+{\footnotesize\ttfamily \#define T\+U\+R\+N\+O\+\_\+\+S\+E\+CS~5}
+
+Segundos que dura un turno \mbox{\Hypertarget{simulador_8h_ade0a06566eb0ebcdbbd6cad6e1bd4f2b}\label{simulador_8h_ade0a06566eb0ebcdbbd6cad6e1bd4f2b}} 
+\index{simulador.\+h@{simulador.\+h}!V\+I\+D\+A\+\_\+\+M\+AX@{V\+I\+D\+A\+\_\+\+M\+AX}}
+\index{V\+I\+D\+A\+\_\+\+M\+AX@{V\+I\+D\+A\+\_\+\+M\+AX}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{V\+I\+D\+A\+\_\+\+M\+AX}{VIDA\_MAX}}
+{\footnotesize\ttfamily \#define V\+I\+D\+A\+\_\+\+M\+AX~5}
+
+Vida inicial de una nave 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315}} 
+\index{simulador.\+h@{simulador.\+h}!Accion@{Accion}}
+\index{Accion@{Accion}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{Accion}{Accion}}
+{\footnotesize\ttfamily enum \hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315}{Accion}}
+
+
+
+enumarado con las posibles acciones que se enviaran a los jefes, a las naves y al simulador. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+U\+R\+NO@{T\+U\+R\+NO}!simulador.\+h@{simulador.\+h}}\index{simulador.\+h@{simulador.\+h}!T\+U\+R\+NO@{T\+U\+R\+NO}}}\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315adde90091ab8f3559e4c7c923fde07693}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315adde90091ab8f3559e4c7c923fde07693}} 
+T\+U\+R\+NO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{A\+T\+A\+C\+AR@{A\+T\+A\+C\+AR}!simulador.\+h@{simulador.\+h}}\index{simulador.\+h@{simulador.\+h}!A\+T\+A\+C\+AR@{A\+T\+A\+C\+AR}}}\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315ab8b0bab740a6d326700455bb8ab25523}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315ab8b0bab740a6d326700455bb8ab25523}} 
+A\+T\+A\+C\+AR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{F\+IN@{F\+IN}!simulador.\+h@{simulador.\+h}}\index{simulador.\+h@{simulador.\+h}!F\+IN@{F\+IN}}}\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315aea3c073df31939c172972ef6ccbc988b}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315aea3c073df31939c172972ef6ccbc988b}} 
+F\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+V\+ER@{M\+O\+V\+ER}!simulador.\+h@{simulador.\+h}}\index{simulador.\+h@{simulador.\+h}!M\+O\+V\+ER@{M\+O\+V\+ER}}}\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315abbd73f1677fcff45aadef7ad7d1c6b80}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315abbd73f1677fcff45aadef7ad7d1c6b80}} 
+M\+O\+V\+ER&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+S\+T\+R\+U\+IR@{D\+E\+S\+T\+R\+U\+IR}!simulador.\+h@{simulador.\+h}}\index{simulador.\+h@{simulador.\+h}!D\+E\+S\+T\+R\+U\+IR@{D\+E\+S\+T\+R\+U\+IR}}}\mbox{\Hypertarget{simulador_8h_abddf580b360dbb86fa351f5a944ff315a363e0d9905ed7c2e02c2f65430aee3c9}\label{simulador_8h_abddf580b360dbb86fa351f5a944ff315a363e0d9905ed7c2e02c2f65430aee3c9}} 
+D\+E\+S\+T\+R\+U\+IR&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{simulador_8h_a8aa1e6a79521de10e22a0a7574f2c8a5}\label{simulador_8h_a8aa1e6a79521de10e22a0a7574f2c8a5}} 
+\index{simulador.\+h@{simulador.\+h}!symbol\+\_\+equipos@{symbol\+\_\+equipos}}
+\index{symbol\+\_\+equipos@{symbol\+\_\+equipos}!simulador.\+h@{simulador.\+h}}
+\subsubsection{\texorpdfstring{symbol\+\_\+equipos}{symbol\_equipos}}
+{\footnotesize\ttfamily char symbol\+\_\+equipos\mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}}
+
+Símbolos de los diferentes equipos en el mapa (mirar \hyperlink{mapa_8c}{mapa.\+c}) 

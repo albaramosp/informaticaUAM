@@ -1,0 +1,22 @@
+EOF (abreviatura de end-of-file, fin de fichero en inglés)
+es un indicador o marca de que no hay más información que
+recuperar de una fuente de datos. La fuente de datos puede
+ser un fichero o un flujo de datos (stream).
+Conceptualmente en caso de un fichero indica que se llegó
+al final del mismo, en caso de un stream es que se finalizó
+la transmisión o transferencia de datos.
+A nivel sistema operativo, el indicador de fin de archivo
+es dependiente del sistema de archivos donde se encuentre
+almacenado el fichero o el protocolo de transmisión
+asociado al stream. Por ejemplo, FAT 16 tiene como indicador
+de fin de archivo el valor FFF8-FFFFh, otro ejemplo puede
+ser el protocolo FTP, en modo de transferencia por flujo (STREAM Mode)
+el indicador de fin de archivo (o de flujo) se representa por dos bytes,
+el primero son todos unos, y el segundo byte es todos en cero excepto
+bit de posición 2 (en hexa 02h).
+EOF es un indicador o marca de que no hay más información
+que recuperar de una fuente de datos. La fuente de datos
+puede ser un fichero o un flujo de datos.
+Conceptualmente en caso de un fichero indica que se llegó
+al final del mismo, en caso de un stream es que se
+finalizó la transmisión o transferencia de datos.

@@ -1,0 +1,7 @@
+<map id="src/mapa.h" name="src/mapa.h">
+<area shape="rect" id="node2" href="$jefe_8c.html" title="Programa que recibe ordenes del simulaodr y las procesa, decidiendo que ordenes enviar a las naves de..." alt="" coords="5,80,81,107"/>
+<area shape="rect" id="node3" href="$mapa_8c.html" title="src/mapa.c" alt="" coords="105,80,192,107"/>
+<area shape="rect" id="node4" href="$monitor_8c.html" title="Programa que muestra el estado de la simulacion en la terminal de forma mas visual. Debe ser ejecutado desde un terminal diferente al del proceso simulador, y finalizado a mano con Ctrl+C. " alt="" coords="217,80,315,107"/>
+<area shape="rect" id="node5" href="$nave_8c.html" title="Programa que se encarga de ejecutar el codigo de una nave, el cual recibe una accion enviada por su p..." alt="" coords="339,80,422,107"/>
+<area shape="rect" id="node6" href="$simulador_8c.html" title="Programa que gestiona el funcionamiento principal del proyecto. Se encarga de gestionar los turnos..." alt="" coords="447,80,557,107"/>
+</map>

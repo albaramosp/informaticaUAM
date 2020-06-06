@@ -1,0 +1,1305 @@
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A2] 0,2 -> 0,3
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A2] 0,3 -> 19,16: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A1] 0,1 -> 19,16: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A0] 0,0 -> 19,16: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,18 -> 0,0: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 19,18 -> 0,0: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [B0] 19,16 -> 0,0: target a 20 de vida
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 0,16 -> 0,0: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 19,17 -> 0,0: target destruido
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 0,17 -> 0,0: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A1] 0,1 -> 1,1
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A0] 0,0 -> 1,0: FALLIDO: Casilla llena
+ACCION MOVER [A0] 0,0 -> 1,0
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B0] 19,16 -> 0,0: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [B1] 19,17 -> 0,0: FALLIDO: Casilla target vacia
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,18 -> 0,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 0,16 -> 1,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 0,17 -> 1,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 19,18 -> 0,0: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 1,17 -> 0,0: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 1,16 -> 0,1: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,19 -> 1,1: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 19,18 -> 18,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 19,16 -> 18,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [A1] 1,1 -> 19,16: FALLIDO: Casilla target vacia
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A2] 0,3 -> 19,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 19,17 -> 18,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 1,1 -> 1,17: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 1,16 -> 0,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,0 -> 0,19: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B0] 18,16 -> 1,1: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 18,17 -> 1,1: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A1] 1,1 -> 0,2
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A0] 1,0 -> 1,0: FALLIDO: Casilla llena
+ACCION MOVER [A0] 1,0 -> 1,0
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,18 -> 1,1: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [C1] 1,17 -> 1,1: FALLIDO: Casilla target vacia
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 0,15 -> 1,1: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,19 -> 1,1: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A2] 0,0 -> 0,2: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 18,16 -> 19,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A1] 0,2 -> 18,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A2] 0,3 -> 18,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 18,18 -> 18,17: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,18 -> 18,18: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 1,17 -> 2,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 0,15 -> 2,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B0] 19,15 -> 0,2: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [B1] 18,17 -> 0,2: target destruido
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,19 -> 1,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A1] 0,2 -> 2,1: FALLIDO: Casilla llena
+ACCION MOVER [A1] 0,2 -> 2,1
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,18 -> 0,2: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 2,17 -> 0,2: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 2,16 -> 0,2: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 1,19 -> 0,2: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A2] 0,3 -> 1,3
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 19,15 -> 19,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A1] 2,1 -> 19,15: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [A2] 1,3 -> 19,15: FALLIDO: Casilla target vacia
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 18,17 -> 19,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,18 -> 19,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 2,17 -> 0,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 2,16 -> 0,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B0] 19,16 -> 0,3: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 19,17 -> 1,3: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 1,1 -> 1,19: FALLIDO: Casilla llena
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 19,18 -> 1,3: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 0,17 -> 1,3: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 0,16 -> 1,3: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+
+New TURNO
+ACCION ATAQUE [C2] 1,19 -> 1,3: target destruido
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A1] 2,1 -> 1,2: FALLIDO: Casilla llena
+ACCION MOVER [A1] 2,1 -> 1,2
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A2] 1,3 -> 0,4: FALLIDO: Casilla llena
+ACCION MOVER [A2] 1,3 -> 0,4
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [A2] 0,4 -> 100041728,19: FALLIDO: Nave target esta muerta
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 19,16 -> 18,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 19,17 -> 17,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 19,18 -> 17,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 0,17 -> 3,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B0] 18,15 -> 1,3: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 17,17 -> 0,16: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 17,18 -> 0,16: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 3,17 -> 18,15: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 0,16 -> 18,15: target destruido
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 1,19 -> 18,15: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 0,16 -> 3,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 1,19 -> 2,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [A2] 0,4 -> 2,3: FALLIDO: Casilla llena
+ACCION MOVER [A2] 0,4 -> 2,3
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 18,15 -> 19,15: FALLIDO: Casilla llena
+ACCION MOVER [B0] 18,15 -> 19,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 17,17 -> 18,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 17,18 -> 18,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 18,17 -> 3,16: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,18 -> 3,16: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 3,17 -> 17,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 3,16 -> 17,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 2,19 -> 18,17: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 3,17 -> 0,18
+
+New TURNO
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 3,16 -> 1,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 2,19 -> 0,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B0] 19,15 -> 17,15: FALLIDO: Casilla llena
+ACCION MOVER [B0] 19,15 -> 17,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 18,17 -> 16,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 16,17 -> 3,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,18 -> 3,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 0,18 -> 18,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 1,16 -> 18,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,19 -> 18,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,18 -> 16,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 0,18 -> 3,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 1,16 -> 0,15
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,19 -> 1,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 16,17 -> 18,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 18,16 -> 1,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 16,18 -> 1,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 3,16 -> 16,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 0,15 -> 16,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 1,18 -> 16,17: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 16,18 -> 17,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 3,16 -> 3,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 0,15 -> 4,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 1,18 -> 3,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 18,16 -> 16,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 17,18 -> 18,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 3,18 -> 1,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 4,16 -> 2,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 3,19 -> 1,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 16,18 -> 19,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,19 -> 17,18
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C0] 2,16 -> 3,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C0] 3,16 -> 19,16: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8734
+Recibido SIGUSR2 pid=8734
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 0 0
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 1 1
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 1 1
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 0 2
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 1 3
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 18 15
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 18 17
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 18 17
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 16 17
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 19 16
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 19 15
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 18 17
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 17 17
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: moviendo aleatorio
+Sim Nave 2/2: enviando mensaje accion mover
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Sim Nave 2/2: atacando
+Sim Nave 2/2: enviando mensaje ataque a 17 16
+Sim Nave 2/2: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8737
+Recibido SIGTERM pid=8737
+Sim Nave 2/2: atacando
+Sim Nave 2/2: finalizando
+Recibido SIGTERM pid=8737
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8730
+Recibido SIGUSR2 pid=8730
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 0 0
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 0 0
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 1
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 0 2
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 3
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 0 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 3 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 3 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 3 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 2 17
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 17
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: atacando
+Sim Nave 1/2: enviando mensaje ataque a 1 16
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Sim Nave 1/2: moviendo aleatorio
+Sim Nave 1/2: enviando mensaje accion mover
+Sim Nave 1/2: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8733
+Sim Nave 1/2: finalizando
+Recibido SIGTERM pid=8733
+Recibido SIGTERM pid=8733
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 0 0
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 0 1
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 1 1
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 0 2
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 1 3
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 18 15
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 17 17
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 18 17
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 16 17
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: moviendo aleatorio
+Sim Nave 2/0: enviando mensaje accion mover
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Sim Nave 2/0: atacando
+Sim Nave 2/0: enviando mensaje ataque a 19 16
+Sim Nave 2/0: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8735
+Sim Nave 2/0: finalizando
+Recibido SIGTERM pid=8735
+Recibido SIGTERM pid=8735
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8726
+Recibido SIGUSR2 pid=8726
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: moviendo aleatorio
+Sim Nave 0/2: enviando mensaje accion mover
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: atacando
+Sim Nave 0/2: enviando mensaje ataque a 19 16
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: moviendo aleatorio
+Sim Nave 0/2: enviando mensaje accion mover
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: atacando
+Sim Nave 0/2: enviando mensaje ataque a 19 16
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: moviendo aleatorio
+Sim Nave 0/2: enviando mensaje accion mover
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: atacando
+Sim Nave 0/2: enviando mensaje ataque a 18 16
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: moviendo aleatorio
+Sim Nave 0/2: enviando mensaje accion mover
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: atacando
+Sim Nave 0/2: enviando mensaje ataque a 19 15
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: moviendo aleatorio
+Sim Nave 0/2: enviando mensaje accion mover
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: atacando
+Sim Nave 0/2: enviando mensaje ataque a 19 16
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Sim Nave 0/2: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8729
+Sim Nave 0/2: finalizando
+Recibido SIGTERM pid=8729
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8734
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 0 0
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 0 0
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 1 1
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 0 2
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 1 3
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 18 15
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 17 17
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 18 17
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 16 17
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 19 16
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 19 15
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 18 17
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 17 17
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: moviendo aleatorio
+Sim Nave 2/1: enviando mensaje accion mover
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Sim Nave 2/1: atacando
+Sim Nave 2/1: enviando mensaje ataque a 17 16
+Sim Nave 2/1: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8736
+Sim Nave 2/1: atacando
+Sim Nave 2/1: finalizando
+Recibido SIGTERM pid=8736
+Recibido SIGTERM pid=8736
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8726
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: moviendo aleatorio
+Sim Nave 0/1: enviando mensaje accion mover
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: atacando
+Sim Nave 0/1: enviando mensaje ataque a 19 16
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: moviendo aleatorio
+Sim Nave 0/1: enviando mensaje accion mover
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: atacando
+Sim Nave 0/1: enviando mensaje ataque a 19 16
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: moviendo aleatorio
+Sim Nave 0/1: enviando mensaje accion mover
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: atacando
+Sim Nave 0/1: enviando mensaje ataque a 18 16
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: moviendo aleatorio
+Sim Nave 0/1: enviando mensaje accion mover
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: atacando
+Sim Nave 0/1: enviando mensaje ataque a 19 15
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Sim Nave 0/1: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8728
+Sim Nave 0/1: finalizando
+Recibido SIGTERM pid=8728
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 0 0
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 0 0
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 1 1
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 0 2
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 0 3
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: atacando
+Sim Nave 1/0: enviando mensaje ataque a 1 3
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: moviendo aleatorio
+Sim Nave 1/0: enviando mensaje accion mover
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Sim Nave 1/0: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8731
+Sim Nave 1/0: finalizando
+Recibido SIGTERM pid=8731
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8730
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 0 0
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 0 0
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 1 1
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 0 2
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 1 3
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 0 16
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 3 16
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 3 16
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 1 16
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 3 16
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: atacando
+Sim Nave 1/1: enviando mensaje ataque a 2 17
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Sim Nave 1/1: moviendo aleatorio
+Sim Nave 1/1: enviando mensaje accion mover
+Sim Nave 1/1: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8732
+Sim Nave 1/1: finalizando
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8726
+Recibido SIGUSR2 pid=8726
+Recibido SIGUSR2 pid=8726
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 0
+Sim Jefe 0: mandando ATACAR a nave 1
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 0
+Sim Jefe 0: mandando ATACAR a nave 1
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 1
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 1
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 1
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 0: mandando ATACAR a nave 2
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: leyendo siguiente mensaje del PIPE
+Sim Jefe 0: killing all
+Recibido SIGTERM pid=8726
+Recibido SIGTERM pid=8726
+Sim Jefe 0: Finalizando
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Sim Nave 0/0: leyendo siguiente mensaje del PIPE
+Sim Nave 0/0: moviendo aleatorio
+Sim Nave 0/0: enviando mensaje accion mover
+Sim Nave 0/0: leyendo siguiente mensaje del PIPE
+Sim Nave 0/0: atacando
+Sim Nave 0/0: enviando mensaje ataque a 19 16
+Sim Nave 0/0: leyendo siguiente mensaje del PIPE
+Sim Nave 0/0: moviendo aleatorio
+Sim Nave 0/0: enviando mensaje accion mover
+Sim Nave 0/0: leyendo siguiente mensaje del PIPE
+Sim Nave 0/0: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8727
+Sim Nave 0/0: finalizando
+Simulador gestionando SHM
+Simulador inicializando mapa
+Inicializando el mapa
+Simulador gestionando senales
+Simulador gestionando MQ
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8725
+Recibido SIGUSR2 pid=8734
+Recibido SIGUSR2 pid=8734
+Recibido SIGUSR2 pid=8734
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 0
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 0
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 1
+Sim Jefe 2: mandando MOVER_ALEATORIO a nave 2
+Sim Jefe 2: mandando ATACAR a nave 1
+Sim Jefe 2: mandando ATACAR a nave 2
+Sim Jefe 2: leyendo siguiente mensaje del PIPE
+Recibido SIGTERM pid=8734
+Sim Jefe 2: killing all
+Recibido SIGTERM pid=8734
+Recibido SIGTERM pid=8734
+Sim Jefe 2: Finalizando
+mensajes
+ACCION ATAQUE [C1] 1,18 -> 19,16: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 1,19 -> 19,16: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 17,18 -> 3,16: target destruido
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 19,16 -> 3,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 1,18 -> 2,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 1,19 -> 2,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 17,18 -> 18,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 19,16 -> 19,15
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 2,18 -> 2,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 2,17 -> 19,15: target destruido
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 2,19 -> 19,15: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B1] 19,15 -> 100041728,15: FALLIDO: Nave target esta muerta
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,18 -> 2,17: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 2,19 -> 1,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B1] 19,15 -> 19,14: FALLIDO: Casilla llena
+ACCION MOVER [B1] 19,15 -> 19,14
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,18 -> 18,17
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 2,17 -> 1,17
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 1,17 -> 18,17: target a 40 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 1,19 -> 18,17: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 18,17 -> 1,17: target a 30 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 1,19 -> 0,19
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 18,17 -> 17,17
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 1,17 -> 1,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 1,16 -> 17,17: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,19 -> 17,17: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 17,17 -> 1,16: target a 20 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,19 -> 0,18
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 17,17 -> 17,16
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+Simulador: Nuevo TURNO
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [B2] 17,16 -> 1,16: target a 10 de vida
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C1] 1,16 -> 17,16: target destruido
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION ATAQUE [C2] 0,18 -> 17,16: FALLIDO: Casilla target vacia
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C1] 1,16 -> 0,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [B2] 17,16 -> 16,16: FALLIDO: Casilla llena
+ACCION MOVER [B2] 17,16 -> 16,16
+Simulador: escuchando cola mensajes
+Simulador: recibido en cola de mensajes
+ACCION MOVER [C2] 0,18 -> 0,19
+Simulador: escuchando cola mensajes
+
+New TURNO
+Simulador: recibido en cola de mensajes
+**** EQUIPO GANADOR C *******
+Recibido SIGTERM pid=8725
+Recibido SIGTERM pid=8730
+Sim Jefe 1: Finalizando

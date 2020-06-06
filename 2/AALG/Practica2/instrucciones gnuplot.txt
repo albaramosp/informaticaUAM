@@ -1,0 +1,76 @@
+plot "ejercicio5.log" using 1:3with lines, x*(x+1)/2, "ejercicio6.log using 1:3 with lines,x*(x-1)/2
+
+
+grafica tiempos select sort
+
+Terminal type set to 'qt'
+gnuplot> set title "Tiempos Select sort"
+gnuplot> set xlabel "Numero"
+gnuplot> set ylabel "Tiempo"
+gnuplot> plot "ejercicio5.log" with lines
+
+
+plot "ejercicio5.log" using 1:3 with lines title "medio" ls 1 lw 20, "ejercicio5.log" using 1:4 with lines title "max" ls 5 lw 8,"ejercicio5.log" using 1:5 with lines title "min" lw 4 dt 3
+
+plot "ejercicio6.log" using 1:3 with lines title "medio" ls 1 lw 20, "ejercicio6.log" using 1:4 with lines title "max" ls 5 lw 8,"ejercicio6.log" using 1:5 with lines title "min" lw 4 dt 3
+
+
+plot x*(x+1)/2 with lines title "medio" ls 2lw 20, "ejercicio5.log" using 1:3 with lines title "medio" ls 1 lw 20, "ejercicio5.log" using 1:4 with lines title "max" ls 5 lw 8,"ejercicio5.log" using 1:5 with lines title "min" lw 4 dt 3
+
+plot x*(x+1)/2 with lines title "medio" lw 20, "ejercicio6.log" using 1:3 with lines title "medio" ls 1 lw 20, "ejercicio6.log" using 1:4 with lines title "max" ls 5 lw 8,"ejercicio6.log" using 1:5 with lines title "min" lw 4 dt 3
+
+plot x*(x-1)/2 with lines title "Tiempo teorico" lw 6 ,"ejercicio5.log" using 1:4 with lines title "Tiempo medio" lw 6 dt 2
+
+plot 1 with lines ls 1, 2 with lines ls 2, 3 with lines ls 3, 4 with lines ls 4, 5 with lines ls 5, 6 with lines ls 6, 7 with lines ls 7, 8 with lines ls 8, 9 with lines ls 9, 10 with lines ls 10, 11 with lines ls 11
+
+plot x*(x-1)/2 with lines title "Tiempo teorico" ls 7 lw 4 ,"ejercicio5.log" using 1:2 with lines title "Tiempo medio" ls 5 lw 4 dt 2
+
+plot "ejercicio5.log" using 1:2 with lines title "Tiempo medio" ls 2 lw 4
+
+plot "ejercicio5.log" using 1:3 with lines title "Obs media SS"  lw 6, "ejercicio6.log" using 1:3 with lines title "Obs media SSinv"  lw 6 dt 2
+
+
+grafica tiempos Merge Sort
+
+set title "Tiempos Obs de Mergesort"
+set xlabel "Numero"
+set ylabel "Obs"
+plot "Mergesort.log" with lines
+
+plot x*(log(x)/log(2)) with lines title "Teorico" ls 2 lw 20, "Mergesort.log" using 1:3 with lines title "medio" ls 1 lw 20, "Mergesort.log" using 1:4 with lines title "max" ls 5 lw 8,"Mergesort.log" using 1:5 with lines title "min" lw 4 dt 3
+
+
+
+
+set title "Tiempos Promedio de Mergesort"
+set xlabel "Numero"
+set ylabel "Tiempo"
+plot "Mergesort.log" with lines
+
+f(x) = a * x * x + b * x + c
+fit f(x) "MergesortFit.log" using 1:2 via a, b, c
+
+plot "MergesortFit.log" using 1:2 with lines title "Tiempo fiteado" ls 1 lw 4, "Mergesort.log" using 1:2 with lines title "Tiempo medio" ls 2 lw 2 dt 3
+
+
+grafica tiempos Quick Sort
+
+set title "Tiempos Obs de Quicksort"
+set xlabel "Numero"
+set ylabel "Obs"
+plot "Quicksort.log" with lines
+
+plot (2*x)*(log(x)) with lines title "Teorico" ls 2 lw 7, "Quicksort.log" using 1:3 with lines title "medio" ls 1 lw 6, "Quicksort.log" using 1:4 with lines title "max" ls 5 lw 4,"Quicksort.log" using 1:5 with lines title "min" lw 3 dt 3
+
+
+
+
+set title "Tiempos Promedio de Quicksort"
+set xlabel "Numero"
+set ylabel "Tiempo"
+plot "Quicksort.log" with lines
+
+f(x) = a * x * x + b * x + c
+fit f(x) "QuicksortFit.log" using 1:2 via a, b, c
+
+plot "QuicksortFit.log" using 1:2 with lines title "Tiempo fiteado" ls 1 lw 6, "Quicksort.log" using 1:2 with lines title "Tiempo medio" ls 2 lw 4 dt 3

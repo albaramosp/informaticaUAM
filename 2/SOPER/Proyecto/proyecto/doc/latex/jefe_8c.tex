@@ -1,0 +1,141 @@
+\hypertarget{jefe_8c}{}\section{src/jefe.c File Reference}
+\label{jefe_8c}\index{src/jefe.\+c@{src/jefe.\+c}}
+
+
+Programa que recibe ordenes del simulaodr y las procesa, decidiendo que ordenes enviar a las naves de manera aleatoria.  
+
+
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$mapa.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$simulador.\+h$>$}\newline
+Include dependency graph for jefe.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{jefe_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{jefe_8c_a24f3611c6828c8df80cb2b61dd3f1df4}{M\+Q\+\_\+\+N\+A\+ME}~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}
+\item 
+\#define \hyperlink{jefe_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}{S\+H\+M\+\_\+\+T\+UB}~\char`\"{}/shm\+\_\+tuberias\char`\"{}
+\item 
+\#define \hyperlink{jefe_8c_a86393b21e6f74e9870d92149e7fe7f20}{S\+H\+M\+\_\+\+N\+A\+ME}~\char`\"{}/shm\+\_\+estado\char`\"{}
+\item 
+\#define \hyperlink{jefe_8c_a486c681bc9fcbd82d87b80a479e6f72d}{S\+E\+M\+\_\+\+J\+E\+F\+ES}~\char`\"{}/sem\+\_\+jefes\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{jefe_8c_a493ad48174879c61a0ed41fdffd829fa}{liberar} ()
+\begin{DoxyCompactList}\small\item\em Funcion para liberar recursos. \end{DoxyCompactList}\item 
+int \hyperlink{jefe_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structTuberia}{Tuberia} $\ast$ \hyperlink{jefe_8c_a677056758f5c7c430c4b6cb2543d138b}{tuberia}
+\item 
+int \hyperlink{jefe_8c_ab2944d7491ac51f8acc448d0a23f1da8}{memoria\+Tuberia}
+\item 
+sem\+\_\+t $\ast$ \hyperlink{jefe_8c_addb0adf902152934d52498fad43752e4}{sem\+\_\+jefes} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Programa que recibe ordenes del simulaodr y las procesa, decidiendo que ordenes enviar a las naves de manera aleatoria. 
+
+\begin{DoxyAuthor}{Author}
+Alba Ramos\+: \href{mailto:alba.ramosp@estudiante.uam.es}{\tt alba.\+ramosp@estudiante.\+uam.\+es}; Grupo 2213 
+
+Andrea Salcedo\+: \href{mailto:andrea.salcedo@estudiante.uam.es}{\tt andrea.\+salcedo@estudiante.\+uam.\+es}; Grupo 2213 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/04-\/2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{jefe_8c_a24f3611c6828c8df80cb2b61dd3f1df4}\label{jefe_8c_a24f3611c6828c8df80cb2b61dd3f1df4}} 
+\index{jefe.\+c@{jefe.\+c}!M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}}
+\index{M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{M\+Q\+\_\+\+N\+A\+ME}{MQ\_NAME}}
+{\footnotesize\ttfamily \#define M\+Q\+\_\+\+N\+A\+ME~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}}
+
+\mbox{\Hypertarget{jefe_8c_a486c681bc9fcbd82d87b80a479e6f72d}\label{jefe_8c_a486c681bc9fcbd82d87b80a479e6f72d}} 
+\index{jefe.\+c@{jefe.\+c}!S\+E\+M\+\_\+\+J\+E\+F\+ES@{S\+E\+M\+\_\+\+J\+E\+F\+ES}}
+\index{S\+E\+M\+\_\+\+J\+E\+F\+ES@{S\+E\+M\+\_\+\+J\+E\+F\+ES}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+M\+\_\+\+J\+E\+F\+ES}{SEM\_JEFES}}
+{\footnotesize\ttfamily \#define S\+E\+M\+\_\+\+J\+E\+F\+ES~\char`\"{}/sem\+\_\+jefes\char`\"{}}
+
+\mbox{\Hypertarget{jefe_8c_a86393b21e6f74e9870d92149e7fe7f20}\label{jefe_8c_a86393b21e6f74e9870d92149e7fe7f20}} 
+\index{jefe.\+c@{jefe.\+c}!S\+H\+M\+\_\+\+N\+A\+ME@{S\+H\+M\+\_\+\+N\+A\+ME}}
+\index{S\+H\+M\+\_\+\+N\+A\+ME@{S\+H\+M\+\_\+\+N\+A\+ME}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+N\+A\+ME}{SHM\_NAME}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+N\+A\+ME~\char`\"{}/shm\+\_\+estado\char`\"{}}
+
+\mbox{\Hypertarget{jefe_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}\label{jefe_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}} 
+\index{jefe.\+c@{jefe.\+c}!S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}}
+\index{S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+T\+UB}{SHM\_TUB}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+T\+UB~\char`\"{}/shm\+\_\+tuberias\char`\"{}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{jefe_8c_a493ad48174879c61a0ed41fdffd829fa}\label{jefe_8c_a493ad48174879c61a0ed41fdffd829fa}} 
+\index{jefe.\+c@{jefe.\+c}!liberar@{liberar}}
+\index{liberar@{liberar}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{liberar()}{liberar()}}
+{\footnotesize\ttfamily void liberar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcion para liberar recursos. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{jefe_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{jefe_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{jefe.\+c@{jefe.\+c}!main@{main}}
+\index{main@{main}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{jefe_8c_ab2944d7491ac51f8acc448d0a23f1da8}\label{jefe_8c_ab2944d7491ac51f8acc448d0a23f1da8}} 
+\index{jefe.\+c@{jefe.\+c}!memoria\+Tuberia@{memoria\+Tuberia}}
+\index{memoria\+Tuberia@{memoria\+Tuberia}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{memoria\+Tuberia}{memoriaTuberia}}
+{\footnotesize\ttfamily int memoria\+Tuberia}
+
+Memoria compartida para almacenar la tuberia \mbox{\Hypertarget{jefe_8c_addb0adf902152934d52498fad43752e4}\label{jefe_8c_addb0adf902152934d52498fad43752e4}} 
+\index{jefe.\+c@{jefe.\+c}!sem\+\_\+jefes@{sem\+\_\+jefes}}
+\index{sem\+\_\+jefes@{sem\+\_\+jefes}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{sem\+\_\+jefes}{sem\_jefes}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ sem\+\_\+jefes = N\+U\+LL}
+
+Semaforo para indicar que el jefe ha esperado a que todas las naves esten creadas \mbox{\Hypertarget{jefe_8c_a677056758f5c7c430c4b6cb2543d138b}\label{jefe_8c_a677056758f5c7c430c4b6cb2543d138b}} 
+\index{jefe.\+c@{jefe.\+c}!tuberia@{tuberia}}
+\index{tuberia@{tuberia}!jefe.\+c@{jefe.\+c}}
+\subsubsection{\texorpdfstring{tuberia}{tuberia}}
+{\footnotesize\ttfamily \hyperlink{structTuberia}{Tuberia}$\ast$ tuberia}
+
+\hyperlink{structTuberia}{Tuberia} para recibir los mensajes del simulador 

@@ -1,0 +1,244 @@
+\hypertarget{nave_8c}{}\section{src/nave.c File Reference}
+\label{nave_8c}\index{src/nave.\+c@{src/nave.\+c}}
+
+
+Programa que se encarga de ejecutar el codigo de una nave, el cual recibe una accion enviada por su proceso jefe para posteriormente, enviárselo al simulador para que ejecute las acciones necesarias una vez recibida la información por la Cola de Mensajes.  
+
+
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$mqueue.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$mapa.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$simulador.\+h$>$}\newline
+Include dependency graph for nave.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{nave_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{nave_8c_a24f3611c6828c8df80cb2b61dd3f1df4}{M\+Q\+\_\+\+N\+A\+ME}~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}
+\item 
+\#define \hyperlink{nave_8c_a7e904a08f91ace8279e61f3ddd004722}{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}~\char`\"{}/sem\+\_\+mutex\+\_\+contC\char`\"{}
+\item 
+\#define \hyperlink{nave_8c_af3e24bb2a924e231bc8e631939537488}{S\+H\+M\+\_\+\+M\+A\+PA}~\char`\"{}/shm\+\_\+estado\char`\"{}
+\item 
+\#define \hyperlink{nave_8c_a7f83737b56b4e79d52e6869a1ad19d50}{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}
+\item 
+\#define \hyperlink{nave_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}{S\+H\+M\+\_\+\+T\+UB}~\char`\"{}/shm\+\_\+tuberias\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{nave_8c_a493ad48174879c61a0ed41fdffd829fa}{liberar} ()
+\begin{DoxyCompactList}\small\item\em Funcion que se encarga de cerrar todos los recursos de la simulacion. \end{DoxyCompactList}\item 
+void \hyperlink{nave_8c_a6f273161e1b40433f3aeab3fdb4613eb}{manejador\+S\+I\+G\+T\+E\+RM} ()
+\begin{DoxyCompactList}\small\item\em Funcion que se encarga de manejar la señal S\+I\+G\+T\+E\+RM, enviada por el proceso simulador cuando ha habido un equipo ganador. \end{DoxyCompactList}\item 
+int \hyperlink{nave_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em Funcion principal del proceso nave, se encargara de ejecutar todas las acciones una vez recibida la accion por la tuberia. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+mqd\+\_\+t \hyperlink{nave_8c_a291a70b5a1b4939b410947fbe1f3a4a7}{cola\+Simulador}
+\item 
+\hyperlink{structMensaje}{Mensaje} \hyperlink{nave_8c_a2eda5cbc72880acfba91bd43e52f89cd}{msg}
+\item 
+\hyperlink{structTuberia}{Tuberia} $\ast$ \hyperlink{nave_8c_a677056758f5c7c430c4b6cb2543d138b}{tuberia}
+\item 
+int \hyperlink{nave_8c_ab2944d7491ac51f8acc448d0a23f1da8}{memoria\+Tuberia}
+\item 
+sem\+\_\+t $\ast$ \hyperlink{nave_8c_a41552ad512e099bbd1441ad05cc4a106}{mutex\+Mapa} = N\+U\+LL
+\item 
+int \hyperlink{nave_8c_afc2453dbc73f5ea89d86807d62f4931a}{memoria\+Estado}
+\item 
+\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$ \hyperlink{nave_8c_a3f88248411450095465da3e38eb812c2}{mapa}
+\item 
+int \hyperlink{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}{equipo}
+\item 
+int \hyperlink{nave_8c_ad8ebb14676f9e6705b02b689d70592aa}{n\+Nave}
+\item 
+sem\+\_\+t $\ast$ \hyperlink{nave_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}{mutex\+ContC} = N\+U\+LL
+\item 
+struct sigaction \hyperlink{nave_8c_a2c79c9e74cc5711454ff7456a4c56214}{act2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Programa que se encarga de ejecutar el codigo de una nave, el cual recibe una accion enviada por su proceso jefe para posteriormente, enviárselo al simulador para que ejecute las acciones necesarias una vez recibida la información por la Cola de Mensajes. 
+
+\begin{DoxyAuthor}{Author}
+Alba Ramos\+: \href{mailto:alba.ramosp@estudiante.uam.es}{\tt alba.\+ramosp@estudiante.\+uam.\+es}; Grupo 2213 
+
+Andrea Salcedo\+: \href{mailto:andrea.salcedo@estudiante.uam.es}{\tt andrea.\+salcedo@estudiante.\+uam.\+es}; Grupo 2213 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/04-\/2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{nave_8c_a24f3611c6828c8df80cb2b61dd3f1df4}\label{nave_8c_a24f3611c6828c8df80cb2b61dd3f1df4}} 
+\index{nave.\+c@{nave.\+c}!M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}}
+\index{M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{M\+Q\+\_\+\+N\+A\+ME}{MQ\_NAME}}
+{\footnotesize\ttfamily \#define M\+Q\+\_\+\+N\+A\+ME~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}}
+
+\mbox{\Hypertarget{nave_8c_a7e904a08f91ace8279e61f3ddd004722}\label{nave_8c_a7e904a08f91ace8279e61f3ddd004722}} 
+\index{nave.\+c@{nave.\+c}!M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C@{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}}
+\index{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C@{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}{MUTEX\_CONT\_C}}
+{\footnotesize\ttfamily \#define M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C~\char`\"{}/sem\+\_\+mutex\+\_\+contC\char`\"{}}
+
+\mbox{\Hypertarget{nave_8c_a7f83737b56b4e79d52e6869a1ad19d50}\label{nave_8c_a7f83737b56b4e79d52e6869a1ad19d50}} 
+\index{nave.\+c@{nave.\+c}!M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}}
+\index{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}{MUTEX\_MAPA}}
+{\footnotesize\ttfamily \#define M\+U\+T\+E\+X\+\_\+\+M\+A\+PA~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}}
+
+\mbox{\Hypertarget{nave_8c_af3e24bb2a924e231bc8e631939537488}\label{nave_8c_af3e24bb2a924e231bc8e631939537488}} 
+\index{nave.\+c@{nave.\+c}!S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}}
+\index{S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+M\+A\+PA}{SHM\_MAPA}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+M\+A\+PA~\char`\"{}/shm\+\_\+estado\char`\"{}}
+
+\mbox{\Hypertarget{nave_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}\label{nave_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}} 
+\index{nave.\+c@{nave.\+c}!S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}}
+\index{S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+T\+UB}{SHM\_TUB}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+T\+UB~\char`\"{}/shm\+\_\+tuberias\char`\"{}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{nave_8c_a493ad48174879c61a0ed41fdffd829fa}\label{nave_8c_a493ad48174879c61a0ed41fdffd829fa}} 
+\index{nave.\+c@{nave.\+c}!liberar@{liberar}}
+\index{liberar@{liberar}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{liberar()}{liberar()}}
+{\footnotesize\ttfamily void liberar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcion que se encarga de cerrar todos los recursos de la simulacion. 
+
+\begin{DoxyReturn}{Returns}
+void libera los recursos y finaliza 
+\end{DoxyReturn}
+\mbox{\Hypertarget{nave_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{nave_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{nave.\+c@{nave.\+c}!main@{main}}
+\index{main@{main}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Funcion principal del proceso nave, se encargara de ejecutar todas las acciones una vez recibida la accion por la tuberia. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & int, argv\+: char const \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+devuelve E\+X\+I\+T\+\_\+\+S\+U\+C\+C\+E\+SS si todo ha ido correctamente 
+\end{DoxyReturn}
+Abrimos los recursos creados en el simulador para poder usarlos en la nave
+
+Inicializamos el contador\+Cola para contabilizar el numero de naves que van a enviar información al simulador
+
+Bucle en el que vamos a procesar las acciones recibidas \mbox{\Hypertarget{nave_8c_a6f273161e1b40433f3aeab3fdb4613eb}\label{nave_8c_a6f273161e1b40433f3aeab3fdb4613eb}} 
+\index{nave.\+c@{nave.\+c}!manejador\+S\+I\+G\+T\+E\+RM@{manejador\+S\+I\+G\+T\+E\+RM}}
+\index{manejador\+S\+I\+G\+T\+E\+RM@{manejador\+S\+I\+G\+T\+E\+RM}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{manejador\+S\+I\+G\+T\+E\+R\+M()}{manejadorSIGTERM()}}
+{\footnotesize\ttfamily void manejador\+S\+I\+G\+T\+E\+RM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcion que se encarga de manejar la señal S\+I\+G\+T\+E\+RM, enviada por el proceso simulador cuando ha habido un equipo ganador. 
+
+\begin{DoxyReturn}{Returns}
+void, termina la ejecucion de una nave 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{nave_8c_a2c79c9e74cc5711454ff7456a4c56214}\label{nave_8c_a2c79c9e74cc5711454ff7456a4c56214}} 
+\index{nave.\+c@{nave.\+c}!act2@{act2}}
+\index{act2@{act2}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{act2}{act2}}
+{\footnotesize\ttfamily struct sigaction act2}
+
+Estructura para la captura de señales, en este caso la de S\+I\+G\+T\+E\+RM \mbox{\Hypertarget{nave_8c_a291a70b5a1b4939b410947fbe1f3a4a7}\label{nave_8c_a291a70b5a1b4939b410947fbe1f3a4a7}} 
+\index{nave.\+c@{nave.\+c}!cola\+Simulador@{cola\+Simulador}}
+\index{cola\+Simulador@{cola\+Simulador}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{cola\+Simulador}{colaSimulador}}
+{\footnotesize\ttfamily mqd\+\_\+t cola\+Simulador}
+
+Cola de mensajes, para la comunicacion entre naves-\/simulador \mbox{\Hypertarget{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}\label{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}} 
+\index{nave.\+c@{nave.\+c}!equipo@{equipo}}
+\index{equipo@{equipo}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{equipo}{equipo}}
+{\footnotesize\ttfamily int equipo}
+
+Variable global que almacena el numero de equipo de la nave, el cual es dado por argumento \mbox{\Hypertarget{nave_8c_a3f88248411450095465da3e38eb812c2}\label{nave_8c_a3f88248411450095465da3e38eb812c2}} 
+\index{nave.\+c@{nave.\+c}!mapa@{mapa}}
+\index{mapa@{mapa}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{mapa}{mapa}}
+{\footnotesize\ttfamily \hyperlink{structtipo__mapa}{tipo\+\_\+mapa}$\ast$ mapa}
+
+\mbox{\Hypertarget{nave_8c_afc2453dbc73f5ea89d86807d62f4931a}\label{nave_8c_afc2453dbc73f5ea89d86807d62f4931a}} 
+\index{nave.\+c@{nave.\+c}!memoria\+Estado@{memoria\+Estado}}
+\index{memoria\+Estado@{memoria\+Estado}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{memoria\+Estado}{memoriaEstado}}
+{\footnotesize\ttfamily int memoria\+Estado}
+
+Memoria compartida para el mapa, la usaremos para poder realizar la accion de M\+O\+V\+ER a una posicioón aleatoria \mbox{\Hypertarget{nave_8c_ab2944d7491ac51f8acc448d0a23f1da8}\label{nave_8c_ab2944d7491ac51f8acc448d0a23f1da8}} 
+\index{nave.\+c@{nave.\+c}!memoria\+Tuberia@{memoria\+Tuberia}}
+\index{memoria\+Tuberia@{memoria\+Tuberia}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{memoria\+Tuberia}{memoriaTuberia}}
+{\footnotesize\ttfamily int memoria\+Tuberia}
+
+Memoria compartida que almacena los descriptores de fichero de los diferentes pipes tanto de los jefes como de las naves. \mbox{\Hypertarget{nave_8c_a2eda5cbc72880acfba91bd43e52f89cd}\label{nave_8c_a2eda5cbc72880acfba91bd43e52f89cd}} 
+\index{nave.\+c@{nave.\+c}!msg@{msg}}
+\index{msg@{msg}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily \hyperlink{structMensaje}{Mensaje} msg}
+
+Variable que apunta a la estructura \hyperlink{structMensaje}{Mensaje} del simulador. \mbox{\Hypertarget{nave_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}\label{nave_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}} 
+\index{nave.\+c@{nave.\+c}!mutex\+ContC@{mutex\+ContC}}
+\index{mutex\+ContC@{mutex\+ContC}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{mutex\+ContC}{mutexContC}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+ContC = N\+U\+LL}
+
+Semaforo que se encarga de controlar el uso del contador\+Cola \mbox{\Hypertarget{nave_8c_a41552ad512e099bbd1441ad05cc4a106}\label{nave_8c_a41552ad512e099bbd1441ad05cc4a106}} 
+\index{nave.\+c@{nave.\+c}!mutex\+Mapa@{mutex\+Mapa}}
+\index{mutex\+Mapa@{mutex\+Mapa}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{mutex\+Mapa}{mutexMapa}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+Mapa = N\+U\+LL}
+
+Este semaforo controla la entrada de naves en la memoria compartida del mapa, para que solo puedan consultarlo de uno en uno \mbox{\Hypertarget{nave_8c_ad8ebb14676f9e6705b02b689d70592aa}\label{nave_8c_ad8ebb14676f9e6705b02b689d70592aa}} 
+\index{nave.\+c@{nave.\+c}!n\+Nave@{n\+Nave}}
+\index{n\+Nave@{n\+Nave}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{n\+Nave}{nNave}}
+{\footnotesize\ttfamily int n\+Nave}
+
+Variable global que almacena el numero de nave de las naves del equipo, el cual es dado por argumento \mbox{\Hypertarget{nave_8c_a677056758f5c7c430c4b6cb2543d138b}\label{nave_8c_a677056758f5c7c430c4b6cb2543d138b}} 
+\index{nave.\+c@{nave.\+c}!tuberia@{tuberia}}
+\index{tuberia@{tuberia}!nave.\+c@{nave.\+c}}
+\subsubsection{\texorpdfstring{tuberia}{tuberia}}
+{\footnotesize\ttfamily \hyperlink{structTuberia}{Tuberia}$\ast$ tuberia}
+

@@ -1,0 +1,105 @@
+\hypertarget{monitor_8c}{}\section{src/monitor.c File Reference}
+\label{monitor_8c}\index{src/monitor.\+c@{src/monitor.\+c}}
+
+
+Programa que muestra el estado de la simulacion en la terminal de forma mas visual. Debe ser ejecutado desde un terminal diferente al del proceso simulador, y finalizado a mano con Ctrl+C.  
+
+
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$mqueue.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$simulador.\+h$>$}\newline
+{\ttfamily \#include $<$gamescreen.\+h$>$}\newline
+{\ttfamily \#include $<$mapa.\+h$>$}\newline
+Include dependency graph for monitor.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{monitor_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{monitor_8c_a1d1734c6fa929d193aec55de06e7696b}{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}~\char`\"{}/sem\+\_\+monitor\char`\"{}
+\item 
+\#define \hyperlink{monitor_8c_a7f83737b56b4e79d52e6869a1ad19d50}{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}
+\item 
+\#define \hyperlink{monitor_8c_af3e24bb2a924e231bc8e631939537488}{S\+H\+M\+\_\+\+M\+A\+PA}~\char`\"{}/shm\+\_\+estado\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{monitor_8c_a19b6b23fdb523f12cdc3a096dcd92d25}{mapa\+\_\+print} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa})
+\begin{DoxyCompactList}\small\item\em \+: Funcion que imprime por pantalla todos los simbolos de las casillas del mapa recibido como parametro. \end{DoxyCompactList}\item 
+int \hyperlink{monitor_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Programa que muestra el estado de la simulacion en la terminal de forma mas visual. Debe ser ejecutado desde un terminal diferente al del proceso simulador, y finalizado a mano con Ctrl+C. 
+
+\begin{DoxyAuthor}{Author}
+Alba Ramos\+: \href{mailto:alba.ramosp@estudiante.uam.es}{\tt alba.\+ramosp@estudiante.\+uam.\+es}; Grupo 2213 
+
+Andrea Salcedo\+: \href{mailto:andrea.salcedo@estudiante.uam.es}{\tt andrea.\+salcedo@estudiante.\+uam.\+es}; Grupo 2213 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/04-\/2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{monitor_8c_a7f83737b56b4e79d52e6869a1ad19d50}\label{monitor_8c_a7f83737b56b4e79d52e6869a1ad19d50}} 
+\index{monitor.\+c@{monitor.\+c}!M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}}
+\index{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}!monitor.\+c@{monitor.\+c}}
+\subsubsection{\texorpdfstring{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}{MUTEX\_MAPA}}
+{\footnotesize\ttfamily \#define M\+U\+T\+E\+X\+\_\+\+M\+A\+PA~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}}
+
+\mbox{\Hypertarget{monitor_8c_a1d1734c6fa929d193aec55de06e7696b}\label{monitor_8c_a1d1734c6fa929d193aec55de06e7696b}} 
+\index{monitor.\+c@{monitor.\+c}!S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR@{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}}
+\index{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR@{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}!monitor.\+c@{monitor.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}{SEM\_MONITOR}}
+{\footnotesize\ttfamily \#define S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR~\char`\"{}/sem\+\_\+monitor\char`\"{}}
+
+\mbox{\Hypertarget{monitor_8c_af3e24bb2a924e231bc8e631939537488}\label{monitor_8c_af3e24bb2a924e231bc8e631939537488}} 
+\index{monitor.\+c@{monitor.\+c}!S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}}
+\index{S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}!monitor.\+c@{monitor.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+M\+A\+PA}{SHM\_MAPA}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+M\+A\+PA~\char`\"{}/shm\+\_\+estado\char`\"{}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{monitor_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{monitor_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{monitor.\+c@{monitor.\+c}!main@{main}}
+\index{main@{main}!monitor.\+c@{monitor.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{monitor_8c_a19b6b23fdb523f12cdc3a096dcd92d25}\label{monitor_8c_a19b6b23fdb523f12cdc3a096dcd92d25}} 
+\index{monitor.\+c@{monitor.\+c}!mapa\+\_\+print@{mapa\+\_\+print}}
+\index{mapa\+\_\+print@{mapa\+\_\+print}!monitor.\+c@{monitor.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+print()}{mapa\_print()}}
+{\footnotesize\ttfamily void mapa\+\_\+print (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa }\end{DoxyParamCaption})}
+
+
+
+\+: Funcion que imprime por pantalla todos los simbolos de las casillas del mapa recibido como parametro. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em } & \\
+\hline
+\end{DoxyParams}

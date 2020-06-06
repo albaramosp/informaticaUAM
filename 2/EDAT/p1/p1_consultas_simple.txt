@@ -1,0 +1,23 @@
+---------------------------------------
+--Fichero: p1_consultas_simple.txt              --
+--Autores: Alba Ramos, Miguel Díaz   --
+--Asignatura: EDAT (prácticas)       --
+--Grupo: 1211                        --
+---------------------------------------
+
+--busca los ids de la gente que sigue a bill mahler
+
+select id_seguidor
+from follows, usuarios
+where id=id_seguido and nombre='bill_mahler';
+
+--busca los retweets de tora tora tora
+select id_tweet
+from usuarios, retweets
+where id=id_usuario and nombre='tora_tora_tora';
+
+
+-- busca la gente a la que sigue old fart
+select id_seguido
+from follows, usuarios
+where id = id_seguidor and nombre = 'old_fart';

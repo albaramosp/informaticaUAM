@@ -1,0 +1,139 @@
+Turbo Assembler	 Version 2.0	    02/18/19 16:23:41	    Page 1
+factor.asm
+
+
+
+      1				     ;*******************************************************************************
+      2				     ; CALCULA EL PRODUCTO DEL FACTORIAL DE DOS	NUMEROS	QUE SE
+      3				     ; ENCUENTRAN EN LAS POSICIONES DE MEMORIA 0 Y 1 DEL SEGMENTO DE
+      4				     ; DATOS. EL VALOR DE CADA NUMERO DEBE SER INFERIOR	A 9. EL	RESULTADO
+      5				     ; SE ALMACENA EN DOS PALABRAS DEL SEGMENTO	EXTRA, EN LA PRIMERA
+      6				     ; PALABRA EL MENOS	SIGNIFICATIVO Y	EN LA SEGUNDA EL MAS
+      7				     ; SIGNIFICATIVO. SE UTILIZA UNA RUTINA PARA CALCULAR EL FACTORIAL.
+      8				     ;*******************************************************************************
+      9
+     10				     ; DEFINICION DEL SEGMENTO DE DATOS
+     11
+     12	0000			     DATOS SEGMENT
+     13
+     14	0000  02		     DATO_1  DB	    2
+     15	0001  03		     DATO_2  DB	    3
+     16
+     17	0002			     DATOS ENDS
+     18
+     19
+     20				     ; DEFINICION DEL SEGMENTO DE PILA
+     21
+     22	0000			     PILA    SEGMENT STACK "STACK"
+     23	0000  40*(00)			 DB   40H DUP (0)
+     24	0040			     PILA ENDS
+     25
+     26
+     27				     ; DEFINICION DEL SEGMENTO EXTRA
+     28
+     29	0000			     EXTRA     SEGMENT
+     30	0000  0000 0000			 RESULT	   DW 0,0		  ; 2 PALABRAS ( 4 BYTES )
+     31	0004			     EXTRA ENDS
+     32
+     33
+     34				     ; DEFINICION DEL SEGMENTO DE CODIGO
+     35
+     36	0000			     CODE    SEGMENT
+     37					 ASSUME	CS:CODE, DS:DATOS, ES: EXTRA, SS:PILA
+     38
+     39	0000  0000		     FACT_DATO_1  DW	   0
+     40
+     41				     ; COMIENZO	DEL PROCEDIMIENTO PRINCIPAL
+     42
+     43	0002			     START PROC
+     44					 ;INICIALIZA LOS REGISTROS DE SEGMENTO CON SUS VALORES
+     45	0002  B8 0000s			 MOV AX, DATOS
+     46	0005  8E D8			 MOV DS, AX
+     47
+     48	0007  B8 0000s			 MOV AX, PILA
+     49	000A  8E D0			 MOV SS, AX
+     50
+     51	000C  B8 0000s			 MOV AX, EXTRA
+     52	000F  8E C0			 MOV ES, AX
+     53
+     54					 ; CARGA EL PUNTERO DE PILA CON	EL VALOR MAS ALTO
+     55	0011  BC 0040			 MOV SP, 64
+     56
+     57					 ; FIN DE LAS INICIALIZACIONES
+Turbo Assembler	 Version 2.0	    02/18/19 16:23:41	    Page 2
+factor.asm
+
+
+
+     58
+     59					 ;COMIENZO DEL PROGRAMA
+     60	0014  A0 0000r			     MOV AL, DATO_1
+     61	0017  32 E4			     XOR AH, AH
+     62	0019  F6 26 0001r		     MUL DATO_2
+     63	001D  8A C8			     MOV CL, AL
+     64	001F  E8 000E			     CALL FACTOR
+     65
+     66					 ; ALMACENA EL RESULTADO
+     67	0022  26: A3 0000r		 MOV RESULT, AX
+     68	0026  26: 89 16	0002r		 MOV RESULT+2, DX
+     69
+     70					 ; FIN DEL PROGRAMA
+     71	002B  B8 4C00			 MOV AX, 4C00H
+     72	002E  CD 21			 INT 21H
+     73
+     74	0030			     START ENDP
+     75				     ;_______________________________________________________________
+     76				     ; SUBRUTINA PARA CALCULAR EL FACTORIAL DE UN NUMERO
+     77				     ; ENTRADA CL=NUMERO
+     78				     ; SALIDA AX=RESULTADO, DX=0 YA QUE	CL<=9
+     79				     ;_______________________________________________________________
+     80
+     81	0030			     FACTOR PROC NEAR
+     82	0030  B8 0001			 MOV AX, 1
+     83	0033  32 ED			 XOR CH,CH
+     84	0035  83 F9 00			 CMP CX, 0
+     85	0038  74 05			 JE FIN
+     86	003A			     IR:
+     87	003A  F7 E1			 MUL CX
+     88	003C  49			 DEC CX
+     89	003D  75 FB			 JNE IR
+     90	003F			     FIN:
+     91	003F  C3			 RET
+     92	0040			     FACTOR ENDP
+     93
+     94				     ; FIN DEL SEGMENTO	DE CODIGO
+     95	0040			     CODE ENDS
+     96				     ; FIN DEL PROGRAMA	INDICANDO DONDE	COMIENZA LA EJECUCION
+     97				     END START
+Turbo Assembler	 Version 2.0	    02/18/19 16:23:41	    Page 3
+Symbol Table
+
+
+
+
+Symbol Name			  Type	 Value
+
+??DATE				  Text	 "02/18/19"
+??FILENAME			  Text	 "factor  "
+??TIME				  Text	 "16:23:41"
+??VERSION			  Number 0200
+@CPU				  Text	 0101H
+@CURSEG				  Text	 CODE
+@FILENAME			  Text	 FACTOR
+@WORDSIZE			  Text	 2
+DATO_1				  Byte	 DATOS:0000
+DATO_2				  Byte	 DATOS:0001
+FACTOR				  Near	 CODE:0030
+FACT_DATO_1			  Word	 CODE:0000
+FIN				  Near	 CODE:003F
+IR				  Near	 CODE:003A
+RESULT				  Word	 EXTRA:0000
+START				  Near	 CODE:0002
+
+Groups & Segments		  Bit Size Align  Combine Class
+
+CODE				  16  0040 Para	  none
+DATOS				  16  0002 Para	  none
+EXTRA				  16  0004 Para	  none
+PILA				  16  0040 Para	  Stack	  STACK
+

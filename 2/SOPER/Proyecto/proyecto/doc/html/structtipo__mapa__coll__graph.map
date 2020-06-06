@@ -1,0 +1,4 @@
+<map id="tipo_mapa" name="tipo_mapa">
+<area shape="rect" id="node2" href="$structtipo__nave.html" title="Estructura que almacena la informacion sobre una nave. " alt="" coords="5,5,84,32"/>
+<area shape="rect" id="node3" href="$structtipo__casilla.html" title="Estructura que almacena la informacion sobre una casilla del mapa. " alt="" coords="108,5,195,32"/>
+</map>

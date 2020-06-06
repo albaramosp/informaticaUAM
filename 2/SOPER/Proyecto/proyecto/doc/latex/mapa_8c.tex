@@ -1,0 +1,133 @@
+\hypertarget{mapa_8c}{}\section{src/mapa.c File Reference}
+\label{mapa_8c}\index{src/mapa.\+c@{src/mapa.\+c}}
+{\ttfamily \#include \char`\"{}mapa.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+Include dependency graph for mapa.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{mapa_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mapa_8c_ae3d2270d9e93086430a1e5cf639aab53}{mapa\+\_\+clean\+\_\+casilla} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int posy, int posx)
+\item 
+\hyperlink{structtipo__casilla}{tipo\+\_\+casilla} \hyperlink{mapa_8c_adedc40364bffd27208a7287434c28c15}{mapa\+\_\+get\+\_\+casilla} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int posy, int posx)
+\item 
+int \hyperlink{mapa_8c_a356da64c56ecdaddca0ab55794efd8b1}{mapa\+\_\+get\+\_\+distancia} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int oriy, int orix, int targety, int targetx)
+\item 
+\hyperlink{structtipo__nave}{tipo\+\_\+nave} \hyperlink{mapa_8c_ae949a08280aeec8b57b32906b6d73f78}{mapa\+\_\+get\+\_\+nave} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int \hyperlink{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}{equipo}, int num\+\_\+nave)
+\item 
+int \hyperlink{mapa_8c_a407e4361ece24cdd19cb0070181fbb91}{mapa\+\_\+get\+\_\+num\+\_\+naves} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int \hyperlink{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}{equipo})
+\item 
+char \hyperlink{mapa_8c_a264d3cdb7ec0b8f335adeddae138edb3}{mapa\+\_\+get\+\_\+symbol} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int posy, int posx)
+\item 
+bool \hyperlink{mapa_8c_a23a5362da8e4c482a8300fad3e25701c}{mapa\+\_\+is\+\_\+casilla\+\_\+vacia} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int posy, int posx)
+\item 
+void \hyperlink{mapa_8c_a555fccad30331311a6185a03c4a53f64}{mapa\+\_\+restore} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa})
+\item 
+void \hyperlink{mapa_8c_a785183133f1f9d50fa6445d4245610aa}{mapa\+\_\+set\+\_\+symbol} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int posy, int posx, char symbol)
+\item 
+int \hyperlink{mapa_8c_a9ffafdce1656b32f99897e5395cf3e04}{mapa\+\_\+set\+\_\+nave} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, \hyperlink{structtipo__nave}{tipo\+\_\+nave} nave)
+\item 
+void \hyperlink{mapa_8c_a402d2eed071e74def79173a09a207745}{mapa\+\_\+set\+\_\+num\+\_\+naves} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int \hyperlink{nave_8c_aa5e6716194f228a7cc36e89f613a30d0}{equipo}, int num\+Naves)
+\item 
+void \hyperlink{mapa_8c_a21f4b84a16bcf27cf4ba48a8aa523cbd}{mapa\+\_\+send\+\_\+misil} (\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$\hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}, int origeny, int origenx, int targety, int targetx)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{mapa_8c_a8aa1e6a79521de10e22a0a7574f2c8a5}{symbol\+\_\+equipos} \mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]} =\{\textquotesingle{}A\textquotesingle{},\textquotesingle{}B\textquotesingle{},\textquotesingle{}C\textquotesingle{}\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{mapa_8c_ae3d2270d9e93086430a1e5cf639aab53}\label{mapa_8c_ae3d2270d9e93086430a1e5cf639aab53}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+clean\+\_\+casilla@{mapa\+\_\+clean\+\_\+casilla}}
+\index{mapa\+\_\+clean\+\_\+casilla@{mapa\+\_\+clean\+\_\+casilla}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+clean\+\_\+casilla()}{mapa\_clean\_casilla()}}
+{\footnotesize\ttfamily int mapa\+\_\+clean\+\_\+casilla (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{posy,  }\item[{int}]{posx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_adedc40364bffd27208a7287434c28c15}\label{mapa_8c_adedc40364bffd27208a7287434c28c15}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+get\+\_\+casilla@{mapa\+\_\+get\+\_\+casilla}}
+\index{mapa\+\_\+get\+\_\+casilla@{mapa\+\_\+get\+\_\+casilla}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+get\+\_\+casilla()}{mapa\_get\_casilla()}}
+{\footnotesize\ttfamily \hyperlink{structtipo__casilla}{tipo\+\_\+casilla} mapa\+\_\+get\+\_\+casilla (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{posy,  }\item[{int}]{posx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a356da64c56ecdaddca0ab55794efd8b1}\label{mapa_8c_a356da64c56ecdaddca0ab55794efd8b1}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+get\+\_\+distancia@{mapa\+\_\+get\+\_\+distancia}}
+\index{mapa\+\_\+get\+\_\+distancia@{mapa\+\_\+get\+\_\+distancia}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+get\+\_\+distancia()}{mapa\_get\_distancia()}}
+{\footnotesize\ttfamily int mapa\+\_\+get\+\_\+distancia (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{oriy,  }\item[{int}]{orix,  }\item[{int}]{targety,  }\item[{int}]{targetx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_ae949a08280aeec8b57b32906b6d73f78}\label{mapa_8c_ae949a08280aeec8b57b32906b6d73f78}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+get\+\_\+nave@{mapa\+\_\+get\+\_\+nave}}
+\index{mapa\+\_\+get\+\_\+nave@{mapa\+\_\+get\+\_\+nave}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+get\+\_\+nave()}{mapa\_get\_nave()}}
+{\footnotesize\ttfamily \hyperlink{structtipo__nave}{tipo\+\_\+nave} mapa\+\_\+get\+\_\+nave (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{equipo,  }\item[{int}]{num\+\_\+nave }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a407e4361ece24cdd19cb0070181fbb91}\label{mapa_8c_a407e4361ece24cdd19cb0070181fbb91}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+get\+\_\+num\+\_\+naves@{mapa\+\_\+get\+\_\+num\+\_\+naves}}
+\index{mapa\+\_\+get\+\_\+num\+\_\+naves@{mapa\+\_\+get\+\_\+num\+\_\+naves}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+get\+\_\+num\+\_\+naves()}{mapa\_get\_num\_naves()}}
+{\footnotesize\ttfamily int mapa\+\_\+get\+\_\+num\+\_\+naves (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{equipo }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a264d3cdb7ec0b8f335adeddae138edb3}\label{mapa_8c_a264d3cdb7ec0b8f335adeddae138edb3}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+get\+\_\+symbol@{mapa\+\_\+get\+\_\+symbol}}
+\index{mapa\+\_\+get\+\_\+symbol@{mapa\+\_\+get\+\_\+symbol}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+get\+\_\+symbol()}{mapa\_get\_symbol()}}
+{\footnotesize\ttfamily char mapa\+\_\+get\+\_\+symbol (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{posy,  }\item[{int}]{posx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a23a5362da8e4c482a8300fad3e25701c}\label{mapa_8c_a23a5362da8e4c482a8300fad3e25701c}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+is\+\_\+casilla\+\_\+vacia@{mapa\+\_\+is\+\_\+casilla\+\_\+vacia}}
+\index{mapa\+\_\+is\+\_\+casilla\+\_\+vacia@{mapa\+\_\+is\+\_\+casilla\+\_\+vacia}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+is\+\_\+casilla\+\_\+vacia()}{mapa\_is\_casilla\_vacia()}}
+{\footnotesize\ttfamily bool mapa\+\_\+is\+\_\+casilla\+\_\+vacia (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{posy,  }\item[{int}]{posx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a555fccad30331311a6185a03c4a53f64}\label{mapa_8c_a555fccad30331311a6185a03c4a53f64}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+restore@{mapa\+\_\+restore}}
+\index{mapa\+\_\+restore@{mapa\+\_\+restore}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+restore()}{mapa\_restore()}}
+{\footnotesize\ttfamily void mapa\+\_\+restore (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a21f4b84a16bcf27cf4ba48a8aa523cbd}\label{mapa_8c_a21f4b84a16bcf27cf4ba48a8aa523cbd}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+send\+\_\+misil@{mapa\+\_\+send\+\_\+misil}}
+\index{mapa\+\_\+send\+\_\+misil@{mapa\+\_\+send\+\_\+misil}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+send\+\_\+misil()}{mapa\_send\_misil()}}
+{\footnotesize\ttfamily void mapa\+\_\+send\+\_\+misil (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{origeny,  }\item[{int}]{origenx,  }\item[{int}]{targety,  }\item[{int}]{targetx }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a9ffafdce1656b32f99897e5395cf3e04}\label{mapa_8c_a9ffafdce1656b32f99897e5395cf3e04}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+set\+\_\+nave@{mapa\+\_\+set\+\_\+nave}}
+\index{mapa\+\_\+set\+\_\+nave@{mapa\+\_\+set\+\_\+nave}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+set\+\_\+nave()}{mapa\_set\_nave()}}
+{\footnotesize\ttfamily int mapa\+\_\+set\+\_\+nave (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{\hyperlink{structtipo__nave}{tipo\+\_\+nave}}]{nave }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a402d2eed071e74def79173a09a207745}\label{mapa_8c_a402d2eed071e74def79173a09a207745}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+set\+\_\+num\+\_\+naves@{mapa\+\_\+set\+\_\+num\+\_\+naves}}
+\index{mapa\+\_\+set\+\_\+num\+\_\+naves@{mapa\+\_\+set\+\_\+num\+\_\+naves}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+set\+\_\+num\+\_\+naves()}{mapa\_set\_num\_naves()}}
+{\footnotesize\ttfamily void mapa\+\_\+set\+\_\+num\+\_\+naves (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{equipo,  }\item[{int}]{num\+Naves }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{mapa_8c_a785183133f1f9d50fa6445d4245610aa}\label{mapa_8c_a785183133f1f9d50fa6445d4245610aa}} 
+\index{mapa.\+c@{mapa.\+c}!mapa\+\_\+set\+\_\+symbol@{mapa\+\_\+set\+\_\+symbol}}
+\index{mapa\+\_\+set\+\_\+symbol@{mapa\+\_\+set\+\_\+symbol}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{mapa\+\_\+set\+\_\+symbol()}{mapa\_set\_symbol()}}
+{\footnotesize\ttfamily void mapa\+\_\+set\+\_\+symbol (\begin{DoxyParamCaption}\item[{\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$}]{mapa,  }\item[{int}]{posy,  }\item[{int}]{posx,  }\item[{char}]{symbol }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{mapa_8c_a8aa1e6a79521de10e22a0a7574f2c8a5}\label{mapa_8c_a8aa1e6a79521de10e22a0a7574f2c8a5}} 
+\index{mapa.\+c@{mapa.\+c}!symbol\+\_\+equipos@{symbol\+\_\+equipos}}
+\index{symbol\+\_\+equipos@{symbol\+\_\+equipos}!mapa.\+c@{mapa.\+c}}
+\subsubsection{\texorpdfstring{symbol\+\_\+equipos}{symbol\_equipos}}
+{\footnotesize\ttfamily char symbol\+\_\+equipos\mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]} =\{\textquotesingle{}A\textquotesingle{},\textquotesingle{}B\textquotesingle{},\textquotesingle{}C\textquotesingle{}\}}
+
+Símbolos de los diferentes equipos en el mapa (mirar \hyperlink{mapa_8c}{mapa.\+c}) 

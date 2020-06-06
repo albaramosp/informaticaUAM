@@ -1,0 +1,197 @@
+--convertir el id de usuario a autoincrementado
+CREATE SEQUENCE userid_seq OWNED BY users.user_id;
+SELECT setval('userid_seq', coalesce(max(user_id), 0)) FROM users;
+ALTER TABLE users ALTER COLUMN user_id SET DEFAULT nextval('userid_seq');
+
+--convertir el id de tweet a autoincrementado
+CREATE SEQUENCE tweetid_seq OWNED BY tweets.tweet_id;
+SELECT setval('tweetid_seq', coalesce(max(tweet_id), 0)) FROM tweets;
+
+ALTER TABLE tweets ALTER COLUMN tweet_id SET DEFAULT nextval('tweetid_seq');
+
+
+--APPREQ--
+
+--numero de usuarios seguidos
+select count(*)
+from follows
+where userfollower in
+(
+	select user_id
+	from users
+	where screenname = 'furilo'
+);
+
+--listado de usuarios seguidos
+select user_id, screenname
+from users
+where user_id in
+(
+	select userfolloweed
+	from follows
+	where userfollower in
+	(
+		select user_id
+		from users
+		where screenname = 'furilo'
+	)
+);
+
+--numero de usuarios que le siguen
+select count(*)
+from follows
+where userfolloweed in
+(
+	select user_id
+	from users
+	where screenname = 'furilo'
+);
+
+--listado de usuarios seguidores
+select user_id, screenname
+from users
+where user_id in
+(
+	select userfollower
+	from follows
+	where userfolloweed in
+	(
+		select user_id
+		from users
+		where screenname = 'furilo'
+	)
+);
+
+--total de tweets del usuario
+select count(*)
+from tweets
+where userwriter in
+(
+	select user_id
+	from users
+	where screenname='furilo'
+);
+
+--listado de tweets del usuario
+select tweet_id, tweettimestamp, tweettext
+from tweets, users
+where userwriter=user_id
+and screenname='furilo';
+
+--retweets
+
+--El total de tweets que son retweet de <tweetid>
+select count(*)
+from tweets
+where retweet = %s
+
+--Lista de los tweets que son retweet de <tweetid> ordenados por fecha.
+select tweet_id, screenname, tweettimestamp, tweettext
+from tweets, users
+where tweets.userwriter = users.user_id and retweet = %s order by tweettimestamp
+
+--maxrt: ranking de los tweets mas retweeteados ordenados por numero de retweets
+select count(*) retweet, retweet
+from tweets
+where retweet is not null
+group by retweet
+order by count(*)
+desc limit 20
+
+--maxfw: ranking de los 20 usuarios con mas seguidores ordenados
+select user_id, screenname, count (*)
+as total_seguidores
+from follows, users
+where userfolloweed=user_id
+group by user_id
+order by total_seguidores desc
+limit 20;
+
+************************************ç
+select retweet as tweet_id, count(*) as num_retweets
+from tweets
+where retweet =610913954089451520 or retweet=620913055224963072
+group by retweet
+order by count(*) desc
+limit 20;
+
+select tweet_id, screenname, tweettimestamp, tweettext, retweet
+from tweets, users
+where tweets.userwriter = users.user_id and retweet = 610913954089451520 order by tweettimestamp
+
+**************************************
+
+
+--APPUSER--
+
+--dar de alta un usuario, comprobar que no existe ya ese nombre
+insert into users (screenname, location, usercreated)
+values ('screenname', location, localtimestamp)
+on conflict (screenname)
+do nothing;
+
+--eliminar usuario y sus datos asociados
+delete from tweets where userwriter in
+(
+	select user_id
+	from users
+	where screenname='screenname'
+);
+
+delete from follows where userfollower in
+(
+	select user_id
+	from users
+	where screenname='screenname'
+);
+delete from follows where userfolloweed in
+(
+	select user_id
+	from users
+	where screenname='screenname'
+);
+
+delete from users
+where screenname='screenname';
+
+
+
+
+--APPTWEET
+
+--apptweet new <screenName> “tweet text”
+
+insert into tweets(tweettext, tweettimestamp, retweet, userwriter)
+values('tweettext', localtimestamp,null, (select user_id
+				    from users
+				    where screenname = 'screenname'))
+
+
+--apptweet remove <tweetid>
+
+delete from tweets
+where tweet_id = <tweetid>
+
+--apptweet retweet <screenName> <tweetid>
+
+insert into tweets(tweettext, tweettimestamp, retweet, userwriter)
+values((select tweettext
+	from tweets
+	where tweet_id = tweetid
+	), localtimestamp,tweetid, (select user_id
+				    from users
+				    where screenname = 'screenname'))
+
+
+--APPFOLLOW
+
+--agregar un seguidor: appfollow new <screenName follower> <screenName followeed>
+insert into follows
+
+	select u1.user_id, u2.user_id
+	from users as u1, users as u2
+	where u1.screenname = nombre_seguidor and u2.screenname=nombre_seguido
+
+--eliminar un seguidor
+delete from follows where userfollower = (select user_id from users where screenname=nombre_seguidor)
+and userfolloweed = (select user_id from users where screenname=nombre_seguido)

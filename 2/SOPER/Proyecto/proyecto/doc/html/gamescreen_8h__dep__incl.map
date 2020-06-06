@@ -1,0 +1,3 @@
+<map id="src/gamescreen.h" name="src/gamescreen.h">
+<area shape="rect" id="node2" href="$monitor_8c.html" title="Programa que muestra el estado de la simulacion en la terminal de forma mas visual. Debe ser ejecutado desde un terminal diferente al del proceso simulador, y finalizado a mano con Ctrl+C. " alt="" coords="19,80,118,107"/>
+</map>

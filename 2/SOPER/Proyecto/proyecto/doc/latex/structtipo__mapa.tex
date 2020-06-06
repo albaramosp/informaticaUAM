@@ -1,0 +1,79 @@
+\hypertarget{structtipo__mapa}{}\section{tipo\+\_\+mapa Struct Reference}
+\label{structtipo__mapa}\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+
+
+Estructura que almacena la informacion sobre el mapa. La estructura original proporcionada ha sido modificada para incluir un contador de los mensajes leidos y enviados por la cola de mensajes, y de los equipos que se vayan quedando sin naves. Esto facilita la reutilizacion de la zona de memoria compartida para el mapa, que permite utilizar estos nuevos campos sin necesidad de crear mas memoria compartida.  
+
+
+
+
+{\ttfamily \#include $<$simulador.\+h$>$}
+
+
+
+Collaboration diagram for tipo\+\_\+mapa\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{structtipo__mapa__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structtipo__nave}{tipo\+\_\+nave} \hyperlink{structtipo__mapa_a4796e19ff6b789ec44086b1bd662cd37}{info\+\_\+naves} \mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}\mbox{[}\hyperlink{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}{N\+\_\+\+N\+A\+V\+ES}\mbox{]}
+\item 
+\hyperlink{structtipo__casilla}{tipo\+\_\+casilla} \hyperlink{structtipo__mapa_a9fbe4aea60d084542050976284c2ea36}{casillas} \mbox{[}\hyperlink{simulador_8h_a5ae04aabcd69e10042a64a5dcf9a959d}{M\+A\+P\+A\+\_\+\+M\+A\+XY}\mbox{]}\mbox{[}\hyperlink{simulador_8h_ab55303c06ac5e3f77559983df0288e73}{M\+A\+P\+A\+\_\+\+M\+A\+XX}\mbox{]}
+\item 
+int \hyperlink{structtipo__mapa_a5a59bf5262122191c18e3a94eae24a8c}{num\+\_\+naves} \mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Número de naves vivas en un equipo. \end{DoxyCompactList}\item 
+int \hyperlink{structtipo__mapa_a7f9e90d387d66f389630d65851398308}{contador\+Cola}
+\item 
+int \hyperlink{structtipo__mapa_a6cb20251f08713a0f1c08da2216d16e1}{contador\+Perdedores}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estructura que almacena la informacion sobre el mapa. La estructura original proporcionada ha sido modificada para incluir un contador de los mensajes leidos y enviados por la cola de mensajes, y de los equipos que se vayan quedando sin naves. Esto facilita la reutilizacion de la zona de memoria compartida para el mapa, que permite utilizar estos nuevos campos sin necesidad de crear mas memoria compartida. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structtipo__mapa_a9fbe4aea60d084542050976284c2ea36}\label{structtipo__mapa_a9fbe4aea60d084542050976284c2ea36}} 
+\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}!casillas@{casillas}}
+\index{casillas@{casillas}!tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+\subsubsection{\texorpdfstring{casillas}{casillas}}
+{\footnotesize\ttfamily \hyperlink{structtipo__casilla}{tipo\+\_\+casilla} tipo\+\_\+mapa\+::casillas\mbox{[}\hyperlink{simulador_8h_a5ae04aabcd69e10042a64a5dcf9a959d}{M\+A\+P\+A\+\_\+\+M\+A\+XY}\mbox{]}\mbox{[}\hyperlink{simulador_8h_ab55303c06ac5e3f77559983df0288e73}{M\+A\+P\+A\+\_\+\+M\+A\+XX}\mbox{]}}
+
+\mbox{\Hypertarget{structtipo__mapa_a7f9e90d387d66f389630d65851398308}\label{structtipo__mapa_a7f9e90d387d66f389630d65851398308}} 
+\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}!contador\+Cola@{contador\+Cola}}
+\index{contador\+Cola@{contador\+Cola}!tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+\subsubsection{\texorpdfstring{contador\+Cola}{contadorCola}}
+{\footnotesize\ttfamily int tipo\+\_\+mapa\+::contador\+Cola}
+
+\mbox{\Hypertarget{structtipo__mapa_a6cb20251f08713a0f1c08da2216d16e1}\label{structtipo__mapa_a6cb20251f08713a0f1c08da2216d16e1}} 
+\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}!contador\+Perdedores@{contador\+Perdedores}}
+\index{contador\+Perdedores@{contador\+Perdedores}!tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+\subsubsection{\texorpdfstring{contador\+Perdedores}{contadorPerdedores}}
+{\footnotesize\ttfamily int tipo\+\_\+mapa\+::contador\+Perdedores}
+
+\mbox{\Hypertarget{structtipo__mapa_a4796e19ff6b789ec44086b1bd662cd37}\label{structtipo__mapa_a4796e19ff6b789ec44086b1bd662cd37}} 
+\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}!info\+\_\+naves@{info\+\_\+naves}}
+\index{info\+\_\+naves@{info\+\_\+naves}!tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+\subsubsection{\texorpdfstring{info\+\_\+naves}{info\_naves}}
+{\footnotesize\ttfamily \hyperlink{structtipo__nave}{tipo\+\_\+nave} tipo\+\_\+mapa\+::info\+\_\+naves\mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}\mbox{[}\hyperlink{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}{N\+\_\+\+N\+A\+V\+ES}\mbox{]}}
+
+\mbox{\Hypertarget{structtipo__mapa_a5a59bf5262122191c18e3a94eae24a8c}\label{structtipo__mapa_a5a59bf5262122191c18e3a94eae24a8c}} 
+\index{tipo\+\_\+mapa@{tipo\+\_\+mapa}!num\+\_\+naves@{num\+\_\+naves}}
+\index{num\+\_\+naves@{num\+\_\+naves}!tipo\+\_\+mapa@{tipo\+\_\+mapa}}
+\subsubsection{\texorpdfstring{num\+\_\+naves}{num\_naves}}
+{\footnotesize\ttfamily int tipo\+\_\+mapa\+::num\+\_\+naves\mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}}
+
+
+
+Número de naves vivas en un equipo. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{simulador_8h}{simulador.\+h}\end{DoxyCompactItemize}

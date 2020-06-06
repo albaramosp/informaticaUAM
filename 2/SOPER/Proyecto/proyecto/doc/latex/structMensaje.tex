@@ -1,0 +1,97 @@
+\hypertarget{structMensaje}{}\section{Mensaje Struct Reference}
+\label{structMensaje}\index{Mensaje@{Mensaje}}
+
+
+Estructura que almacena los campos necesarios para gestionar los mensajes entre naves y simulador, enviados a traves de cola de mensajes desde las naves. En el mensaje se almacenan la accion a realizar por la nave y sus coordenadas de origen y destino en caso de movimiento, o las coordenadas del atacante y el objetivo en caso de ataque.  
+
+
+
+
+{\ttfamily \#include $<$simulador.\+h$>$}
+
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315}{Accion} \hyperlink{structMensaje_a4109c5e8bc40c2c00da21ce6c991379b}{accion}
+\item 
+int \hyperlink{structMensaje_a33d63bdf8d56cb942bbb30b4da5c8e79}{nave\+Origen}
+\item 
+int \hyperlink{structMensaje_a379e7d2a1ec5faee0cdc6fc3a4eb6de6}{equipo\+Origen}
+\item 
+int \hyperlink{structMensaje_a57427586f1955551b892ebdfb4839e86}{origenX}
+\item 
+int \hyperlink{structMensaje_ab890838ae5e84341319fad6c5d67c679}{origenY}
+\item 
+int \hyperlink{structMensaje_a8f10066420dfb608ee23b6f0da6fd9e9}{nave\+Dest}
+\item 
+int \hyperlink{structMensaje_a072d13fc6e1950ee5a2a498546601145}{equipo\+Dest}
+\item 
+int \hyperlink{structMensaje_aaef39ec609b257dda8f0d010a78edd52}{destX}
+\item 
+int \hyperlink{structMensaje_ac05217b42439ce3d5c7e685e5531b28e}{destY}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Estructura que almacena los campos necesarios para gestionar los mensajes entre naves y simulador, enviados a traves de cola de mensajes desde las naves. En el mensaje se almacenan la accion a realizar por la nave y sus coordenadas de origen y destino en caso de movimiento, o las coordenadas del atacante y el objetivo en caso de ataque. 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{structMensaje_a4109c5e8bc40c2c00da21ce6c991379b}\label{structMensaje_a4109c5e8bc40c2c00da21ce6c991379b}} 
+\index{Mensaje@{Mensaje}!accion@{accion}}
+\index{accion@{accion}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{accion}{accion}}
+{\footnotesize\ttfamily \hyperlink{simulador_8h_abddf580b360dbb86fa351f5a944ff315}{Accion} Mensaje\+::accion}
+
+\mbox{\Hypertarget{structMensaje_aaef39ec609b257dda8f0d010a78edd52}\label{structMensaje_aaef39ec609b257dda8f0d010a78edd52}} 
+\index{Mensaje@{Mensaje}!destX@{destX}}
+\index{destX@{destX}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{destX}{destX}}
+{\footnotesize\ttfamily int Mensaje\+::destX}
+
+\mbox{\Hypertarget{structMensaje_ac05217b42439ce3d5c7e685e5531b28e}\label{structMensaje_ac05217b42439ce3d5c7e685e5531b28e}} 
+\index{Mensaje@{Mensaje}!destY@{destY}}
+\index{destY@{destY}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{destY}{destY}}
+{\footnotesize\ttfamily int Mensaje\+::destY}
+
+\mbox{\Hypertarget{structMensaje_a072d13fc6e1950ee5a2a498546601145}\label{structMensaje_a072d13fc6e1950ee5a2a498546601145}} 
+\index{Mensaje@{Mensaje}!equipo\+Dest@{equipo\+Dest}}
+\index{equipo\+Dest@{equipo\+Dest}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{equipo\+Dest}{equipoDest}}
+{\footnotesize\ttfamily int Mensaje\+::equipo\+Dest}
+
+\mbox{\Hypertarget{structMensaje_a379e7d2a1ec5faee0cdc6fc3a4eb6de6}\label{structMensaje_a379e7d2a1ec5faee0cdc6fc3a4eb6de6}} 
+\index{Mensaje@{Mensaje}!equipo\+Origen@{equipo\+Origen}}
+\index{equipo\+Origen@{equipo\+Origen}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{equipo\+Origen}{equipoOrigen}}
+{\footnotesize\ttfamily int Mensaje\+::equipo\+Origen}
+
+\mbox{\Hypertarget{structMensaje_a8f10066420dfb608ee23b6f0da6fd9e9}\label{structMensaje_a8f10066420dfb608ee23b6f0da6fd9e9}} 
+\index{Mensaje@{Mensaje}!nave\+Dest@{nave\+Dest}}
+\index{nave\+Dest@{nave\+Dest}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{nave\+Dest}{naveDest}}
+{\footnotesize\ttfamily int Mensaje\+::nave\+Dest}
+
+\mbox{\Hypertarget{structMensaje_a33d63bdf8d56cb942bbb30b4da5c8e79}\label{structMensaje_a33d63bdf8d56cb942bbb30b4da5c8e79}} 
+\index{Mensaje@{Mensaje}!nave\+Origen@{nave\+Origen}}
+\index{nave\+Origen@{nave\+Origen}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{nave\+Origen}{naveOrigen}}
+{\footnotesize\ttfamily int Mensaje\+::nave\+Origen}
+
+\mbox{\Hypertarget{structMensaje_a57427586f1955551b892ebdfb4839e86}\label{structMensaje_a57427586f1955551b892ebdfb4839e86}} 
+\index{Mensaje@{Mensaje}!origenX@{origenX}}
+\index{origenX@{origenX}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{origenX}{origenX}}
+{\footnotesize\ttfamily int Mensaje\+::origenX}
+
+\mbox{\Hypertarget{structMensaje_ab890838ae5e84341319fad6c5d67c679}\label{structMensaje_ab890838ae5e84341319fad6c5d67c679}} 
+\index{Mensaje@{Mensaje}!origenY@{origenY}}
+\index{origenY@{origenY}!Mensaje@{Mensaje}}
+\subsubsection{\texorpdfstring{origenY}{origenY}}
+{\footnotesize\ttfamily int Mensaje\+::origenY}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+src/\hyperlink{simulador_8h}{simulador.\+h}\end{DoxyCompactItemize}

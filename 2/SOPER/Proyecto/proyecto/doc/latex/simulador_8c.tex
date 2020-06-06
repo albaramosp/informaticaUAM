@@ -1,0 +1,344 @@
+\hypertarget{simulador_8c}{}\section{src/simulador.c File Reference}
+\label{simulador_8c}\index{src/simulador.\+c@{src/simulador.\+c}}
+
+
+Programa que gestiona el funcionamiento principal del proyecto. Se encarga de gestionar los turnos, detectar el fin de la simulacion y procesar las acciones recibidas de las naves.  
+
+
+{\ttfamily \#include $<$fcntl.\+h$>$}\newline
+{\ttfamily \#include $<$errno.\+h$>$}\newline
+{\ttfamily \#include $<$sys/mman.\+h$>$}\newline
+{\ttfamily \#include $<$sys/stat.\+h$>$}\newline
+{\ttfamily \#include $<$sys/wait.\+h$>$}\newline
+{\ttfamily \#include $<$mqueue.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$signal.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$semaphore.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+{\ttfamily \#include $<$time.\+h$>$}\newline
+{\ttfamily \#include $<$mapa.\+h$>$}\newline
+Include dependency graph for simulador.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{simulador_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{simulador_8c_aaf0952059602752258dccaa015d7b54a}{N\+UM}~100
+\item 
+\#define \hyperlink{simulador_8c_a24f3611c6828c8df80cb2b61dd3f1df4}{M\+Q\+\_\+\+N\+A\+ME}~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_af3e24bb2a924e231bc8e631939537488}{S\+H\+M\+\_\+\+M\+A\+PA}~\char`\"{}/shm\+\_\+estado\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}{S\+H\+M\+\_\+\+T\+UB}~\char`\"{}/shm\+\_\+tuberias\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_a05ed14902c0444174e5a14678e806b95}{S\+H\+M\+\_\+\+C\+O\+N\+TC}~\char`\"{}/shm\+\_\+cont\+Cola\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_a7e904a08f91ace8279e61f3ddd004722}{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}~\char`\"{}/sem\+\_\+mutex\+\_\+contC\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_a7f83737b56b4e79d52e6869a1ad19d50}{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_a486c681bc9fcbd82d87b80a479e6f72d}{S\+E\+M\+\_\+\+J\+E\+F\+ES}~\char`\"{}/sem\+\_\+jefes\char`\"{}
+\item 
+\#define \hyperlink{simulador_8c_a1d1734c6fa929d193aec55de06e7696b}{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}~\char`\"{}/sem\+\_\+monitor\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{simulador_8c_a493ad48174879c61a0ed41fdffd829fa}{liberar} ()
+\begin{DoxyCompactList}\small\item\em Funcion para liberar los recursos. \end{DoxyCompactList}\item 
+void \hyperlink{simulador_8c_a8599933c104a4298ae42fe5a69e55b9f}{manejador\+Final} ()
+\begin{DoxyCompactList}\small\item\em Manejador de la senyal de Ctrl+C y de S\+I\+G\+T\+E\+RM. En el se liberan los recursos y se avisa del final de la simulacion a los jefes. \end{DoxyCompactList}\item 
+void \hyperlink{simulador_8c_a2ef1cf21f76a62fa2417391f5a54a405}{manejador\+Turno} ()
+\begin{DoxyCompactList}\small\item\em Manejador de la senyal de alarma para turnos, que cambia el valor del flag para indicar que se debe mandar una nueva alarma. \end{DoxyCompactList}\item 
+int \hyperlink{simulador_8c_abf9e6b7e6f15df4b525a2e7705ba3089}{main} (int argc, char const $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{simulador_8c_afc2453dbc73f5ea89d86807d62f4931a}{memoria\+Estado}
+\item 
+\hyperlink{structtipo__mapa}{tipo\+\_\+mapa} $\ast$ \hyperlink{simulador_8c_a3f88248411450095465da3e38eb812c2}{mapa}
+\item 
+\hyperlink{structtipo__nave}{tipo\+\_\+nave} \hyperlink{simulador_8c_a07b840f96eed6f1047e59f13647a2b46}{naves} \mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}\mbox{[}\hyperlink{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}{N\+\_\+\+N\+A\+V\+ES}\mbox{]}
+\item 
+sem\+\_\+t $\ast$ \hyperlink{simulador_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}{mutex\+ContC} = N\+U\+LL
+\item 
+sem\+\_\+t $\ast$ \hyperlink{simulador_8c_a41552ad512e099bbd1441ad05cc4a106}{mutex\+Mapa} = N\+U\+LL
+\item 
+sem\+\_\+t $\ast$ \hyperlink{simulador_8c_addb0adf902152934d52498fad43752e4}{sem\+\_\+jefes} = N\+U\+LL
+\item 
+sem\+\_\+t $\ast$ \hyperlink{simulador_8c_a96c1d91b1760b38aeb594b8de3617148}{sem\+\_\+monitor} = N\+U\+LL
+\item 
+\hyperlink{structTuberia}{Tuberia} $\ast$ \hyperlink{simulador_8c_a3d310fa17a6f70f6981d7056d44ea84a}{tuberias}
+\item 
+int \hyperlink{simulador_8c_a192ceef35c192084a53e01a0e52487ae}{memoria\+Tuberias}
+\item 
+mqd\+\_\+t \hyperlink{simulador_8c_a291a70b5a1b4939b410947fbe1f3a4a7}{cola\+Simulador}
+\item 
+struct mq\+\_\+attr \hyperlink{simulador_8c_ab4509483f1141585c52e3ecf14353934}{attributes}
+\item 
+struct sigaction \hyperlink{simulador_8c_ae99b99d988ca0b59c3ac838c12751cfe}{act}
+\item 
+struct sigaction \hyperlink{simulador_8c_a2c79c9e74cc5711454ff7456a4c56214}{act2}
+\item 
+int \hyperlink{simulador_8c_adf916204820072417ed73a32de1cefcf}{flag} = 0
+\item 
+\hyperlink{structMensaje}{Mensaje} \hyperlink{simulador_8c_a2eda5cbc72880acfba91bd43e52f89cd}{msg}
+\item 
+\hyperlink{structOrden}{Orden} \hyperlink{simulador_8c_a8bafa219354a73993a9146dd99a478b9}{orden}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Programa que gestiona el funcionamiento principal del proyecto. Se encarga de gestionar los turnos, detectar el fin de la simulacion y procesar las acciones recibidas de las naves. 
+
+\begin{DoxyAuthor}{Author}
+Alba Ramos\+: \href{mailto:alba.ramosp@estudiante.uam.es}{\tt alba.\+ramosp@estudiante.\+uam.\+es}; Grupo 2213 
+
+Andrea Salcedo\+: \href{mailto:andrea.salcedo@estudiante.uam.es}{\tt andrea.\+salcedo@estudiante.\+uam.\+es}; Grupo 2213 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+11-\/04-\/2019 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{simulador_8c_a24f3611c6828c8df80cb2b61dd3f1df4}\label{simulador_8c_a24f3611c6828c8df80cb2b61dd3f1df4}} 
+\index{simulador.\+c@{simulador.\+c}!M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}}
+\index{M\+Q\+\_\+\+N\+A\+ME@{M\+Q\+\_\+\+N\+A\+ME}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{M\+Q\+\_\+\+N\+A\+ME}{MQ\_NAME}}
+{\footnotesize\ttfamily \#define M\+Q\+\_\+\+N\+A\+ME~\char`\"{}/mq\+\_\+nave\+Simulador\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_a7e904a08f91ace8279e61f3ddd004722}\label{simulador_8c_a7e904a08f91ace8279e61f3ddd004722}} 
+\index{simulador.\+c@{simulador.\+c}!M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C@{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}}
+\index{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C@{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C}{MUTEX\_CONT\_C}}
+{\footnotesize\ttfamily \#define M\+U\+T\+E\+X\+\_\+\+C\+O\+N\+T\+\_\+C~\char`\"{}/sem\+\_\+mutex\+\_\+contC\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_a7f83737b56b4e79d52e6869a1ad19d50}\label{simulador_8c_a7f83737b56b4e79d52e6869a1ad19d50}} 
+\index{simulador.\+c@{simulador.\+c}!M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}}
+\index{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA@{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{M\+U\+T\+E\+X\+\_\+\+M\+A\+PA}{MUTEX\_MAPA}}
+{\footnotesize\ttfamily \#define M\+U\+T\+E\+X\+\_\+\+M\+A\+PA~\char`\"{}/sem\+\_\+mutex\+\_\+mapa\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_aaf0952059602752258dccaa015d7b54a}\label{simulador_8c_aaf0952059602752258dccaa015d7b54a}} 
+\index{simulador.\+c@{simulador.\+c}!N\+UM@{N\+UM}}
+\index{N\+UM@{N\+UM}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{N\+UM}{NUM}}
+{\footnotesize\ttfamily \#define N\+UM~100}
+
+\mbox{\Hypertarget{simulador_8c_a486c681bc9fcbd82d87b80a479e6f72d}\label{simulador_8c_a486c681bc9fcbd82d87b80a479e6f72d}} 
+\index{simulador.\+c@{simulador.\+c}!S\+E\+M\+\_\+\+J\+E\+F\+ES@{S\+E\+M\+\_\+\+J\+E\+F\+ES}}
+\index{S\+E\+M\+\_\+\+J\+E\+F\+ES@{S\+E\+M\+\_\+\+J\+E\+F\+ES}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+M\+\_\+\+J\+E\+F\+ES}{SEM\_JEFES}}
+{\footnotesize\ttfamily \#define S\+E\+M\+\_\+\+J\+E\+F\+ES~\char`\"{}/sem\+\_\+jefes\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_a1d1734c6fa929d193aec55de06e7696b}\label{simulador_8c_a1d1734c6fa929d193aec55de06e7696b}} 
+\index{simulador.\+c@{simulador.\+c}!S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR@{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}}
+\index{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR@{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR}{SEM\_MONITOR}}
+{\footnotesize\ttfamily \#define S\+E\+M\+\_\+\+M\+O\+N\+I\+T\+OR~\char`\"{}/sem\+\_\+monitor\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_a05ed14902c0444174e5a14678e806b95}\label{simulador_8c_a05ed14902c0444174e5a14678e806b95}} 
+\index{simulador.\+c@{simulador.\+c}!S\+H\+M\+\_\+\+C\+O\+N\+TC@{S\+H\+M\+\_\+\+C\+O\+N\+TC}}
+\index{S\+H\+M\+\_\+\+C\+O\+N\+TC@{S\+H\+M\+\_\+\+C\+O\+N\+TC}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+C\+O\+N\+TC}{SHM\_CONTC}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+C\+O\+N\+TC~\char`\"{}/shm\+\_\+cont\+Cola\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_af3e24bb2a924e231bc8e631939537488}\label{simulador_8c_af3e24bb2a924e231bc8e631939537488}} 
+\index{simulador.\+c@{simulador.\+c}!S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}}
+\index{S\+H\+M\+\_\+\+M\+A\+PA@{S\+H\+M\+\_\+\+M\+A\+PA}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+M\+A\+PA}{SHM\_MAPA}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+M\+A\+PA~\char`\"{}/shm\+\_\+estado\char`\"{}}
+
+\mbox{\Hypertarget{simulador_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}\label{simulador_8c_ad8e2b34b5877c257f4d561ceadc9e1c1}} 
+\index{simulador.\+c@{simulador.\+c}!S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}}
+\index{S\+H\+M\+\_\+\+T\+UB@{S\+H\+M\+\_\+\+T\+UB}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{S\+H\+M\+\_\+\+T\+UB}{SHM\_TUB}}
+{\footnotesize\ttfamily \#define S\+H\+M\+\_\+\+T\+UB~\char`\"{}/shm\+\_\+tuberias\char`\"{}}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{simulador_8c_a493ad48174879c61a0ed41fdffd829fa}\label{simulador_8c_a493ad48174879c61a0ed41fdffd829fa}} 
+\index{simulador.\+c@{simulador.\+c}!liberar@{liberar}}
+\index{liberar@{liberar}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{liberar()}{liberar()}}
+{\footnotesize\ttfamily void liberar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Funcion para liberar los recursos. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+\mbox{\Hypertarget{simulador_8c_abf9e6b7e6f15df4b525a2e7705ba3089}\label{simulador_8c_abf9e6b7e6f15df4b525a2e7705ba3089}} 
+\index{simulador.\+c@{simulador.\+c}!main@{main}}
+\index{main@{main}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char const $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Proceso simulador Semilla para generar el numero aleatorio
+
+Zona de memoria para compartir todas las tuberias
+
+Inicializacion de tuberias
+
+Memoria compartida para guardar estado del mapa y de la simulacion
+
+Cola de mensajes nave-\/simulador
+
+rellenamos primero todo el mapa con casillas vacias
+
+Creamos las naves para cada equipo y las posicionamos en el mapa
+
+al principio todas las naves del equipo i-\/esimo estan vivas
+
+colocamos las naves en el mapa
+
+numero de filas
+
+numero de columnas
+
+anyadir cada nave inicializada al equipo
+
+Inicializa el contador de mensajes en la cola a 0
+
+Creacion de procesos jefe
+
+Manejadores, se declaran solo en el simulador para que no se hereden \mbox{\Hypertarget{simulador_8c_a8599933c104a4298ae42fe5a69e55b9f}\label{simulador_8c_a8599933c104a4298ae42fe5a69e55b9f}} 
+\index{simulador.\+c@{simulador.\+c}!manejador\+Final@{manejador\+Final}}
+\index{manejador\+Final@{manejador\+Final}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{manejador\+Final()}{manejadorFinal()}}
+{\footnotesize\ttfamily void manejador\+Final (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manejador de la senyal de Ctrl+C y de S\+I\+G\+T\+E\+RM. En el se liberan los recursos y se avisa del final de la simulacion a los jefes. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+$<$Ignorar alarmas que puedan llegar despues de esto \mbox{\Hypertarget{simulador_8c_a2ef1cf21f76a62fa2417391f5a54a405}\label{simulador_8c_a2ef1cf21f76a62fa2417391f5a54a405}} 
+\index{simulador.\+c@{simulador.\+c}!manejador\+Turno@{manejador\+Turno}}
+\index{manejador\+Turno@{manejador\+Turno}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{manejador\+Turno()}{manejadorTurno()}}
+{\footnotesize\ttfamily void manejador\+Turno (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Manejador de la senyal de alarma para turnos, que cambia el valor del flag para indicar que se debe mandar una nueva alarma. 
+
+\begin{DoxyReturn}{Returns}
+void 
+\end{DoxyReturn}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{simulador_8c_ae99b99d988ca0b59c3ac838c12751cfe}\label{simulador_8c_ae99b99d988ca0b59c3ac838c12751cfe}} 
+\index{simulador.\+c@{simulador.\+c}!act@{act}}
+\index{act@{act}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{act}{act}}
+{\footnotesize\ttfamily struct sigaction act}
+
+Manejador de la senyal de alarma para turnos \mbox{\Hypertarget{simulador_8c_a2c79c9e74cc5711454ff7456a4c56214}\label{simulador_8c_a2c79c9e74cc5711454ff7456a4c56214}} 
+\index{simulador.\+c@{simulador.\+c}!act2@{act2}}
+\index{act2@{act2}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{act2}{act2}}
+{\footnotesize\ttfamily struct sigaction act2}
+
+Manejador de la senyal de Ctrl+C y S\+I\+G\+T\+E\+RM \mbox{\Hypertarget{simulador_8c_ab4509483f1141585c52e3ecf14353934}\label{simulador_8c_ab4509483f1141585c52e3ecf14353934}} 
+\index{simulador.\+c@{simulador.\+c}!attributes@{attributes}}
+\index{attributes@{attributes}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{attributes}{attributes}}
+{\footnotesize\ttfamily struct mq\+\_\+attr attributes}
+
+\mbox{\Hypertarget{simulador_8c_a291a70b5a1b4939b410947fbe1f3a4a7}\label{simulador_8c_a291a70b5a1b4939b410947fbe1f3a4a7}} 
+\index{simulador.\+c@{simulador.\+c}!cola\+Simulador@{cola\+Simulador}}
+\index{cola\+Simulador@{cola\+Simulador}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{cola\+Simulador}{colaSimulador}}
+{\footnotesize\ttfamily mqd\+\_\+t cola\+Simulador}
+
+Cola de mensajes, para comunicacion naves-\/simulador \mbox{\Hypertarget{simulador_8c_adf916204820072417ed73a32de1cefcf}\label{simulador_8c_adf916204820072417ed73a32de1cefcf}} 
+\index{simulador.\+c@{simulador.\+c}!flag@{flag}}
+\index{flag@{flag}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{flag}{flag}}
+{\footnotesize\ttfamily int flag = 0}
+
+Controla cuando lanzar nuevas alarmas de turno \mbox{\Hypertarget{simulador_8c_a3f88248411450095465da3e38eb812c2}\label{simulador_8c_a3f88248411450095465da3e38eb812c2}} 
+\index{simulador.\+c@{simulador.\+c}!mapa@{mapa}}
+\index{mapa@{mapa}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{mapa}{mapa}}
+{\footnotesize\ttfamily \hyperlink{structtipo__mapa}{tipo\+\_\+mapa}$\ast$ mapa}
+
+\mbox{\Hypertarget{simulador_8c_afc2453dbc73f5ea89d86807d62f4931a}\label{simulador_8c_afc2453dbc73f5ea89d86807d62f4931a}} 
+\index{simulador.\+c@{simulador.\+c}!memoria\+Estado@{memoria\+Estado}}
+\index{memoria\+Estado@{memoria\+Estado}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{memoria\+Estado}{memoriaEstado}}
+{\footnotesize\ttfamily int memoria\+Estado}
+
+Recursos compartidos Memoria compartida para guardar estado del mapa y de la simulacion \mbox{\Hypertarget{simulador_8c_a192ceef35c192084a53e01a0e52487ae}\label{simulador_8c_a192ceef35c192084a53e01a0e52487ae}} 
+\index{simulador.\+c@{simulador.\+c}!memoria\+Tuberias@{memoria\+Tuberias}}
+\index{memoria\+Tuberias@{memoria\+Tuberias}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{memoria\+Tuberias}{memoriaTuberias}}
+{\footnotesize\ttfamily int memoria\+Tuberias}
+
+\mbox{\Hypertarget{simulador_8c_a2eda5cbc72880acfba91bd43e52f89cd}\label{simulador_8c_a2eda5cbc72880acfba91bd43e52f89cd}} 
+\index{simulador.\+c@{simulador.\+c}!msg@{msg}}
+\index{msg@{msg}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{msg}{msg}}
+{\footnotesize\ttfamily \hyperlink{structMensaje}{Mensaje} msg}
+
+Mensajes recibidos de las naves \mbox{\Hypertarget{simulador_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}\label{simulador_8c_abf90b199b02e2b4ed8c05d34c06d9e7c}} 
+\index{simulador.\+c@{simulador.\+c}!mutex\+ContC@{mutex\+ContC}}
+\index{mutex\+ContC@{mutex\+ContC}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{mutex\+ContC}{mutexContC}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+ContC = N\+U\+LL}
+
+Semaforo que controla el acceso al contador de los mensajes enviados por la cola de mensajes \mbox{\Hypertarget{simulador_8c_a41552ad512e099bbd1441ad05cc4a106}\label{simulador_8c_a41552ad512e099bbd1441ad05cc4a106}} 
+\index{simulador.\+c@{simulador.\+c}!mutex\+Mapa@{mutex\+Mapa}}
+\index{mutex\+Mapa@{mutex\+Mapa}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{mutex\+Mapa}{mutexMapa}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ mutex\+Mapa = N\+U\+LL}
+
+Semaforo que controla el acceso al mapa \mbox{\Hypertarget{simulador_8c_a07b840f96eed6f1047e59f13647a2b46}\label{simulador_8c_a07b840f96eed6f1047e59f13647a2b46}} 
+\index{simulador.\+c@{simulador.\+c}!naves@{naves}}
+\index{naves@{naves}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{naves}{naves}}
+{\footnotesize\ttfamily \hyperlink{structtipo__nave}{tipo\+\_\+nave} naves\mbox{[}\hyperlink{simulador_8h_ab306668933fb4316ac0f5ef291d13dff}{N\+\_\+\+E\+Q\+U\+I\+P\+OS}\mbox{]}\mbox{[}\hyperlink{simulador_8h_aa1f2aba814c6d46772f9694849eeaa7a}{N\+\_\+\+N\+A\+V\+ES}\mbox{]}}
+
+El simulador actualizara las naves, segun las acciones recibidas. \mbox{\Hypertarget{simulador_8c_a8bafa219354a73993a9146dd99a478b9}\label{simulador_8c_a8bafa219354a73993a9146dd99a478b9}} 
+\index{simulador.\+c@{simulador.\+c}!orden@{orden}}
+\index{orden@{orden}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{orden}{orden}}
+{\footnotesize\ttfamily \hyperlink{structOrden}{Orden} orden}
+
+Mensajes que se envian a los jefes \mbox{\Hypertarget{simulador_8c_addb0adf902152934d52498fad43752e4}\label{simulador_8c_addb0adf902152934d52498fad43752e4}} 
+\index{simulador.\+c@{simulador.\+c}!sem\+\_\+jefes@{sem\+\_\+jefes}}
+\index{sem\+\_\+jefes@{sem\+\_\+jefes}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{sem\+\_\+jefes}{sem\_jefes}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ sem\+\_\+jefes = N\+U\+LL}
+
+Permitira que el simulador no empiece a enviar turnos ni nada hasta que no este todo creado \mbox{\Hypertarget{simulador_8c_a96c1d91b1760b38aeb594b8de3617148}\label{simulador_8c_a96c1d91b1760b38aeb594b8de3617148}} 
+\index{simulador.\+c@{simulador.\+c}!sem\+\_\+monitor@{sem\+\_\+monitor}}
+\index{sem\+\_\+monitor@{sem\+\_\+monitor}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{sem\+\_\+monitor}{sem\_monitor}}
+{\footnotesize\ttfamily sem\+\_\+t$\ast$ sem\+\_\+monitor = N\+U\+LL}
+
+Permitira que el monitor espere a que el simulador tenga todo creado \mbox{\Hypertarget{simulador_8c_a3d310fa17a6f70f6981d7056d44ea84a}\label{simulador_8c_a3d310fa17a6f70f6981d7056d44ea84a}} 
+\index{simulador.\+c@{simulador.\+c}!tuberias@{tuberias}}
+\index{tuberias@{tuberias}!simulador.\+c@{simulador.\+c}}
+\subsubsection{\texorpdfstring{tuberias}{tuberias}}
+{\footnotesize\ttfamily \hyperlink{structTuberia}{Tuberia}$\ast$ tuberias}
+
+Tuberias tanto para simulador-\/jefe como para jefe-\/nave 
