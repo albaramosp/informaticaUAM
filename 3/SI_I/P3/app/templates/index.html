@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block content_top_e1 %}
+  <div class = "buscar">
+      <form id="search_form" action="{{ url_for("index") }}" method="POST">
+        {% if search %}
+        <input class = "searchTxt" name="search" type="text"  value = {{search}}>
+        {% else %}
+        <input class = "searchTxt" name="search" type="text"  placeholder = "Buscar...">
+        {% endif%}
+        <input id = "searchBtn" type="image" src= {{ url_for('static', filename='images/search.png') }} alt="Buscar">
+        <select  class = "main_search" name="options" onchange="submitSelection('search_form')">
+          <option value="Todo">Todo</option>
+          
+          {% for c in genres %}
+          <option value={{c[0]}}     {% if dropValue == c[0]  %} selected="selected"{% endif %}>{{c[0]}} </option>
+          {% endfor %}
+        </select>
+      </form>
+
+  </div>
+{% endblock %}
+
+{% block title_main %}
+    {{ title_main }}
+{% endblock%}
+
+{% block content_main %}
+  <main class="content">
+    {% for m in movies %}
+    <div>
+      <a href = "{{ url_for('detail', movie_id = m['id']) }}">
+        <img src = {{ url_for('static', filename=m['poster']) }} alt = m['titulo']-Alt>
+        <p class = "title">{{m['titulo']}}</p>
+      </a>
+    </div>
+    {% endfor %}
+  </main>
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block bodyActions %}
+  {% if message %}
+
+        showAlert('{{message}}')
+
+  {% endif %}
+{% endblock%}
+
+{% block title_main %}
+    {{ title_main }}
+{% endblock%}
+
+{% block content_main %}
+<main class="imgTxt">
+    <div class = "text">
+        <p>
+          <img class = "portrait" src={{ url_for('static', filename=movie['poster']) }} alt=movie['titulo']-Alt>
+
+          Dirección: {{movie['director']}}
+
+          <button id = "cartTop" class = "cartbtn" onclick="submitSelection('add_item_hiddenForm')">
+              <img src = {{ url_for('static', filename='images/add.png') }} alt = "add to cart">
+          </button>
+        </p>
+        <p>
+          Reparto:
+          {% for actor in movie['actores'] %}
+              <p>
+                  - {{actor['nombre']}}, {{actor['personaje']}}
+              </p>
+              {% endfor %}
+        </p>
+        <p>
+            País: {{movie['pais']}}
+        </p>
+
+        <p>
+            Año: {{movie['año']}}
+        </p>
+        <p>
+            Género: {{movie['categoria']}}
+        </p>
+        <p>
+            Duración:	{{movie['duracion']}} minutos
+        </p>
+        <p>
+            Precio:	{{movie['precio']}} €
+        </p> <br><br>
+        <form id="add_item_hiddenForm" action="{{ url_for('detail', movie_id = movie['id']) }}" method="POST">
+            <input name="idItem" type="hidden" value= {{movie['id']}}>
+        </form>
+        <div id = "bottomCenterBtn">
+          <button id = "cartBottom" class = "cartbtn" onclick="submitSelection('add_item_hiddenForm')">
+              <img src = {{ url_for('static', filename='images/add.png') }} alt = "add to cart">
+          </button>
+        </div>
+    </div>
+</main>
+{% endblock %}

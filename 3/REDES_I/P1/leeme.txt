@@ -1,0 +1,26 @@
+Alba Ramos Pedroviejo
+Javier Lozano Almeda
+
+Normativa de entrega cumplida en su totalidad: Realizado. Se ha leído varias veces el enunciado y se ha utilizado la documentación aportada.
+
+Fichero leeme.txt bien explicado: Realizado, es el fichero actual.
+
+Contar paquetes de una traza (independientemente del número de paquetes): Realizado. En el callback que se llama cada vez que leemos un paquete se ha ido actualizando un contador global, y al finalizar el bucle se ha imprimido este número. Este contador se va incrementando con cada paquete leído de la traza.
+ Prueba en wireshark: Una vez terminada la ejecución, se ha abierto en wireshark la traza generada y se ha comprobado que el número de paquetes de la traza coincide con el indicado por el programa.
+
+Contar paquetes de la interfaz de red: Realizado. En el callback que se llama cada vez que leemos un paquete se ha ido actualizando un contador global, y al finalizar el bucle se ha imprimido este número. Este contador se va incrementando hasta que el usuario pulse Ctrl+C para dejar de capturar paquetes.
+ Prueba en wireshark: Una vez terminada la ejecución, se ha abierto en wireshark la traza generada y se ha comprobado que el número de paquetes de la traza coincide con el indicado por el programa.
+
+Uso de un único "flujo" para traza e interfaz: Realizado. Se han utilizado ifs para determinar si se trata de lectura de interfaz o fichero para abrir y cerrar el descriptor de manera adecuada, pero luego la lectura en bucle se realiza de la misma forma para ambos casos.
+
+Almacenar correctamente el tráfico capturado en vivo una traza: Realizado. Se ha abierto el fichero .pcap con wireshark,se ha comprobado que la cantidad de paquetes es la misma que el programa mostró al finalizarlo y que los paquetes coinciden con los mostrados por este.
+
+Modificar fecha correctamente: Realizado. Se ha sumado 1800 segundos (30 minutos) al campo sec del header de cada paquete, campo que indica la fecha de captura en segundos.
+
+Imprimir los N primeros bytes de un paquete (pruebe para N>15) y validarlo con Wireshark (captura de pantalla): Realizado. Se a utilizado header.len para comprobar si el tamaño del paquete en Bytes es menor que el nbytes solicitado y en caso de que esto ocurra, se muestran todos los Bytes del paquete.
+Se ha adjuntado una imagen llamada "practica1captura.png", en la que se muestra la terminal de linux ejecutando el programa y la ventana de wireshark realizando una captura en vivo. En esta imagen se puede ver que el último paquete se muestra perfectamente teniendo 54 Bytes y habiendo puesto nbytes a 60
+
+Ejercicios de captura de tráfico: Realizado. se adjunta el fichero "practica1.pdf" en el que se explica todo lo realizado para la resolución de los ejercicios. Adicionalmente se adjuntan 4 trazas con los resultados de algunos de los ejercicios.
+
+
+

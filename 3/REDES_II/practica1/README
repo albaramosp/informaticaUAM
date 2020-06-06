@@ -1,0 +1,18 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                       Servidor Web
+
+                         HUNRAQAN
+
+         Alba Ramos Pedroviejo & Nicolás Serrano Salas
+                      REDES II 2020 
+
+                 Todos los derechos reservados
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                        INSTRUCCIONES DE USO
+		
+El programa implementa un servidor web que responde a los verbos GET, POST y OPTIONS. El programa se ejecuta primero creando el ejecutable haciendo make en la carpeta del repositorio, y más tarde con el comando ./server. Para probarlo acceder a localhost:1025/ en el navegador o mediante un comando que permita realizar peticiones http.
+		
+IMPORTANTE: es necesario tener en el mismo directorio que el programa, la carpeta www con los distintos recursos de nuestra página web.

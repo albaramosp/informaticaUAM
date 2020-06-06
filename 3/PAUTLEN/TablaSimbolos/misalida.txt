@@ -1,0 +1,20 @@
+uno
+dos
+-1	uno
+-1	dos
+uno	1
+dos	2
+cuatro	-1
+cinco	-1
+funcion1
+uno
+-1	uno
+-1	funcion1
+-1	funcion1
+tres
+funcion1	-10
+tres	3
+dos	2
+cuarto	-1
+cierre
+funcion1	-10

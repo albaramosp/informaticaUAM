@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block bodyActions %}
+  {% if message %}
+
+        showAlert('{{message}}')     
+
+  {% endif %}
+{% endblock%}
+
+{% block title_main %}
+    {{ title }}
+{% endblock%}
+
+{% block content_main %}
+
+
+<main class="content">
+
+  {% if carrito|length < 1 %}
+    <br>
+    <div><b>No hay ningun articulo en el carrito</b></div>
+  {% else %}
+    <table id='carritoTable'  >
+
+      <tr>
+        <th class="checkTable"></th>
+        <th>Portada</th>
+        <th>Titulo</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+      </tr>
+      {% for i in carrito %}
+      <tr>
+        <td class="checkTable"><input type="checkbox"><input id='itemId' name="itemId" type="hidden" value={{i['id']}}></td>
+        <td><img class = "carritoImg" src={{ url_for('static', filename=catalogo[i['id']]['poster']) }} alt=catalogo[i['id']]['titulo']-Alt></td>
+        <td>{{ catalogo[i['id']]['titulo'] }}</td>
+        <td>
+          <form id="changeQuantiti{{i['id']}}" action="{{ url_for('carrito') }}" method="POST">
+            <input name="idItem" type="hidden" value= {{i['id']}}>
+            <input name='numItems' class = "arrows" type = "number" min = "1" value = {{ i['cantidad'] }} max = "10" step = "1" onchange = "submitSelection('changeQuantiti{{i['id']}}')">
+          </form>
+        </td>
+        <td>{{ "%.2f"|format(catalogo[i['id']]['precio']* i['cantidad'])}}€</td>
+
+      </tr>
+      {% endfor %}
+      <tr>
+        <td id='totalTd' colspan = "4" >Total</td>
+        <td id='cartTotal' >{{"%.2f"|format(total)}}€</td>
+      </tr>
+    </table>
+    <div>
+        <form id="cartButtons" action="{{ url_for('carrito') }}" method="POST">
+            <input id='cartAction' name="cartAction" type="hidden" value='comprar'>
+            <input id='selectedItems' name="selectedItems" type="hidden" value='None'>
+            <input type="button" name='deleteBtn' value="Borrar" onclick="deleteSelected()">
+            <input type="submit" value='Realizar compra' name='submitBtn' ">
+        </form>
+    </div>
+  {% endif %}
+
+  
+
+</main>
+{% endblock %}

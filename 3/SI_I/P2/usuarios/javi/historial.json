@@ -1,0 +1,85 @@
+{
+    "0": {
+        "articulos": [
+            {
+                "cantidad": 2,
+                "id": 0
+            },
+            {
+                "cantidad": 1,
+                "id": 4
+            },
+            {
+                "cantidad": 1,
+                "id": 1
+            },
+            {
+                "cantidad": 2,
+                "id": 6
+            },
+            {
+                "cantidad": 2,
+                "id": 5
+            }
+        ],
+        "estado": "pendiente",
+        "fecha": "24/10/2019",
+        "precio": 102.55
+    },
+    "1": {
+        "articulos": [
+            {
+                "cantidad": 1,
+                "id": 0
+            },
+            {
+                "cantidad": 5,
+                "id": 3
+            }
+        ],
+        "estado": "pendiente",
+        "fecha": "24/10/2019",
+        "precio": 63.73
+    },
+    "2": {
+        "articulos": [
+            {
+                "cantidad": 5,
+                "id": 2
+            },
+            {
+                "cantidad": 1,
+                "id": 0
+            }
+        ],
+        "estado": "pendiente",
+        "fecha": "24/10/2019",
+        "precio": 73.94
+    },
+    "3": {
+        "articulos": [
+            {
+                "cantidad": 1,
+                "id": 0
+            }
+        ],
+        "estado": "pendiente",
+        "fecha": "24/10/2019",
+        "precio": 18.99
+    },
+    "4": {
+        "articulos": [
+            {
+                "cantidad": 1,
+                "id": 0
+            },
+            {
+                "cantidad": 1,
+                "id": 5
+            }
+        ],
+        "estado": "pendiente",
+        "fecha": "25/10/2019",
+        "precio": 28.99
+    }
+}

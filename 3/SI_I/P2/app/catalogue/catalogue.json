@@ -1,0 +1,171 @@
+[
+  {
+		"id": 0,
+		"titulo": "Thor",
+    "poster": "images/thor.jpeg",
+    "director": "Kenneth Branagh",
+    "precio": 18.99,
+    "categoria": "Superheroes",
+    "año": 2011,
+    "pais": "Estados Unidos",
+    "duracion": 87,
+    "actores": [
+      { "nombre": "Chris Hemsworth",
+        "personaje": "Thor"
+      },
+      { "nombre": "Tom Hiddleston",
+        "personaje": "Loki"
+      },
+      { "nombre": "Natalie Portman",
+        "personaje": "Jane Foster"
+      },
+      { "nombre": "Idris Elba",
+        "personaje": "Heimdall"
+      }
+    ]
+  },
+  {
+		"id": 1,
+		"titulo": "Mama",
+    "poster": "images/mama.jpeg",
+    "director": "Andres Muschietti",
+    "precio": 12.99,
+    "categoria": "Terror",
+    "año": 2013,
+    "duracion": 59,
+    "pais": "Canada",
+    "actores": [
+      { "nombre": "Jessica Chastain",
+        "personaje": "Annabel"
+      },
+      { "nombre": "Javier Botet",
+        "personaje": "Mama"
+      },
+      { "nombre": "Nikolaj Coster-Waldau",
+        "personaje": "Jeffrey"
+      },
+      { "nombre": "Megan Charpentier",
+        "personaje": "Victoria"
+      }
+    ]
+  },
+  {
+		"id": 2,
+		"titulo": "Lobezno",
+    "poster": "images/lobezno.jpeg",
+    "director": "Gavin Hood",
+    "precio": 10.99,
+    "categoria": "Superheroes",
+    "año": 2009,
+    "pais": "Canada",
+    "duracion": 120,
+    "actores": [
+      { "nombre": "Hugh Jackman",
+        "personaje": "Lobezno"
+      },
+      { "nombre": "Taylor Kitsch",
+        "personaje": "LeBeau"
+      },
+      { "nombre": "Danny Huston",
+        "personaje": "William Stryker"
+      },
+      { "nombre": "Liev Schreiber",
+        "personaje": "Victor Creed"
+      }
+    ]
+  },
+  {
+		"id": 3,
+		"titulo": "Halloween",
+    "poster": "images/halloween.jpg",
+    "director": "David Gordon Green",
+    "precio": 8.95,
+    "categoria": "Terror",
+    "año": 2018,
+    "pais": "Estados Unidos",
+    "duracion": 146,
+    "actores": [
+      { "nombre": "Jamie Lee Curtis",
+        "personaje": "Laurie Strode"
+      },
+      { "nombre": "Donald Pleasance",
+        "personaje": "Samuel Loomis"
+      },
+      { "nombre": "Nick Castle",
+        "personaje": "Michael Myers"
+      }
+    ]
+  },
+  {
+		"id": 4,
+		"titulo": "Scary Movie",
+    "poster": "images/scaryMovie.jpg",
+    "director": "Keenen Ivory Wayans",
+    "precio": 5.60,
+    "categoria": "Comedia",
+    "año": 2000,
+    "pais": "Estados Unidos",
+    "duracion": 65,
+    "actores": [
+      { "nombre": "Anna Faris",
+        "personaje": "Cindy Campbell"
+      },
+      { "nombre": "Regina Hall",
+        "personaje": "Brenda Meeks"
+      },
+      { "nombre": "Shawn Wayans",
+        "personaje": "Ray Wilkins"
+      },
+      { "nombre": "Dave Sheridan",
+        "personaje": "Doofy Gilmore"
+      }
+    ]
+  },
+  {
+		"id": 5,
+		"titulo": "War",
+    "poster": "images/war.jpeg",
+    "director": "Philip G. Atwell",
+    "precio": 10.00,
+    "categoria": "Accion",
+    "año": 2007,
+    "pais": "Estados Unidos",
+    "duracion": 97,
+    "actores": [
+      { "nombre": "Jason Statham",
+        "personaje": "John Crawford"
+      },
+      { "nombre": "Jet Li",
+        "personaje": "Rogue"
+      },
+      { "nombre": "John Lone",
+        "personaje": "Li Chang"
+      }
+    ]
+  },
+  {
+		"id": 6,
+		"titulo": "Zombieland",
+    "poster": "images/zombieland.jpg",
+    "director": "Ruben Fleischer",
+    "precio": 12.99,
+    "categoria": "Comedia, Accion, Terror",
+    "año": 2009,
+    "pais": "Estados Unidos",
+    "duracion": 118,
+    "actores": [
+      { "nombre": "Jesse Eisenberg",
+        "personaje": "Columbus"
+      },
+      { "nombre": "Woody Harrelson",
+        "personaje": "Tallahase"
+      },
+      { "nombre": "Emma Stone",
+        "personaje": "Wichita"
+      },
+      { "nombre": "Abigail Breslin",
+        "personaje": "Little Rock"
+      }
+    ]
+  }
+]

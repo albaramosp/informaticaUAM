@@ -1,0 +1,18 @@
+Alba Ramos Pedroviejo
+Javier Lozano Almeda
+
+Normativa de entrega cumplida en su totalidad: CUMPLIDO EN SU MAYOR PARTE. Ver problemas en los siguientes apartados.
+
+Fichero leeme.txt bien explicado: CUMPLIDO. Se trata de este mismo.
+Recibir y enviar datagramas UDP sin opciones IP ni fragmentación: CUMPLIDO. Se han enviado paquetes UDP mediante la función sendUDPDatagram que llama a sendIPDatagram pasándole un paquete con una cabecera UDP. Esta, a su vez, llama a sendIPDatagram, que comprueba si hay opciones que añadir y, si no las hay, no añade a la longitud de la cabecera el tamaño de las mismas. También comprueba que el tamaño total del paquete no supere al tamaño de la MTU. En ese caso, envía el paquete al nivel Ethernet. Se han realizado pruebas con Wireshark y se ha comprobado que los paquetes UDP se construyen y envían correctamente. Finalmente, se ha comprobado que los hosts muestran los mensajes de logging correctos.
+
+Recibir y enviar mensajes ICMP sin opciones IP ni fragmentación (incluyendo pruebas con ping estándar): CUMPLIDO. Se ha realizado mediante la función sendICMPDatagram, que construye la cabecera ICMP, calcula el valor del RTT y finalmente envía el paquete mediante sendIPDatagram. Se ha comprobado con Wireshark que los paquetes ICMP se construyen y envían correctamente, viendo además que salen dos: uno de la petición ECHO_REQUEST y otro la respuesta ECHO_REPLY. Además, los mensajes de logging que se muestran son correctos para estos paquetes. Finalmente, el tiempo de RTT se muestra correctamente, el cual es la resta entre el tiempo de recepción (campo de la cabecera) y el de envío.
+
+Enviar y recibir correctamente mensajes ICMP con opciones IP:  CUMPLIDO. Se han realizado las mismas pruebas que en el caso anterior y se ha comprobado que los paquetes y los mensajes de logging son correctos.
+
+Enviar datagramas UDP con fragmentación: CUMPLIDO PARCIALMENTE. Se ha comprobado con Wireshark que los paquetes fragmentados se han construido correctamente. Sin embargo, se envían como paquetes IP en vez de UDP y el callback no se llama en el host receptor. Se ha realizado en la función sendIPDatagram comprobando si el tamaño del paquete supera el tamaño de la MTU (hemos realizado las pruebas utilizando un fichero de datos de más de 3000 palabras). En ese caso, se ha realizado un bucle que iba construyendo cada paquete intermedio que consiste en la cabecera (con el checksum, el offset y los flags actualizados) y el payload, que consiste en una parte del payload inicial, la cual se calcula utilizando un offset. Este va desde 0 hasta el tamaño de la MTU, en la siguiente iteración desde dicho tamaño hasta su doble, y así sucesivamente hasta llegar al paquete entero. Los tamaños son múltiplos de 8. El último paquete es más pequeño y contiene el resto de carga útil, desde el último offset calculado. 
+
+Enviar datagramas UDP con fragmentación y opciones IP:  CUMPLIDO. La función sendIPDatagram detecta cuándo hay  opciones en el paquete y suma su longitud a la longitud de la cabecera (usada para enviar el paquete a través de Ethernet). Se ha comprobado que los hosts muestran los mensajes de logging adecuados y que en Wireshark el paquete es correcto.
+
+Enviar datagramas UDP fuera de la subred actual: CUMPLIDO. Se ha probado a enviar datagramas UDP a la IP 8.8.8.8 y se ha comprobado que se ha enviado correctamente. Al comprobar el paquete con Wireshark, se ha observado que se ha enviado a la ruta por defecto, esto es, la IP 10.0.0.3. Esto se ha realizado en la función sendIPDatagram realizando AND entre la  máscara y nuestra IP y la de destino (la máscara se obtiene en initIP mediante la función getNetmask). Como no coincidía, se ha enviado la petición ARP a la IP por defecto.
+

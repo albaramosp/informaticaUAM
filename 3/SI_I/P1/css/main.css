@@ -1,0 +1,453 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex; /*responsive design for all the block*/
+    height: 100%;
+    flex-direction: column;
+}
+
+
+/*************************************************               HEADER         *****************************************************/
+/*si no decimos lo contrario, flex-direction es row por defecto*/
+header, footer {
+    background: #231F20;
+    color: white;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    padding-left: 1em;
+    padding-right: 1em;
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+}
+
+header h1 {
+    font: normal 6vh 'Cookie', cursive;
+    margin: 0;
+}
+
+header h1 span{
+    color:  #AD974F;
+}
+
+header h5 {
+    padding-left: 1.5em;
+    font: normal 2.5vh 'Cookie', cursive;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    float: left;
+    justify-content: left;
+    align-items: center;
+}
+.right {
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.input {
+    width: 100%;
+    text-align: right;
+    margin: auto;
+}
+
+.input button {
+    font: normal 2.3vh 'Cookie', cursive;
+    padding: 0.5em;
+    color: white;
+    background: transparent;
+    border-color:  #231F20;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.input .signUp, .input .logout  {
+    margin-left:0.4em;
+    border-color: white;
+}
+
+.input button:hover {
+    color: rgb(255, 255, 255, 0.8);
+}
+
+.username {
+    color: white;
+    font: normal 2.5vh 'Cookie', cursive;
+}
+
+.nav-top {
+    display: none;
+}
+
+  /*************************************************               COL-2         *****************************************************/
+.col-2 {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+}
+
+
+  /*************************************************               INDEX: TOP         *****************************************************/
+
+.top {
+    display: flex; /*elements diaplayed in a row*/
+}
+
+/* Style the search field: everything in vh, even the font,
+ so that when the screen is resized everything changes its size
+*/
+form.buscar input {
+    padding: 1vh;
+    margin: 2vh;
+    margin-right: 0px;
+    font-size: 3vh;
+    border: 1px solid grey;
+    float: left;
+    width: 60%;
+    background: #f1f1f1;
+    max-height: 5.5vh;
+}
+
+
+.dropbtn {
+    float: left;
+    margin: 2vh;
+    margin-left: 0px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    max-width: 5.5vh;
+    max-height: 5.5vh;
+}
+
+.dropbtn img {
+    width: 5vh;
+    height: 5vh;
+}
+
+.buscar:after {
+    content: "";
+    clear: both;
+}
+
+.dropdown {
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none; /*initially hide the contents*/
+    position: absolute; /*to stay just over the button*/
+    background-color: #f1f1f1;
+    min-width: 20vh;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;  /*appears on top of the rest*/
+}
+
+.dropdown-content a {
+    color: black;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    opacity: 0.8;
+}
+
+.cartbtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cartbtn img {
+    width: 6vh;
+    height: 6vh;
+}
+
+.cartbtn:hover {
+    opacity: 0.8;
+}
+
+.historybtn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    margin-left: 2vh;
+}
+
+.historybtn img {
+    width: 6vh;
+    height: 6vh;
+}
+
+.historybtn:hover {
+    opacity: 0.8;
+}
+
+.e1 {
+    width: 100%;
+}
+
+.e2 {
+    width: 100%;
+    text-align: right;
+    margin-right: 2vh;
+    margin-top: 0.7vh;
+}
+
+  /*************************************************               NAV         *****************************************************/
+.nav-side {
+    background: #AD974F;
+    flex: 0.5;
+    display: flex; /*elemento padre flexible*/
+    flex-direction: column; /*hijos en columna*/
+    padding: 1em;
+    padding-top: 2em; /*overrides initial value*/
+    position: sticky;
+    top: 0;
+}
+
+.nav-side a{
+    color: #FFFFFF;
+    font: normal 2.5vh 'Cookie', cursive;
+    margin-bottom: 3em;
+}
+
+.nav-side a:hover {
+    opacity: 0.55;
+}
+
+.nav-top {
+    display: none;
+    background: #AD974F;
+}
+
+.nav-top a{
+    color: #FFFFFF;
+    font: normal 2.5vh 'Cookie', cursive;
+    margin-bottom: 3em;
+}
+
+.nav-top a:hover {
+    opacity: 0.55;
+}
+
+
+  /*************************************************               MAIN CONTENT         *****************************************************/
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: center;
+    min-height: 50vh;
+}
+
+
+
+.content > div {
+    text-align: center;
+    margin-bottom: 5vh;
+}
+
+.titulo {
+    text-align: center;
+    margin: 5vh;
+}
+
+p {
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    padding: 1em;
+}
+
+/***INDEX****/
+.title:hover {
+    color: #AD974F;
+}
+
+img {
+    height: 30vh;
+    width: 30vh;
+}
+
+
+/**************************************************************************LOGIN*********************************************/
+main#form_content{
+    text-align: center;
+    margin-bottom: 2em;
+}
+
+main#form_content input{
+    margin-bottom: 1.5em;
+    width:30vh
+}
+
+
+/**************************************************************************HISTORIAL*********************************************/
+table {
+    width:100vh;
+    margin: 5vh;
+}
+
+table th {
+    background-color: grey;
+    color: white;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 15px;
+    text-align: center;
+}
+
+/*****************************************************ABOUT US y DETALLE**************************************************/
+.imgTxt {
+  display: flex;
+  flex-direction: column;
+}
+
+.portrait {
+    padding-right: 2vh;
+    padding-bottom: 2vh;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    max-height: 80vh;
+    max-width: 80vh;
+    float: left;
+}
+
+.text p {
+  text-align: justify;
+  text-justify: inter-word;
+  padding-left: 2vh;
+  padding-right: 2vh;
+}
+
+#bottomCenterBtn{
+  margin-bottom: 1.2em;
+  text-align: center;
+}
+
+  /*************************************************               FOOTER         *****************************************************/
+footer{
+	position: sticky;
+	bottom: 0;
+	display: flex;
+  flex-direction: row;
+}
+
+#footer {
+  height:30px;
+  width:100%;
+  background:#999;
+}
+
+.footer-left {
+	text-align: center;
+	width: 100%;
+	float: left;
+}
+
+.footer-right{
+	text-align: center;
+	width: 100%;
+	float: right;
+}
+
+.footer-right p {
+	color: #AD974F;
+}
+
+.footer-company-name{
+	color:  #8f9296;
+	font-size: 2.3vh;
+	font-weight: normal;
+}
+
+  /*************************************************               RESPONSIVENESS         *****************************************************/
+
+@media all and (max-width: 600px) {
+  .footer-right {
+      display: none;
+  }
+
+	header {
+	    float: none;
+	    display: inline-block;
+	    text-align: center;
+	    width: 100%;
+	    padding-top: 1em;
+	    padding-bottom: 1em;
+	}
+
+	.input {
+	    float: none;
+	    width: 100%;
+	    text-align: center;
+	    margin: auto;
+	}
+
+	header h5 {
+	    display: none;
+	}
+
+	.left {
+	    display: inline-block;
+	    float: none;
+	    width: 100%;
+	    text-align: center;
+	    margin: auto;
+	    padding-bottom: 0.2em;
+	}
+
+	.nav-side {
+	    display: none;
+	}
+
+	.nav-top {
+	    display: flex;
+	    flex-direction: row;
+	    justify-content: center;
+	    padding: 0;
+	    position: sticky;
+	    top: 7.3rem;
+	}
+
+  .nav-top img {
+      margin-left: 2vh;
+      width: 3.7vh;
+      height: 3.4vh;
+  }
+
+	.nav-top a {
+        margin: 0;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+}

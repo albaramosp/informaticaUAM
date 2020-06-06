@@ -1,0 +1,132 @@
+<!doctype html>
+
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>TodoCine anonimo</title>
+        <meta name="description" content="Catalogo de peliculas para una empresa">
+        <meta name="author" content="Alba Ramos, Javier Lozano">
+
+        <link rel="stylesheet" href="../css/main.css">
+    </head>
+
+    <body>
+      <header>
+        <div class = "left">
+          <h1>Todo<span>Cine</span></h1>
+          <h5>Tu catálogo de películas a la carta</h5>
+        </div>
+
+        <div class = "input">
+          <button onclick="location.href='indexLogged.html'">Login</button>
+          <button class = "signUp" onclick="location.href='signUp.html'">Registro</button>
+        </div>
+      </header>
+
+      <nav class = "nav-top">
+        <a href = "index.html">Inicio</a>
+        <a href = "about.html">Sobre nosotros</a>
+        <a href = "https://github.com/albaramosp/">Más de Alba</a>
+        <a href = "https://github.com/javtau/">Más de Javi</a>
+      </nav>
+
+      <div class = "col-2">
+        <nav class = "nav-side">
+          <a href = "index.html">Inicio</a>
+          <a href = "about.html">Sobre nosotros</a>
+          <a href = "https://github.com/albaramosp/">Más de Alba</a>
+          <a href = "https://github.com/javtau/">Más de Javi</a>
+        </nav>
+
+        <div class = "right">
+          <div class = "top">
+            <!--A form lets user introduce data-->
+            <div class = "e1">
+              <form class = "buscar">
+                <input type="text" placeholder = "Buscar...">
+                <div class = "dropdown">
+                    <button class = "dropbtn">
+                      <img src = "../images/dropdown.png" alt = "category">
+                    </button>
+
+                    <!--Do not use select tag, we want customization-->
+                    <div class="dropdown-content">
+                      <a>Titulo</a>
+                      <a>Categoria</a>
+                      <a>Estreno</a>
+                    </div>
+                </div>
+              </form>
+            </div>
+
+            <div class = "e2">
+              <button class = "cartbtn">
+                <img src = "../images/cart.png" alt = "cart">
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <h1 class = "titulo">Novedades</h1>
+          </div>
+
+          <main class="content">
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/thor.jpeg" alt = "thor">
+                <p class = "title">Thor: la pelicula</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/mama.jpeg" alt = "mama">
+                <p class = "title">Mama</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/lobezno.jpeg" alt = "lobezno">
+                <p class = "title">Lobezno</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/halloween.jpg" alt = "halloween">
+                <p class = "title">Halloween</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/scaryMovie.jpeg" alt = "scary movie">
+                <p class = "title">Scacry Movie</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/war.jpeg" alt = "war">
+                <p class = "title">War</p>
+              </a>
+            </div>
+            <div>
+              <a href = "detalle.html">
+                <img src = "../images/zombieland.jpeg" alt = "zombieland">
+                <p class = "title">Zombieland</p>
+              </a>
+            </div>
+          </main>
+        </div> <!--Close right-->
+      </div> <!--Close col-2-->
+      <footer>
+        <div class="footer-left">
+          <p class="footer-company-name">Alba Ramos &amp; Javier Lozano &copy; 2019</p>
+        </div>
+
+        <div class="footer-right" id = "contacto">
+          <p><span>Escuela Politécnica Superior</span> UAM, Madrid</p>
+        </div>
+      </footer>
+    </body>
+</html>

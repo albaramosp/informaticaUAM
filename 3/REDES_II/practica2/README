@@ -1,0 +1,40 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+                Seguridad y criptografía
+
+                    SECUREBOX CLIENT                    
+
+            Alba Ramos Pedroviejo & Nicolás Serrano Salas
+                    REDES II 2020 
+
+                Todos los derechos reservados
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+																																				
+																		
+			        INSTRUCCIONES DE USO
+		
+El programa implementa funcionalidad para comunicarse con SecureBox y permite gestionar usuarios e identidades, 
+subir y bajar ficheros en el servidor y cifrar y firmar ficheros en local.
+El programa se inicia mediante el comando python client.py -h, que muestra todos los posibles argumentos que 
+recibe el programa. La mayoría de funcionalidades requerirán que se disponga de un token de usuario, que puede obtenerse 
+desde la página del servidor de la asignatura, y el programa le solicitará su introducción manual cuando sea necesario. 
+Solo deberá introducirlo una vez, y se quedará guardado para futuras ocasiones. 
+Asimismo, hay funcionalidades que requerirán que el usuario esté registrado en Securebox, de manera que disponga 
+de un fichero con su clave privada.
+
+
+Posibles argumentos que recibe el programa:
+  -h, --help            mostrar ayuda
+  --create_id CREATE [CREATE ...] Registra un usuario. Indicar nombre, apellido/s y email.
+  --search_id SEARCH [SEARCH ...] Busca un usuario. Indicar texto de busqueda.
+  --delete_id DELETEUSER Borra un usuario. Indicar su ID.
+  --upload UPLOAD       Sube un fichero. Indicar su nombre. Usar junto a --dest_id
+  --download DOWNLOAD   Descarga un fichero. Indicar ID del fichero a bajar. Usar junto a --source_id.
+  --delete_file DELETEFILE Borra un fichero. Indicar el ID del mismo.
+  --source_id IDSENDER  Indicar el ID del usuario que sube un fichero.
+  --dest_id IDRECEIVER  Indicar el ID del usuario al que se destina un fichero.
+  --list_files          Listar ficheros que el usuario tiene en SecureBox. No necesita indicar nada.
+  --encrypt ENCRYPT     Encriptar fichero. Indicar nombre del mismo. Usar junto a --dest_id
+  --sign SIGN           Firma digitalmente un fichero. Indicar nombre del mismo.
+  --enc_sign ENCRYPTSIGN Firma y encripta un fichero. Indicar nombre del mismo. Usar junto a --dest_id

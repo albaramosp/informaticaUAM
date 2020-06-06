@@ -1,0 +1,6 @@
+*.pyc 
+db.sqlite3
+idea
+__pycache__/
+staticfiles
+uploads

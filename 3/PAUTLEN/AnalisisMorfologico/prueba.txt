@@ -1,0 +1,27 @@
+function int retorna(int x){
+  array x[2];
+  return x*2;
+}
+
+
+// Programa que eleva un numero x a la potencia y
+main {
+// Declarar variables:
+int x,y;
+int i,total;
+
+// Leer x e y:
+scanf x;
+y = retorna(x);
+
+// Calcular la potencia:
+i = 1;
+total = 1;
+  while (i <= y) {
+    total = total*x;
+    i = i + 1;
+  }
+
+// Mostrar resultado:
+printf total;
+}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block bodyActions %}
+  getServerData('userLogin', '{{ url_for('getcookie') }}')
+{% endblock%}
+
+{% block title_main %}
+    {{ title }}
+{% endblock%}
+
+{% block content_main %}
+  <main id="form_content">
+    <form action="{{ url_for('login') }}" method="POST">
+      <input type="text" id="userLogin" name="user" placeholder="Usuario" required>
+      <br>
+      <input type="password" name="pass" placeholder="Contraseña" required>
+      <br>
+      <input type="submit" value="Enviar" >
+      <br>
+      ¿No esta registrado?<a href={{ url_for('signup')}}> Regístrese aquí.</a>
+    </form>
+
+    <br>
+    {% if error|length > 0 %}
+      <div class = "error_container" id="login_error_container">
+        <div  class = "error">
+          <span>Error: </span>{{ error }}
+          <button class="close_error" onclick="hide('login_error_container')">x</button>
+        </div>
+      </div>
+    {% endif %}
+  </main>
+{% endblock %}

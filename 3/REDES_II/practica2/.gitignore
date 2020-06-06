@@ -1,0 +1,5 @@
+__pycache__/
+downloads/
+signature.bin
+token.txt
+privateKey.bin

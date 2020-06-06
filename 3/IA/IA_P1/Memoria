@@ -1,0 +1,446 @@
+1) (defun newton (f df-dx max-iter x0 &optional (tol-abs 0.0001))
+		(unless (or (= max-iter 0) (< (abs (funcall df-dx x0)) 0.0001)) ;;End of algorithm because the max-iter number was reached without fulfilling the condition
+			(let ((x (- x0 (/ (funcall f x0) (funcall df-dx x0))))) ;;Stores de value of Xn+1
+				(if (< (abs (- x x0)) tol-abs) ;;The estimation of Xn+1 is convergent
+				x
+				(newton f df-dx (- max-iter 1) x tol-abs))))) ;;Try again with Xn+1
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (newton #'sin #'cos 50 2.0) 
+	;; 3.1415927
+	;; Caso base:
+	;; >> (newton #'sin #'cos 0 2.0) 
+	;; NIL
+	;; Casos típicos:
+	;; >> (newton #'sin #'cos 50 1)
+	;; 0.0
+	;; >> (newton #'sin #'cos 50 pi)
+	;; 3.141592653589793d0
+	;; >> (newton #'sin #'cos 50 6)
+	;; 6.2831855
+	;; Caso especial:
+	;; >> (newton #'sin #'cos 50 (/ pi 2)) 
+	;; NIL
+
+	Comentarios de implementacion:
+	Dado que hemos encontrado algun que otro problema para el calculo de coseno de pi/2 pues no da 0,
+	y que deberiamos tener en cuenta la división por cero.
+	Hemos puesto que si al calcular f(x0) / df-dx(x0) el divisor es menor en valor absoluto
+	que 0.0001, se nos devuelve NIL
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+	(defun newton-all (f df-dx max-iter seeds &optional (tol-abs 0.0001))
+		(mapcar #'(lambda (x) (newton f df-dx max-iter x tol-abs)) seeds))
+	
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (newton-all #'sin #'cos 50 (mapcar #'eval '((/ pi 2) 1.0 2.0 4.0 6.0))) 
+	;; (NIL 0.0 3.1415927 3.1415927 6.2831855)
+	;; Caso base:
+	;; >> (newton-all #'sin #'cos 0 (mapcar #'eval '((/ pi 2) 1.0 2.0 4.0 6.0))) 
+	;; Casos típicos:
+	;; (newton-all #'sin #'cos 50 '(1.0 2.0 4.0 6.0))
+	;; (0.0 3.1415927 3.1415927 6.2831855)
+	;; (NIL NIL NIL NIL NIL)
+	;; Caso especial:
+	;; >> (newton-all #'sin #'cos 50 NIL) 
+	;; NIL
+	;; >> (newton-all #'sin #'cos 0 '((NIL))) 
+	;; (NIL)
+
+2) (defun combine-elt-lst (elt lst)
+	(unless (or (null elt)  (null lst))
+		(mapcar #'(lambda(x) (list elt x)) lst)))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (combine-elt-lst 'a '(1 2 3))
+	;; ((A 1) (A 2) (A 3))
+	;; Caso base:
+	;; >> (combine-elt-lst '() '())
+	;; NIL
+	;; >> (combine-elt-lst 'a '())
+	;; NIL
+	;; >> (combine-elt-lst '() '(1 2 3))
+	;; NIL
+	;; Casos típicos:
+	;; >> (combine-elt-lst 'a '((/ 6 2) (+ 2 8) o))
+	;; ((A (/ 6 2)) (A (+ 2 8)) (A O))
+	
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+	(defun combine-lst-lst (lst1 lst2)
+		(unless (or (null lst1)  (null lst2))
+			(mapcar #'(lambda(x) (combine-elt-lst x lst2)) lst1)))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (combine-lst-lst '(a b c) '(1 2))
+	;; ((((A 1) (A 2)) ((B 1) (B 2)) ((C 1) (C 2)))
+	;; Caso base:
+	;; >> (combine-lst-lst '() '())
+	;; NIL
+	;; >> (combine-lst-lst '(a b c) '())
+	;; NIL
+	;; >> (combine-lst-lst '() '(1 2))
+	;; NIL
+	;; Casos típicos:
+	;; >> (combine-lst-lst '(a (- 3 1) (cos pi 2)) '((/ 6 2) (+ 2 8) o))
+	;; (((A (/ 6 2)) (A (+ 2 8)) (A O)) (((- 3 1) (/ 6 2)) ((- 3 1) (+ 2 8)) ((- 3 1) O)) (((COS PI 2) (/ 6 2)) ((COS PI 2) (+ 2 8)) ((COS PI 2) O)))
+
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	(defun combine-list-of-lsts (lolsts)
+		(cond 
+			((null lolsts) '(NIL))
+			((null (rest lolsts)) (mapcar #'list (car lolsts)))
+			( t 
+			(let ((scalar (combine-list-of-lsts (cdr lolsts))))
+				(apply #'append (mapcar #'(lambda(x) (mapcar #'(lambda(y) (cons x y)) scalar)) (car lolsts)))))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (combine-list-of-lsts '((a b c) (+ -) (1 2 3 4)))
+	;; ((A + 1) (A + 2) (A + 3) (A + 4) (A - 1) (A - 2) (A - 3) (A - 4) (B + 1) (B + 2) (B + 3) (B + 4) (B - 1) (B - 2) (B - 3) (B - 4) (C + 1) (C + 2) (C + 3) (C + 4) (C - 1) (C - 2) (C - 3) (C - 4))
+	;; Caso base:
+	;; >> (combine-list-of-lsts '())
+	;; (NIL)
+	;; >> (combine-list-of-lsts '(()))
+	;; NIL
+	;; >> (combine-list-of-lsts '(() (1 2)))
+	;; NIL
+	;; >> (combine-list-of-lsts '((1 2)))
+	;; ((1) (2))
+
+3) (defun scalar-product (x y)
+		(unless (or (null x)  (null y))
+			(reduce #'+ (mapcar #'(lambda (a b) (* a b)) x y))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (scalar-product '(1 2 3) '(3 -1 5))
+	;; 16
+	;; >> (scalar-product '() '())
+	;; NIL
+	;; >> (scalar-product '(1 2) '())
+	;; NIL
+	;; >> (scalar-product '() '(1 2))
+	;; NIL
+	;; Caso atípico: 
+	;; Respuesta no correcta pero al no poder usar lenght no podemos saber si dos vectores son del mismo tamaño o no.
+	;; Igualmente en la definición de los parametros de la función se pide que ambos vectores sean del mismo tamaño,
+	;; no nos hacemos responsables de errores por el uso incorrecto de la función.
+	;; >> (scalar-product '(5) '(1 2))
+	;; 5
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+	(defun euclidean-norm (x)
+		(sqrt (reduce #'+ (mapcar #'(lambda (a) (* a a)) x))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (euclidean-norm '(3 -1 5))
+	;; 5.91608
+	;; >> (euclidean-norm '())
+	;; 0.0
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+	(defun euclidean-distance (x y)
+		(unless (or (null x)  (null y))
+			(sqrt (reduce #'+ (mapcar #'(lambda (c) (* c c)) (mapcar #'(lambda (a b) (- b a)) x y))))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (euclidean-distance '(1 2 3) '(3 -1 5))
+	;; 4.1231055
+	;; >> (euclidean-distance '() '())
+	;; NIL
+	;; >> (euclidean-distance '(1 2) '())
+	;; NIL
+	;; >> (euclidean-distance '() '(1 2))
+	;; NIL
+	;; Caso atípico:
+	;; Both vectors should be of the same length
+	;; >> (euclidean-distance '(1 2 3 4) '(3 -1 5))
+	;; 4.1231055
+
+4) (defun cosine-similarity (x y) 
+		(unless (or (null x)  (null y)) ;;Error if a vector has an euclidean norm of 0, that is, the vector is null
+			(/ (scalar-product x y) (* (euclidean-norm x) (euclidean-norm y))))) ;;The cosine similarity is the division between the scalar product and the product of the norms
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (cosine-similarity '(1 2 3) '(-2 1 3))
+	;; 0.6428571
+	;; >>  (cosine-similarity '() '())
+	;; NIL
+	;; >>  (cosine-similarity '(1 2) '())
+	;; NIL
+	;; >>  (cosine-similarity '() '(1 2))
+	;; NIL
+	;; Caso atípico:
+	;; Both vectors should be of the same length
+	;; >> (cosine-similarity '(1 2 3 4) '(-2 1 3))
+	;; 0.439155
+
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+	(defun angular-distance (x y) 
+		(unless (or (null x)  (null y))
+			(/ (acos (cosine-similarity x y)) pi))) ;;Reverse of cosine similarity divided by pi
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (angular-distance '(1 2 3) '(-2 1 3))
+	;; 0.27774892163415615d0
+	;; >>  (angular-distance '() '())
+	;; NIL
+	;; >>  (angular-distance '(1 2) '())
+	;; NIL
+	;; >>  (angular-distance '() '(1 2))
+	;; NIL
+	;; Caso atípico:
+	;; Both vectors should be of the same length
+	;; >> (angular-distance '(1 2 3 4) '(-2 1 3))
+	;; 0.35527790561153083d0
+
+5) (defun select-vectors (lst-vectors test-vector similarity-fn &optional (threshold 0))
+		(unless (or (null lst-vectors)  (null test-vector))
+			(sort (remove-if #'(lambda (y) (null y))
+					(mapcar #'(lambda (x)
+								(let ((similarity (funcall similarity-fn x test-vector)))
+								(unless (< similarity threshold) ;;Only store similarities that are greater than the threshold, if defined
+									(list x similarity)))) 
+							lst-vectors))
+				#'(lambda(a b) (> (abs a) (abs b)))
+				:key #'second)))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (select-vectors '((-1 -1 -1) (-1 -1 1) (-1 1 1) (1 1 1)) '(1 1 1) #'cosine-similarity 0.2)   
+	;; (((1 1 1) 1.0) ((-1 1 1) 0.33333334))
+	;; >>  (select-vectors '() '(1 1 1) #'cosine-similarity 0.2)
+	;; NIL
+	;; >>  (select-vectors '((-1 -1 -1) (-1 -1 1) (-1 1 1) (1 1 1)) '() #'cosine-similarity 0.2)
+	;; NIL
+
+6) (defun nearest-neighbor (lst-vectors test-vector distance-fn)
+		(unless (or (null lst-vectors)  (null test-vector))
+			(first (sort (remove-if #'(lambda (y) (null y))
+										(let ((distance (funcall distance-fn (car lst-vectors) test-vector) ))
+											(list (list (car lst-vectors) distance) 
+											(nearest-neighbor (cdr lst-vectors) test-vector distance-fn))))
+						#'(lambda(a b) (< (abs a) (abs b))) 
+						:key #'second))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (nearest-neighbor '((-1 -1 -1) (-2 2 2) (-1 -1 1)) '(1 1 1) #'angular-distance)
+	;; ((-2 2 2) 0.3918265514242322d0)
+	;; >> (nearest-neighbor '() '(1 1 1) #'angular-distance)
+	;; NIL
+	;; >> (nearest-neighbor '((-1 -1 -1) (-2 2 2) (-1 -1 1)) '() #'angular-distance)
+	;; NIL
+
+7) (defun backward-chaining-aux (goal lst-rules pending-goals)
+		(when (some #'(lambda (x) (equal goal (cadr x))) lst-rules)
+				(let ((found (car (member-if #'(lambda (x) (equal goal (cadr x))) lst-rules))))
+				(if (null (car found))
+					T
+					(if (every #'(lambda (x) (equal x T)) (mapcar  #'(lambda (y) (backward-chaining-aux y (remove-if #'(lambda (x) (equal found x)) lst-rules) (cons goal pending-goals))) (car found)))
+					T
+					(backward-chaining-aux goal (remove-if #'(lambda (x) (equal found x)) lst-rules) pending-goals))))))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (backward-chaining-aux 'Q '((NIL A) (NIL B) ((P) Q) ((L M) P) ((B L) M) ((A P) L) ((A B) L)) NIL)
+	;; T
+	;; >> (backward-chaining-aux 'P '((NIL A) (NIL B)  ((L M) P) ((B L) M) ((A P) L) ((A B) L)) '(Q))
+	;; T
+	;; >> (backward-chaining-aux '() '((NIL A) (NIL B)  ((L M) P) ((B L) M) ((A P) L) ((A B) L)) '(Q))
+	;; NIL
+	;; >> (backward-chaining-aux 'Q '() NIL)
+	;; NIL
+
+	;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+	(defun backward-chaining (goal lst-rules)
+		(unless (or (null goal)  (null lst-rules))
+			(backward-chaining-aux goal lst-rules NIL)))
+
+	;; TESTS
+	;; Ejemplo dado:
+	;; >> (backward-chaining 'Q '((NIL A) (NIL B) ((P) Q) ((L M) P) ((B L) M) ((A P) L) ((A B) L)))
+	;; T
+	;; >> (backward-chaining 'Q '((NIL A) (NIL B) ((P) Q) ((L M) P) ((B L) M) ((A P) L)))
+	;; NIL
+	;; >>  (backward-chaining '() '((NIL A) (NIL B) ((P) Q) ((L M) P) ((B L) M) ((A P) L)))
+	;; NIL
+	;; >> (backward-chaining 'Q '())
+	;; NIL
+
+
+8) 
+	a. 
+		El algoritmo parte de un nodo objetivo (end), una representación del grafo en forma de lista de adyacencia (net) 
+		y una lista de listas que representa el camino que llevamos recorrido en orden inverso (queue).
+		En cada paso del algoritmo se va a analizar el camino que llevamos. Si el primer elemento del camino es el nodo objetivo, 
+		se le da la vuelta a los elementos que conforman el camino, de forma que este se devuelve ordenado. 
+		Si no es el objetivo, se añaden al camino recorrido los hijos del nodo actual.
+		Esta funcionalidad la realiza new-paths. Para ello, busca en el grafo los hijos de dicho nodo 
+		(mediante la función assoc y sin contar el primer elemento, dada la representación elegida para el grafo). 
+		Una vez obtenidos los hijos, se añade cada hijo al camino, y eso se añade a la cola de caminos para analizar 
+		en la siguiente vuelta del algoritmo. A la cola se van añadiendo, en cada paso, listas de caminos en el orden en el 
+		que fueron generados, de forma que no se exploran los niveles más profundos hasta haber analizado 
+		todos los nodos del nivel actual.
+	
+	b.
+		- Grafo ( (a b) (b c) (c a) (d e) (e f) )
+		  Si queremos ir de a hasta f, en la primera llamada, la cola contiene ((a))
+		  En la segunda, ((b a))
+		  En la tercera, ((c b a))
+		  En la cuarta, ((a c b a))
+		  El algoritmo entraría en un bucle porque hay un ciclo y el objetivo
+		  no está conectado al mismo
+
+		- Grafo dirigido del ejemplo.
+		  Si queremos ir de c hasta f, en la primera llamada la cola tendrá ((c))
+		  En la segunda, ((e c))
+		  En la tercera, ((b e c) (f e c))
+		  En la cuarta, ((f e c) (d b e c) (f b e c))
+		  En ese momento, vemos que node es f, el objetivo.
+		  Se da la vuelta al camino y se obtiene c-e-f
+		
+		- Grafo ( (a b e) (b c) (d c) (e d) )
+	 	  Si queremos ir de a hasta c, en la primera llamada la cola tiene ((a))
+		  En la segunda, ((B A) (E A))
+		  En la tercera, ((E A) (C B A))
+		  En la cuarta, ((C B A) (D E A))
+		  En ese momento se llega al nodo objetivo, se invierte el camino y se obtiene A-B-C
+	
+	c. 
+		Se quiere ir desde c hasta d. Se realizan 5 llamadas a la función.
+		((c))
+		((e c))
+		((b e c) (f e c))
+		((f e c) (d b e c) (f b e c))
+		((d b e c) (f b e c))
+		En este momento, se ha llegado al nodo objetivo y se da la vuelta al camino,
+		obteniendo c-e-b-d
+	
+	d. 
+		i.end: el nodo objetivo
+		ii.queue: lista de listas. Cada sublista es un camino desde el nodo origen hasta cada hijo del nodo expandido.
+				  La cola refleja una búsqueda en anchura, dejando para visitar en primer lugar
+				  los nodos que fueron generados primero.
+		iii.net: representación del grafo como una lista de adyacencia
+		iv.path: lista con el camino que vamos recorriendo en cada paso del algoritmo.
+		v.node: primer elemento del camino. Como está en orden inverso,
+				es el nodo que toca expandir.
+		vi.new-paths: dado un camino, un nodo y el grafo, expande el nodo y saca sus hijos,
+					  y cada uno lo añade al camino (el cual está en orden inverso, desde abajo hasta arriba si fuera un árbol) 
+					  en forma de sublista.
+		vii.La función parte de un nodo origen, nodo destino y el grafo en forma de lista de adyacencia.
+			Con eso, llama a BFS pasándole una lista de listas en la que se ha insertado el nodo origen.
+			Esta lista sirve para formar el camino recorrido hasta el momento, que como no hemos
+			explorado aún nada, solamente contiene el nodo origen, que será expandido en BFS.
+
+			La función resuelve el problema del camino más corto porque implementa búsqueda en anchura.
+			Primero expande el nodo y mete los hijos en orden de expansión en la cola. Así, los irá expandiendo
+			en dicho orden, garantizando de ese modo encontrar el camino más corto.
+	
+	e. mientras (cola != vacío):
+	   	nodo = cola.pop( )
+		camino.push(nodo)
+
+		si nodo == fin:
+			mientras camino != vacío:
+				print camino.pop( )
+			return
+		
+		para cada hijo del nodo:
+			cola.push(hijo)
+	
+	f. 	mientras (cola != vacío) se ha implementado con la llamada recursiva y la comprobación de que
+								 la cola no sea nula. 
+		cola.pop( ) es el node, el primer elemento del path. Así, evitamos tener
+					otra cola con el camino: lo tenemos como sublistas dentro de la cola.
+		Se comprueba si el nodo es el final, y se invierte el camino y se devuelve directamente, sin que
+		haga falta tener otra cola aparte.
+		Para expandir el nodo y obtener los hijos se usa la función new-paths y la lista de adyaencia que
+		representa el grafo.
+
+	g. bfs ('f, ((c)), ( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+	   Observamos que el camino obtenido es c-a-b-f. Sin embargo, tarda mucho en obtenerlo porque repite
+	   muchos nodos, pues no detecta cuales ha visitado
+	
+	h. (defun new-paths-improved (path node net)
+		(remove NIL (mapcar #'(lambda(n)
+			(if (member n path)
+				NIL
+				(cons n path)))
+						(rest (assoc node net)))))
+
+		;; TESTS
+		;; Casos típicos:
+		;; >> (new-paths-improved '(e c) 'e '((a d) (b d f) (c e) (d f) (e b f) (f)))
+		;; ((B E C) (F E C))
+		;; >> (new-paths-improved '(b a) 'b '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; ((D B A) (E B A) (F B A))
+		;; Casos especiales:
+		;; >> (new-paths-improved '(b a) '() '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; NIL
+		;; >> (new-paths-improved '() 'a '( (a b) (b c) (c a) (d e) (e f) ))
+		;; ((B))
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+		
+		(defun bfs-improved (end queue net)
+			(if (null queue) 
+				NIL
+				(let* ((path (first queue))
+					(node (first path)))
+				(if (eql node end) 
+					(reverse path)
+					(bfs-improved end 
+						(append (rest queue) 
+								(new-paths-improved path node net)) 
+						net))))) 
+
+		;; TESTS
+		;; Casos típicos:
+		;; >> (bfs-improved 'f '((c)) '((a d) (b d f) (c e) (d f) (e b f) (f)))
+		;; (C E F)
+		;; >> (bfs-improved 'f '((c)) '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; (C A B F)
+		;; Casos especiales:
+		;; >> (bfs-improved 'f '(()) '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; NIL
+		;; >> (bfs-improved 'f '((a)) '( (a b) (b c) (c a) (d e) (e f) ))
+		;; NIL 
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+		(defun shortest-path-improved (end queue net)
+			(bfs-improved end queue net))
+
+		;; TESTS
+		;; Casos típicos:
+		;; >> (shortest-path-improved 'f '((c)) '((a d) (b d f) (c e) (d f) (e b f) (f)))
+		;; (C E F)
+		;; >> (shortest-path-improved 'f '((c)) '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; (C A B F)
+		;; Casos especiales:
+		;; >> (shortest-path-improved 'f '(()) '( (a b c d e) (b a d e f) (c a g) (d a b g h) (e a b g h) (f b h) (g c d e h) (h d e f g) ))
+		;; NIL
+		;; >> (shortest-path-improved 'f '((a)) '( (a b) (b c) (c a) (d e) (e f) ))
+		;; NIL 
+		;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

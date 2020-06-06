@@ -1,0 +1,28 @@
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+                           Multimedia
+
+                        TGV - Cliente P2P                    
+
+                Alba Ramos Pedroviejo & Nicolás Serrano Salas
+                        REDES II 2020 
+
+                    Todos los derechos reservados
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+																																				
+																		
+                    INSTRUCCIONES DE USO
+		
+El programa implementa un cliente p2p capaz de transmitir video por la red utilizando un protocolo 
+propio. El programa se ejecuta mediante el comando python3 practica3_client.py y solicita que se 
+inicie la sesión en el servidor de descubrimiento, el cual se utilizará para conocer el nick de 
+los usuarios registrados en el servidor, el cual será necesario para realizar una llamada. 
+Una vez iniciada la aplicación, se permite llamar a otros usuarios y listar los usuarios del 
+servidor de descubrimiento. Durante una llamada, se permite pausar la misma, reanudarla y colgar. 
+Finalmente, se permite también transmitir tanto flujo de vídeo mediante la webcam como mediante 
+un fichero de vídeo aparte. Dicho flujo se puede cambiar durante una llamada, pero se recomienda 
+pausarla para asegurar la mejor calidad durante el cambio. 
+
+IMPORTANTE: es necesario tener, en el mismo directorio que el programa, la carpeta de appJar 
+que utiliza la aplicación. Asimismo, es necesario tener un directorio imgs con un 
+fichero .gif para capturar las imagenes de la webcam.

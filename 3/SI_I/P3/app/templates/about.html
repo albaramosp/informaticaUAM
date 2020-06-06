@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block title_main %}
+    {{ title }}
+{% endblock%}
+
+{% block content_main %}
+<main class = "imgTxt">
+  <div class = "text">
+    <p><img class = "portrait" src = {{ url_for('static', filename='images/us.jpg') }} alt = "here we are!">
+         Somos Alba y Javier, dos estudiantes de ingeniería informática de la Escuela Politécnica Superior de la UAM.
+         Estamos en tercero de carrera y no nos hemos ido de Erasmus, somos algo extraños. En su lugar, hemos decidido
+         hacer esta página web tan chula que seguro hará que pases agradables tardes buscando películas.
+    </p>
+    <p>
+         Aunque esta página parezca una simple práctica de Sistemas Informáticos, esconde mucho más. En ella hemos
+         practicado todo lo que tiene que ver con estilo y con responsiveness. Todo esto ha sido fruto de largas
+         horas de trabajo que nos han costado sudor y sangre. Aún así, nos consideramos generosos, así que si deseas
+         ver el código que hemos realizado, tan solo tienes que buscarnos en GitHub: somos abaramosp y javtau.
+         Nuestro código es privado, pero como lo bueno se hace esperar, si nos mandas un mensaje te facilitaremos
+         todo lo que podamos.
+    </p>
+    <p>
+         Siempre nos ha gustado esto de programar: en la foto nos puedes ver en el concurso Ada Byron el año pasado. Se nos
+         dio bastante mal, por cierto, pero seguro que esta web se nos da mucho mejor ;)
+         Esta página es una buena muestra de lo que somos capaces de hacer con tan solo un ordenador y la paciencia
+         suficiente para tirarnos la tarde entera buscando en StackOverflow cómo se hace cada cosa. Esperamos que disfrutes de
+         tu navegación y nos saludes cuando nos veas por la facultad.
+    </p>
+  </div>
+</main>
+{% endblock %}

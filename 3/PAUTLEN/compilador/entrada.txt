@@ -1,0 +1,10 @@
+main{
+  int x;
+
+  function int func(){
+    return 1;
+  }
+
+  x = func();
+  printf x;
+}

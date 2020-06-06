@@ -1,0 +1,7 @@
+gcc -c generacion.c
+gcc -c probar.c
+gcc -o probar generacion.o probar.o
+./probar probar.asm 
+nasm -g -o probar.o -f elf32 probar.asm 
+gcc -m32 -o probar probar.o alfalib.o 
+./probar 

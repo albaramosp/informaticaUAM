@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block title_main %}
+    {{ title }}
+{% endblock%}
+
+{% block content_main %}
+<script>
+  $(document).ready(function() {
+    $("#password").keyup(function() {
+        var element = $("#progress-bar");
+        var password = $("#password").val();
+        var desc = [{'width':'0px'}, {'width':'20%'}, {'width':'50%'}, {'width':'80%'}, {'width':'100%'}];
+        var descClass = ['', 'progress-bar-danger', 'progress-bar-warning', 'progress-bar-success', 'progress-bar-success'];
+        var score = 0;
+
+        if(password.length >= 8){
+            score++;
+
+            if ((password.match(/[a-z]/)) && (password.match(/[A-Z]/))){
+                score++;
+            }
+
+            if(password.match(/\d+/)){
+                score++;
+            }
+
+            if(password.match(/.[!,@,#,$,%,^,&,*,?,_,~,-,(,)]/)){
+                score++;
+            }
+        }
+
+        if (password.length >= 15){
+            score++;
+        }
+
+        element.removeClass( descClass[score-1] ).addClass( descClass[score] ).css( desc[score] );
+    });
+  });
+</script>
+
+<main id="form_content">
+  <form action="{{ url_for("signup") }}" method="POST">
+    <input type="text" name="user" placeholder="Usuario" pattern ="[a-zA-Z0-9]{3,}" title = "Minimo 3 caracteres. Solo se permiten letras y numeros" required value="{{ request.form['user'] }}">
+    <br>
+    <input type="email" required name="email" placeholder="Email adress" value="{{ request.form['email'] }}">
+    <br>
+    <div class = "password_container">
+      <input type="password" id="password" pattern=".{8,}" required title="La contraseña debe tener 8 caracteres como minimo" name="password" placeholder="Contraseña">
+      <div id="progressBar_container">
+        <div id="progress-bar"></div>
+      </div>
+    </div>
+    <br>
+    <input type="password" pattern=".{8,}" oninput="checkPasswordCoincidence(this)" required title="La contraseña debe tener 8 caracteres como minimo" name="pass" placeholder="Repetir contraseña">
+    <br>
+    <input type="text" pattern="[0-9]{16}" title="El numero de tarjeta bancaria debe ser de 16 digitos" required name="card" placeholder="Nº tarjeta bancaria">
+    <br>
+    <input type="submit" value="Enviar">
+  </form>
+
+  {% if error|length > 0 %}
+  <div class = "error_container" id="signup_error_container">
+    <div  class = "error">
+      <span>Error: </span>{{ error }}
+      <button class="close_error" onclick="hide('signup_error_container')">x</button>
+    </div>
+  </div>
+  {% endif %}
+</main>
+{% endblock %}

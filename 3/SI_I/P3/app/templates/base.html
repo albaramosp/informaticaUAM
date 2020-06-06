@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>{% block title %} {% endblock %}- TodoCine</title>
+		<meta name="author" content="Alba Ramos, Javier Lozano">
+
+		<link rel="stylesheet" href={{ url_for('static', filename='css/main.css') }}/>
+		<script src={{ url_for('static', filename='JS/javascript.js') }}></script>
+	</head>
+
+	<body onload="startTimer( '{{ url_for('generateRandomInt') }}'); {% block bodyActions %} {% endblock %}">
+		<header>
+			<div class = "left">
+				<h1>Todo<span>Cine</span></h1>
+				<h5>Tu catálogo de películas a la carta</h5>
+			</div>
+
+			<div class = "center">
+				<h4>Usuarios conectados:</h4><p id="numUsuarios"> 0</p>
+			</div>
+
+			<div class = "input">
+				{% if not session['usuario'] %}
+				<button onclick="location.href='{{ url_for('login') }}'">Login</button>
+			  	<button class = "signUp" onclick="location.href='{{ url_for('signup')}}'">Registro</button>
+				{% else %}
+				<a class = "username">{{ session['usuario'] }}</a>
+				<button class = "logout" onclick="location.href='{{ url_for('logout') }}'">Logout</button>
+				{% endif%}
+			</div>
+		</header>
+
+		<nav class = "nav-top">
+			<a href = "{{ url_for('index') }}">Inicio</a>
+			<a href = "{{ url_for('about') }}">Sobre nosotros</a>
+			<a href = "https://github.com/albaramosp/">Más de Alba</a>
+			<a href = "https://github.com/javtau/">Más de Javi</a>
+		</nav>
+
+		<div class = "col-2">
+			<nav class = "nav-side">
+				<a href = "{{ url_for('index') }}">Inicio</a>
+				<a href = "{{ url_for('about') }}">Sobre nosotros</a>
+				<a href = "https://github.com/albaramosp/">Más de Alba</a>
+				<a href = "https://github.com/javtau/">Más de Javi</a>
+			</nav>
+
+			<div class = "right">
+				<div class = "top">
+					<div class = "e1">
+						{% block content_top_e1%} {% endblock %}
+					</div>
+
+					<div class = "e2">
+					  {% if not session['usuario'] %}
+					    <button class = "cartbtn" onclick="location.href='{{ url_for('carrito') }}'">
+					      <img src = {{ url_for('static', filename='images/cart.png') }} alt = "cart">
+					    </button>
+					  {% else %}
+					    <button class = "cartbtn" onclick="location.href='{{ url_for('carrito') }}'">
+					      <img src = {{ url_for('static', filename='images/cart.png') }} alt = "cart">
+					    </button>
+					    <button class = "historybtn" onclick=" location.href='{{ url_for('history')}}'" >
+					      <img src = {{ url_for('static', filename='images/history.png') }} alt = "history">
+					    </button>
+					  {% endif%}
+					</div>
+				</div> <!--Close top-->
+
+				<div>
+					<h1 class = "titulo">{% block title_main %} {% endblock %}</h1>
+				</div>
+					{% block content_main%} {% endblock %}
+			</div> <!--Close right-->
+		</div> <!--Close col-2-->
+
+		<footer>
+			<div class="footer-left">
+				<p class="footer-company-name">Alba Ramos &amp; Javier Lozano &copy; 2019</p>
+			</div>
+
+			<div class="footer-right" id = "contacto">
+				<p><span>Escuela Politécnica Superior</span> UAM, Madrid</p>
+			</div>
+		</footer>
+	</body>
+</html>

@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock%}
+
+{% block content_top_e2 %}
+    <button class = "cartbtn">
+      <img src = {{ url_for('static', filename='images/cart.png') }} alt = "cart">
+    </button>
+{% endblock %}
+
+
+{% block title_main %}
+    {{ title }}
+{% endblock%}
+
+{% block content_main %}
+<main class="content">
+
+    {% if history|length < 1 %}
+    <br>
+    <div><b>No hay ningun compra en el historial</b></div>
+  {% else %}
+    <table id='historyTable'  >
+
+      <tr>
+        <th>Nº Pedido</th>
+        <th>Fecha</th>
+        <th>Precio</th>
+        <th>Estado</th>
+      </tr>
+      {% for shoping in history %}
+      <tr onclick="controlTogle('detail{{shoping}}')">
+          <td >{{shoping}}</td>
+          <td>{{history[shoping]['fecha']}}</td>
+          <td>{{history[shoping]['precio']}}</td>
+          <td>{{history[shoping]['estado']}}</td>
+      </tr>
+      <tr id="detail{{shoping}}">
+          <script>controlTogle('detail{{shoping}}')</script>
+        <td colspan="4">
+          <table>
+            <tr>
+                <th>Cantidad</th>
+                <th>Portada</th>
+                <th>Titulo</th>
+                <th>Precio</th>
+              </tr>
+              {% for i in history[shoping]['articulos'] %}
+              <tr>
+                <td>{{ i['cantidad'] }} </td>
+                <td><img class = "carritoImg" src={{ url_for('static', filename=catalogo[i['id']]['poster']) }} alt=catalogo[i['id']]['titulo']-Alt></td>
+                <td>{{ catalogo[i['id']]['titulo'] }}</td>
+                <td>{{ "%.2f"|format(catalogo[i['id']]['precio']* i['cantidad'])}}€</td>
+        
+              </tr>
+              {% endfor %}
+            </table>
+        </td>
+      </tr>
+      
+      {% endfor %}
+      
+    </table>
+    
+  {% endif %}
+</main>
+{% endblock %}

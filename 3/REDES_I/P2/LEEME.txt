@@ -1,0 +1,34 @@
+Alba Ramos Pedroviejo
+Javier Lozano Almeda
+
+Normativa de entrega cumplida en su totalidad: Realizado. Se ha leído varias veces el enunciado y se ha utilizado la documentación aportada.
+
+Fichero leeme.txt bien explicado: Realizado, es el fichero actual.
+
+Recibir tramas Ethernet, realizar comprobaciones y llamar correctamente a la función de callback de nivel superior: Realizado. Para la recepción de tramas ethernet usamos la función "process_frame", que será la función que le asignaremos a pcap_loop. Esta función se encargará de ejecutar en un hilo la función "process_Ethernet_frame", que se encargará de comprobar si la dirección destino del paquete es la propia o la de broadcast y llamará a la función correspondiente dependiendo del ethertype del paquete. Para comprobar la correcta recepción de las tramas ethernet hemos usado el envío del arp gratuito que realizamos al inicializar el módulo arp. Usando wireshark, filtrando para ver solo tramas arp, comprobamos que al iniciar la aplicación se reciben 3 paquetes de tipo arp que contienen como ip origen y destino la propia ip, y con la cabecera correspondiente a una trama de este tipo.
+
+Enviar tramas Ethernet  correctamente: Realizado. Para el envío de una trama ethernet, primero creamos un bytearray al que le incluimos los datos de la cabecera (mac destino, mac origen y ethertype) y después le incluimos los datos propios de la trama. A continuación calculamos el tamaño total del paquete y comprobamos que el tamaño es  menor que el máximo para una trama ethernet, si ocurriera que este fuera mayor terminamos la ejecución enviando un -1. También comprobaremos que el tamaño del mensaje sea mayor que el mínimo para una trama ethernet, si se diera el caso de que este sea menor rellenaremos con ceros el espacio restante hasta llegar al mínimo requerido. Una vez se han llevado todas las comprobaciones, se realizará el envío de la trama usando la función "pcap_inject". Si se produjese algún error en el envío, se mostrará un mensaje por pantalla y se devolverá un -1. Al igual que en el apartado anterior, hemos usado wireshark para ver que el paquete se ha enviado correctamente y además está bien formado.
+
+Enviar correctamente peticiones ARP: Realizado. Usando la función “ARPResolution”, comprobamos si la ip solicitada está guardada en la caché, en cuyo caso devolveremos directamente la MAC asociada. Si no está, entonces lanzaremos la petición ARP. Para ello, crearemos la petición mediante “createARPRequest”, que construye la petición y devuelve la trama que se envía a través del ethernet mediante “send_ethernet_frame”. Tras realizar el envío, esperamos un segundo para comprobar si ha habido respuesta, en cuyo caso se retorna la MAC recibida. En caso contrario, se volverá a intentar hasta un máximo de tres veces, y si no se obtiene respuesta devolverá None.
+ 
+
+Procesar correctamente peticiones ARP: Realizado. Cuando llega una trama ARP se ejecuta el callback “processARPFrame”, que comprueba si la cabecera es correcta para este tipo de tramas. Si es correcta, entonces se lee el código de operación para decidir si se trata de una petición o una respuesta ARP. En este caso, se trata de una petición, por lo que se llamará a la función “processARPRequest”. Esta función comprueba que la MAC recibida sea la misma que se recibió en el nivel ethernet. A continuación, se comprueba que la ip destino es la propia, en cuyo caso se construye y envía la respuesta. En caso contrario, la petición se ignora.
+
+
+Enviar correctamente respuestas ARP: Realizado. Como se ha explicado previamente, una vez que se comprueba que la ip destino de la petición ARP es la propia, se construye la respuesta mediante la función “createARPReply”. Esta función construye la respuesta y devuelve la trama con el contenido. Esta trama se envía mediante “sendEthernetFrame”.
+
+
+Procesar correctamente respuestas ARP: Realizado. Como ya se ha explicado en el caso de procesar peticiones ARP, cuando “processARPFrame” comprueba el formato de la trama ARP, si se determina que se trata de una respuesta (valor del opcode) se llama a la función “processARPReply”. Esta comprueba que la MAC recibida sea la misma que se recibió en el nivel ethernet y que la IP destino sea la propia. En ese caso, comprobaremos que la IP origen de la petición sea la misma por la que se preguntó en ARPResolution, en cuyo caso se modifican las variables globales awaitingRepsonse (se pondrá a False) y resolvedMAC (con el valor de la MAC origen) que notifican al resto de funciones de que ha habido una respuesta. También se introducirá en la caché la MAC origen de la trama asociada a su IP. 
+
+No se especifican pruebas para estas últimas comprobaciones por separado porque se realizan todas juntas. Para ello, al igual que en el tercer apartado, usando Wireshark y realizando una petición ARP desde el host1 al host2 se comprueban las tres tramas generadas asegurándonos de que todas estén correctamente formadas. 
+
+
+
+Manejo correcto de la caché ARP: Realizado. Como ya hemos explicado, en la función “processARPReply” se guarda en la caché la MAC asociada a su IP como clave. Posteriormente, en la función “ARPResolution” se comprueba si la IP solicitada se encuentra en la caché, en cuyo caso se devuelve la MAC almacenada. Para probar el funcionamiento correcto, tras una solicitud ARP usamos el comando p para imprimir la caché y ver que se ha guardado la MAC. Adicionalmente, se realiza la misma petición comprobando que la respuesta es instantánea.
+
+Uso correcto de Locks: Realizado. Cada vez que queremos escribir sobre las variables globales, se utiliza el Lock “globalLock”, mientras que si queremos escribir en la caché se usa “cacheLock”. Para ello, antes de modificar estas variables hacemos un acquire del lock correspondiente, y una vez modificadas hacemos un release. Para lectura no se está utilizando el Lock.
+
+Realiza correctamente el ARP gratuito : Realizado. Lo hemos comprobado cuando, al inicializar el nivel ARP, se realiza un ARPResolution con la propia IP, y se comprueba que en ningún caso se recibe respuesta. Si se recibiera, se devuelve False, impidiendo la inicialización del nivel ARP.
+
+
+
