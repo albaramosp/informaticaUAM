@@ -1,0 +1,133 @@
+==================================================
+Testing graph/small1.csv network
+12 users and 16 contact relationships
+User 6 has 4 contacts
+-------------------------
+UserClusteringCoefficient : <1:1.0 2:1.0 3:1.0 7:1.0 9:1.0>
+UserClusteringCoefficient(6) = 0.3333333333333333
+--> elapsed time: 0:00:00 <--
+-------------------------
+Embeddedness : <(2, 6):4.0 (3, 6):4.0 (4, 6):3.333333333333333 (10, 6):3.333333333333333 (2, 8):3.0>
+Embeddedness((6, 4)) = 2.25
+--> elapsed time: 0:00:00 <--
+-------------------------
+ClusteringCoefficient = 0.5172413793103449
+--> elapsed time: 0:00:00 <--
+Avg(UserClusteringCoefficient) = 0.6666666666666666
+--> elapsed time: 0:00:00 <--
+Assortativity = -0.24271844660194175
+--> elapsed time: 0:00:00 <--
+==================================================
+Testing graph/small2.csv network
+9 users and 16 contact relationships
+User 3 has 8 contacts
+-------------------------
+UserClusteringCoefficient : <1:0.6666666666666666 2:0.6666666666666666 4:0.6666666666666666 5:0.6666666666666666 6:0.6666666666666666>
+UserClusteringCoefficient(3) = 0.2857142857142857
+--> elapsed time: 0:00:00 <--
+-------------------------
+Embeddedness : <(4, 3):4.666666666666666 (5, 3):4.666666666666666 (6, 3):4.666666666666666 (7, 3):4.666666666666666 (8, 3):4.666666666666666>
+Embeddedness((3, 5)) = -0.75
+--> elapsed time: 0:00:00 <--
+-------------------------
+ClusteringCoefficient = 0.46153846153846156
+--> elapsed time: 0:00:00 <--
+Avg(UserClusteringCoefficient) = 0.6243386243386244
+--> elapsed time: 0:00:00 <--
+Assortativity = -0.3333333333333333
+--> elapsed time: 0:00:00 <--
+==================================================
+Testing graph/small3.csv network
+4 users and 5 contact relationships
+User a has 3 contacts
+-------------------------
+UserClusteringCoefficient : <b:1.0 d:1.0 a:0.6666666666666666 c:0.6666666666666666>
+UserClusteringCoefficient(a) = 0.6666666666666666
+--> elapsed time: 0:00:00 <--
+-------------------------
+Embeddedness : <('d', 'b'):1.0 ('b', 'a'):0.5 ('d', 'a'):0.5 ('d', 'c'):0.5 ('c', 'a'):-0.3333333333333335>
+Embeddedness(('a', 'b')) = -0.6666666666666665
+--> elapsed time: 0:00:00 <--
+-------------------------
+ClusteringCoefficient = 0.75
+--> elapsed time: 0:00:00 <--
+Avg(UserClusteringCoefficient) = 0.8333333333333333
+--> elapsed time: 0:00:00 <--
+Assortativity = -0.6666666666666666
+--> elapsed time: 0:00:00 <--
+==================================================
+Testing graph/facebook_combined.txt network
+4039 users and 88234 contact relationships
+User 9 has 57 contacts
+-------------------------
+UserClusteringCoefficient : <32:1.0 33:1.0 35:1.0 42:1.0 44:1.0>
+UserClusteringCoefficient(9) = 0.39724310776942356
+--> elapsed time: 0:00:02 <--
+-------------------------
+Embeddedness : <(114, 107):1045.0 (209, 107):1045.0 (210, 107):1045.0 (215, 107):1045.0 (287, 107):1045.0>
+Embeddedness((9, 3)) = 2.228070175438596
+--> elapsed time: 0:01:16 <--
+-------------------------
+ClusteringCoefficient = 0.5191742775433075
+--> elapsed time: 0:00:02 <--
+Avg(UserClusteringCoefficient) = 0.6055467186200876
+--> elapsed time: 0:00:02 <--
+Assortativity = 0.06357722918564918
+--> elapsed time: 0:00:00 <--
+==================================================
+Testing graph/twitter.csv network
+10029 users and 462399 contact relationships
+User el_pais has 1899 contacts
+-------------------------
+UserClusteringCoefficient : <AlanaMurrin:1.0 AsFerreiro:1.0 AsTheyBurn:1.0 BJRatedR:1.0 BarrierMetal:1.0>
+UserClusteringCoefficient(el_pais) = 0.04107979852964596
+--> elapsed time: 0:00:22 <--
+-------------------------
+Embeddedness : <('AMCTalkingDead', 'el_pais'):1899.0 ('ASTROGaming', 'el_pais'):1899.0 ('ATVIAssist', 'el_pais'):1899.0 ('AVGP', 'el_pais'):1899.0 ('AbrasiveShrub', 'el_pais'):1899.0>
+Embeddedness(('el_pais', 'ElviraLindo')) = 112.16745655608213
+--> elapsed time: 0:14:10 <--
+-------------------------
+ClusteringCoefficient = 0.15427656957082322
+--> elapsed time: 0:00:23 <--
+Avg(UserClusteringCoefficient) = 0.2732379819086387
+--> elapsed time: 0:00:24 <--
+Assortativity = -0.07719727387408556
+--> elapsed time: 0:00:01 <--
+==================================================
+Testing graph/barabasi.csv network
+4050 users and 84609 contact relationships
+User 1 has 201 contacts
+-------------------------
+UserClusteringCoefficient : <2364:0.1541501976284585 2815:0.14624505928853757 1733:0.13768115942028986 3781:0.13333333333333333 3938:0.12554112554112554>
+UserClusteringCoefficient(1) = 0.04358208955223881
+--> elapsed time: 0:00:01 <--
+-------------------------
+Embeddedness : <(3674, 24):516.0 (3244, 24):515.047619047619 (3291, 24):515.047619047619 (3369, 24):515.047619047619 (3461, 24):515.047619047619>
+Embeddedness((1, 2)) = 175.1044776119403
+--> elapsed time: 0:00:58 <--
+-------------------------
+ClusteringCoefficient = 0.03516952220717162
+--> elapsed time: 0:00:01 <--
+Avg(UserClusteringCoefficient) = 0.035381508314206805
+--> elapsed time: 0:00:01 <--
+Assortativity = -0.001115515535220871
+--> elapsed time: 0:00:00 <--
+==================================================
+Testing graph/erdos.csv network
+4039 users and 88228 contact relationships
+User 1 has 53 contacts
+-------------------------
+UserClusteringCoefficient : <812:0.030303030303030304 3631:0.03010752688172043 956:0.028449502133712657 3131:0.02702702702702703 2074:0.025806451612903226>
+UserClusteringCoefficient(1) = 0.008708272859216255
+--> elapsed time: 0:00:01 <--
+-------------------------
+Embeddedness : <(2257, 2254):70.0 (2260, 2254):70.0 (2264, 2254):70.0 (2265, 2254):70.0 (2269, 2254):70.0>
+Embeddedness((1, 2)) = 49.0
+--> elapsed time: 0:01:27 <--
+-------------------------
+ClusteringCoefficient = 0.010826729017392438
+--> elapsed time: 0:00:01 <--
+Avg(UserClusteringCoefficient) = 0.010831179380057206
+--> elapsed time: 0:00:01 <--
+Assortativity = -0.006200007079681955
+--> elapsed time: 0:00:00 <--

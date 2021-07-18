@@ -1,0 +1,156 @@
+=================================================================
+Testing indices and search on ./data/collections/toy
+Building index with <class 'bmi.search.whooshy.WhooshBuilder'>
+Collection: ./data/collections/toy
+Done ( 0.02583622932434082 seconds )
+
+Reading index with <class 'bmi.search.whooshy.WhooshIndex'>
+Collection size: 4
+Vocabulary size: 39
+  Top 5 most frequent terms:
+	aa	9.0=9.0
+	bb	5.0=5.0
+	sleep	5.0=5.0
+	cc	3.0=3.0
+	die	2.0=2.0
+
+  A few term frequencies for doc_id = 0 - ./data/collections/toy/d1.txt: 
+		bb (4.000000)
+		cc (2.000000)
+
+  Frequency of word "cc" in document 0 - ./data/collections/toy/d1.txt: 2
+  Total frequency of word "cc" in the collection: 3.0 occurrences over 2 documents
+  Docs containing the word'cc': 2
+    First two documents: [(0, 2), (2, 1)]
+Done ( 0.0011131763458251953 seconds )
+
+------------------------------
+Checking search results
+  WhooshSearcher for query 'aa dd'
+
+Done ( 0.0026361942291259766 seconds )
+
+  VSMDotProductSearcher for query 'aa dd'
+4.0 	 ./data/collections/toy/d1.txt
+1.7369655941662063 	 ./data/collections/toy/d2.txt
+1.0 	 ./data/collections/toy/d3.txt
+
+Done ( 0.0006339550018310547 seconds )
+
+  VSMCosineSearcher for query 'aa dd'
+1.0 	 ./data/collections/toy/d2.txt
+0.7427813527082074 	 ./data/collections/toy/d1.txt
+0.5773502691896258 	 ./data/collections/toy/d3.txt
+
+Done ( 0.0004558563232421875 seconds )
+
+=================================================================
+Testing indices and search on ./data/collections/urls.txt
+Building index with <class 'bmi.search.whooshy.WhooshBuilder'>
+Collection: ./data/collections/urls.txt
+Done ( 2.5067572593688965 seconds )
+
+Reading index with <class 'bmi.search.whooshy.WhooshIndex'>
+Collection size: 3
+Vocabulary size: 5900
+  Top 5 most frequent terms:
+	entropy	395.0=395.0
+	bias	196.0=196.0
+	system	147.0=147.0
+	edit	110.0=110.0
+	displaystyle	107.0=107.0
+
+  A few term frequencies for doc_id = 0 - https://en.wikipedia.org/wiki/Simpson's_paradox: 
+		idea (1.000000)
+		ignored (2.000000)
+		illustrate (1.000000)
+		illustrated (1.000000)
+		illustration (1.000000)
+
+  Frequency of word "wikipedia" in document 0 - https://en.wikipedia.org/wiki/Simpson's_paradox: 5
+  Total frequency of word "wikipedia" in the collection: 21.0 occurrences over 3 documents
+  Docs containing the word'wikipedia': 3
+    First two documents: [(0, 5), (1, 11)]
+Done ( 0.06300497055053711 seconds )
+
+------------------------------
+Checking search results
+  WhooshSearcher for query 'information probability'
+2.892791309251254 	 https://en.wikipedia.org/wiki/Entropy
+2.4471434750949035 	 https://en.wikipedia.org/wiki/Simpson's_paradox
+2.08508855485438 	 https://en.wikipedia.org/wiki/Bias
+
+Done ( 0.0036258697509765625 seconds )
+
+  VSMDotProductSearcher for query 'information probability'
+2.133894004047403 	 https://en.wikipedia.org/wiki/Entropy
+1.155870467654375 	 https://en.wikipedia.org/wiki/Bias
+1.0517326296935623 	 https://en.wikipedia.org/wiki/Simpson's_paradox
+
+Done ( 0.002537250518798828 seconds )
+
+  VSMCosineSearcher for query 'information probability'
+0.019653488226468698 	 https://en.wikipedia.org/wiki/Simpson's_paradox
+0.01727792099013571 	 https://en.wikipedia.org/wiki/Entropy
+0.009598365713917763 	 https://en.wikipedia.org/wiki/Bias
+
+Done ( 0.0019860267639160156 seconds )
+
+=================================================================
+Testing indices and search on ./data/collections/docs1k.zip
+Building index with <class 'bmi.search.whooshy.WhooshBuilder'>
+Collection: ./data/collections/docs1k.zip
+Done ( 49.63377094268799 seconds )
+
+Reading index with <class 'bmi.search.whooshy.WhooshIndex'>
+Collection size: 998
+Vocabulary size: 118053
+  Top 5 most frequent terms:
+	family	175767.0=175767.0
+	tree	46705.0=46705.0
+	history	45744.0=45744.0
+	genealogy	45405.0=45405.0
+	surname	44965.0=44965.0
+
+  A few term frequencies for doc_id = 0 - clueweb09-en0000-01-22977.html: 
+		laguna (1.000000)
+		lanka (1.000000)
+		laos (1.000000)
+		latvia (1.000000)
+		lauren (1.000000)
+
+  Frequency of word "seat" in document 0 - clueweb09-en0000-01-22977.html: 28
+  Total frequency of word "seat" in the collection: 1392.0 occurrences over 119 documents
+  Docs containing the word'seat': 119
+    First two documents: [(0, 28), (9, 4)]
+Done ( 1.1571078300476074 seconds )
+
+------------------------------
+Checking search results
+  WhooshSearcher for query 'obama family tree'
+16.48550763373014 	 clueweb09-en0010-79-2218.html
+15.887811593684198 	 clueweb09-en0010-57-32937.html
+15.808971700181026 	 clueweb09-en0001-02-21241.html
+15.611504638855443 	 clueweb09-en0008-45-29117.html
+15.554123426519787 	 clueweb09-enwp01-59-16163.html
+
+Done ( 0.15108203887939453 seconds )
+
+  VSMDotProductSearcher for query 'obama family tree'
+49.57650786955148 	 clueweb09-enwp01-59-16163.html
+49.57650786955148 	 clueweb09-enwp02-06-15081.html
+49.56357386531169 	 clueweb09-enwp03-00-6901.html
+49.56357386531169 	 clueweb09-enwp03-07-2998.html
+49.5444467358989 	 clueweb09-enwp00-00-9498.html
+
+Done ( 0.7054359912872314 seconds )
+
+  VSMCosineSearcher for query 'obama family tree'
+0.28421715940632897 	 clueweb09-en0010-79-2218.html
+0.22632036560381263 	 clueweb09-en0009-30-2768.html
+0.2248006656174134 	 clueweb09-en0001-02-21241.html
+0.22386363652729324 	 clueweb09-en0009-30-2441.html
+0.22349137333456792 	 clueweb09-en0009-30-2755.html
+
+Done ( 0.6949832439422607 seconds )
+
